@@ -6,9 +6,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First clone the repo, then run the development server:
 
 ```bash
+cd next-evolution
 npm run dev
 # or
 yarn dev
