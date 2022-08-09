@@ -21,12 +21,7 @@ export default class Home extends Component {
     // Alerts
     this.alerts = this.colors.map((item) => {
       return (
-        <Alert
-          color={item}
-          key={item}
-          flushed={Math.random() > 0.5 ? true : false}
-          modern={Math.random() > 0.5 ? true : false}
-        >
+        <Alert key={item} color={item}>
           This is the {item} alert with out a link!
         </Alert>
       );
@@ -35,11 +30,7 @@ export default class Home extends Component {
     // Badges
     this.badges = this.colors.map((item) => {
       return (
-        <Badge
-          key={item}
-          color={item}
-          outline={Math.random() > 0.5 ? true : false}
-        >
+        <Badge key={item} color={item}>
           {item}
         </Badge>
       );
@@ -48,11 +39,7 @@ export default class Home extends Component {
     // Buttons
     this.buttons = this.colors.map((item) => {
       return (
-        <Button
-          key={item}
-          color={item}
-          outline={Math.random() > 0.5 ? true : false}
-        >
+        <Button key={item} color={item}>
           {item}
         </Button>
       );
@@ -68,35 +55,106 @@ export default class Home extends Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <h1 className="text-6xl font-bold text-gradient text-gradient-light mb-8">
-          Evolution UI
-        </h1>
+        <header className="mb-8 text-center">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-bold text-gradient text-gradient-light mb-8">
+            next-evolution
+          </h1>
+          <p className="text-3xl font-semibold text-gradient text-gradient-info">
+            EvolutionUI in Next.js
+          </p>
+        </header>
 
-        <section className="mb-8" title="Forms">
+        <section className="mb-8 text-slate-800" title="Forms">
           <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
             Forms
           </h2>
 
-          <Form mathod="post">
-            <Input
-              id="name"
-              label="Name"
-              type="text"
-              name="fullName"
-              placeholder="Full Name"
-            />
-
+          <div className="mb-8">
+            <h3 className="text-3xl font-bold mb-6">Basic</h3>
             <Input
               id="email"
+              label="Email address"
+              type="email"
+              name="email"
+              helpText="We'll never share your email with anyone else."
+            />
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              label="Password"
+            />
+            <InlineInput
+              id="check"
+              name="check"
+              type="checkbox"
+              label="Check me out"
+            />
+
+            <h4 className="text-2xl mb-4">Radio buttons</h4>
+
+            <InlineInput
+              id="radio1"
+              type="radio"
+              name="radio"
+              label="Default radio"
+            />
+            <InlineInput
+              id="radio2"
+              type="radio"
+              name="radio"
+              label="Another radio"
+            />
+
+            <Select id="country" label="Select input" placeholder="Country">
+              <option value="0">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Select>
+
+            <Input id="upload" type="file" name="upload" label="Upload" />
+
+            <Switch id="x" label="Switch checkbox input" name="x" />
+
+            <Button type="submit" color="primary">
+              Submit
+            </Button>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-3xl font-bold mb-6">Floating labels</h3>
+            <Input
+              id="email1"
               label="Email"
               type="email"
               name="email"
               placeholder="Email Address"
               floating
             />
-
             <Input
-              id="password"
+              id="password1"
+              label="Password"
+              type="password"
+              name="password"
+              placeholder="Password"
+              floating
+            />
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold mb-6">Flushed</h3>
+            <Input
+              id="email2"
+              label="Email"
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              flushed
+              floating
+            />
+            <Input
+              id="password2"
               label="Password"
               type="password"
               name="password"
@@ -104,62 +162,54 @@ export default class Home extends Component {
               flushed
               floating
             />
+          </div>
+        </section>
 
-            <Select id="country" label="Country" placeholder="Country">
-              <option value="0">Select Country</option>
-              <option value="1">USA</option>
-              <option value="2">UK</option>
-              <option value="3">China</option>
-            </Select>
+        <section className="mb-8 text-slate-800" title="Components">
+          <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
+            Components
+          </h2>
+
+          <div className="mb-8">
+            <h3 className="text-3xl font-bold mb-6">Alerts</h3>
+            <Grid>
+              {this.alerts}
+
+              <Alert color="info" flushed>
+                This is a flushed alert with out a link!
+              </Alert>
+
+              <Alert color="success" modern>
+                <Badge color="success" pill>
+                  New
+                </Badge>
+                This is a modern alert with a badge component!
+              </Alert>
+            </Grid>
+          </div>
+
+          <div className="mb-8" title="Badges">
+            <h3 className="text-3xl font-bold mb-6">Badges</h3>
 
             <Flex>
-              <InlineInput id="g1" label="Male" type="radio" name="gender" />
-              <InlineInput id="g2" label="Female" type="radio" name="gender" />
-            </Flex>
+              {this.badges}
 
-            <InlineInput id="r" label="Remeber me" type="checkbox" name="r" />
-
-            <Switch id="x" label="Change password on logon" name="x" />
-
-            <Button type="submit" color="primary">
-              Register
-            </Button>
-          </Form>
-        </section>
-
-        <section className="mb-8" title="Alerts">
-          <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
-            Alerts
-          </h2>
-          <Grid>
-            {this.alerts}
-
-            <Alert color="info" flushed>
-              This is a flushed alert with out a link!
-            </Alert>
-            <Alert color="success" modern>
-              <Badge color="success" pill>
-                New
+              <Badge color="success" outline>
+                Outline success
               </Badge>
-              This is a modern alert with a badge component!
-            </Alert>
-          </Grid>
-        </section>
+            </Flex>
+          </div>
 
-        <section className="mb-8" title="Badges">
-          <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
-            Badges
-          </h2>
+          <div className="mb-8" title="Buttons">
+            <h3 className="text-3xl font-bold mb-6">Buttons</h3>
 
-          <Flex>{this.badges}</Flex>
-        </section>
-
-        <section className="mb-8" title="Buttons">
-          <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
-            Buttons
-          </h2>
-
-          <Flex>{this.buttons}</Flex>
+            <Flex>
+              {this.buttons}
+              <Button color="success" outline>
+                Outline Success
+              </Button>
+            </Flex>
+          </div>
         </section>
       </Container>
     );
