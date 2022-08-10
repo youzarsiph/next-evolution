@@ -227,7 +227,7 @@
   }
 
   .form-check {
-    @apply outline-none before:transition-all before:absolute before:inset-y-1 before:w-4 before:h-4 before:border before:rounded before:bg-white before:focus:border-pink-500 before:ring before:ring-transparent before:focus:ring-pink-300 checked:before:bg-pink-400 checked:before:border-pink-500;
+    @apply outline-none inline-block h-0 before:transition-all before:absolute before:inset-y-1 before:w-4 before:h-4 before:border before:rounded before:bg-white before:focus:border-pink-500 before:ring before:ring-transparent before:focus:ring-pink-300 checked:before:bg-pink-400 checked:before:border-pink-500;
   }
 
   .form-check:checked::before {

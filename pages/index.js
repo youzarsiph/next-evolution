@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Component } from "react";
-import { Form, InlineInput, Input, Select, Switch } from "../components/forms";
-import { Container, Flex, Grid } from "../components/utils";
 import { Alert, Badge, Button } from "../components/view";
+import { Container, Flex, Grid } from "../components/utils";
+import { InlineInput, Input, Select, Switch } from "../components/forms";
 
 export default class Home extends Component {
   constructor(props) {
@@ -17,33 +17,6 @@ export default class Home extends Component {
       "light",
       "dark",
     ];
-
-    // Alerts
-    this.alerts = this.colors.map((item) => {
-      return (
-        <Alert key={item} color={item}>
-          This is the {item} alert with out a link!
-        </Alert>
-      );
-    });
-
-    // Badges
-    this.badges = this.colors.map((item) => {
-      return (
-        <Badge key={item} color={item}>
-          {item}
-        </Badge>
-      );
-    });
-
-    // Buttons
-    this.buttons = this.colors.map((item) => {
-      return (
-        <Button key={item} color={item}>
-          {item}
-        </Button>
-      );
-    });
   }
 
   render() {
@@ -173,14 +146,25 @@ export default class Home extends Component {
           <div className="mb-8">
             <h3 className="text-3xl font-bold mb-6">Alerts</h3>
             <Grid>
-              {this.alerts}
+              <h4 className="text-2xl">Basic</h4>
+              {this.colors.map((item) => {
+                return (
+                  <Alert key={item} color={item}>
+                    This is the {item} alert without a link!
+                  </Alert>
+                );
+              })}
+
+              <h4 className="text-2xl">Flushed</h4>
 
               <Alert color="info" flushed>
-                This is a flushed alert with out a link!
+                This is a flushed alert without a link!
               </Alert>
 
-              <Alert color="success" modern>
-                <Badge color="success" pill>
+              <h4 className="text-2xl">Modern</h4>
+
+              <Alert color="info" modern>
+                <Badge color="info" pill>
                   New
                 </Badge>
                 This is a modern alert with a badge component!
@@ -191,23 +175,56 @@ export default class Home extends Component {
           <div className="mb-8" title="Badges">
             <h3 className="text-3xl font-bold mb-6">Badges</h3>
 
-            <Flex>
-              {this.badges}
+            <h4 className="text-2xl mb-4">Basic</h4>
 
-              <Badge color="success" outline>
-                Outline success
-              </Badge>
+            <Flex>
+              {this.colors.map((item) => {
+                return (
+                  <Badge key={item} color={item}>
+                    {item}
+                  </Badge>
+                );
+              })}
+            </Flex>
+
+            <h4 className="text-2xl mb-4">Outline</h4>
+
+            <Flex>
+              {this.colors.map((item) => {
+                return (
+                  <Badge key={item} color={item} outline>
+                    {item}
+                  </Badge>
+                );
+              })}
             </Flex>
           </div>
 
           <div className="mb-8" title="Buttons">
             <h3 className="text-3xl font-bold mb-6">Buttons</h3>
 
+            <h4 className="text-2xl mb-4">Basic</h4>
+
             <Flex>
-              {this.buttons}
-              <Button color="success" outline>
-                Outline Success
-              </Button>
+              {this.colors.map((item) => {
+                return (
+                  <Button key={item} color={item}>
+                    {item}
+                  </Button>
+                );
+              })}
+            </Flex>
+
+            <h4 className="text-2xl mb-4">Outline</h4>
+
+            <Flex>
+              {this.colors.map((item) => {
+                return (
+                  <Button key={item} color={item} outline>
+                    {item}
+                  </Button>
+                );
+              })}
             </Flex>
           </div>
         </section>
