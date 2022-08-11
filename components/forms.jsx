@@ -40,7 +40,7 @@ class BaseInput extends Component {
 
     // Handling variants
     if (this.props.floating) {
-      this.inputStyles += " form-control-floating placeholder-transparent peer";
+      this.inputStyles += " form-control-floating peer";
       this.labelStyles = "floating-label left-4";
       this.labelBefore = false;
       this.placeholder = this.props.label;

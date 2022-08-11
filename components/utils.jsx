@@ -7,7 +7,7 @@ export class Container extends Component {
 
   render() {
     return (
-      <section className="mx-4 p-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-96">
+      <section className="container">
         {this.props.children}
       </section>
     );
@@ -25,12 +25,15 @@ export class Flex extends Component {
 }
 
 export class Grid extends Component {
-    render() {
-      return (
-        <div className="grid gap-4 mb-4">
-          {this.props.children}
-        </div>
-      );
-    }
+  constructor(props) {
+    super(props);
   }
-  
+
+  render() {
+    return (
+      <div className={`grid lg:grid-cols-2 gap-4 mb-4`}>
+        {this.props.children}
+      </div>
+    );
+  }
+}

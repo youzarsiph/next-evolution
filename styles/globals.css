@@ -193,13 +193,43 @@
   }
   /* End buttons */
 
+  /* Containers */
+  .container {
+    @apply w-auto mx-2 px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-96;
+  }
+
+  /* End containers */
+
+  /* Cards */
+  .card {
+    @apply border rounded-lg shadow-lg;
+  }
+
+  .card-header {
+    @apply p-6 border-b;
+  }
+
+  .card-body {
+    @apply p-6 text-lg font-light;
+  }
+
+  .card-footer {
+    @apply p-6 border-t;
+  }
+
+  /* End cards */
+
   /* Forms */
   .form-control {
-    @apply block px-4 py-3 w-full shadow-sm border rounded-lg outline-none focus:border-pink-400 focus:ring focus:ring-pink-300 invalid:border-red-400 invalid:ring invalid:ring-red-300 invalid:text-red-400 file:bg-slate-50 file:border-0 file:mr-4 file:rounded-lg file:px-4 file:py-2 file:shadow-sm file:hover:bg-slate-100 transition-all file:transition-all;
+    @apply block bg-white px-4 py-3 w-full shadow-sm border rounded-lg outline-none focus:border-pink-400 focus:ring focus:ring-pink-300 invalid:border-red-400 invalid:ring invalid:ring-red-300 invalid:text-red-400 file:bg-slate-50 file:border-0 file:mr-4 file:rounded-lg file:px-4 file:py-2 file:shadow-sm file:hover:bg-slate-100 transition-all file:transition-all;
   }
 
   .form-control-flushed {
     @apply px-0 border-x-0 border-t-0 border-b-2 rounded-none shadow-none focus:ring-0 invalid:border-red-400 invalid:ring-0 invalid:ring-red-300 invalid:text-red-400;
+  }
+
+  .form-control-floating {
+    @apply placeholder-transparent;
   }
 
   .floating-label {
@@ -227,7 +257,7 @@
   }
 
   .form-check {
-    @apply outline-none inline-block h-0 before:transition-all before:absolute before:inset-y-1 before:w-4 before:h-4 before:border before:rounded before:bg-white before:focus:border-pink-500 before:ring before:ring-transparent before:focus:ring-pink-300 checked:before:bg-pink-400 checked:before:border-pink-500;
+    @apply outline-none inline-block h-0 before:transition-all before:absolute before:top-1 before:w-4 before:h-4 before:border before:rounded before:shadow-sm before:bg-white before:focus:border-pink-500 before:ring before:ring-transparent before:focus:ring-pink-300 checked:before:bg-pink-400 checked:before:border-pink-500;
   }
 
   .form-check:checked::before {
@@ -263,27 +293,27 @@
 
   /* Todo update the colors */
   .text-gradient-primary {
-    @apply from-pink-500 to-violet-700;
+    @apply from-pink-500 to-blue-500;
   }
 
   .text-gradient-secondary {
-    @apply from-slate-500 to-slate-900;
+    @apply from-slate-500 to-sky-500;
   }
 
   .text-gradient-info {
-    @apply from-sky-500 to-slate-900;
+    @apply from-sky-500 to-lime-500;
   }
 
   .text-gradient-success {
-    @apply from-green-500 to-green-900;
+    @apply from-green-500 to-violet-700;
   }
 
   .text-gradient-warning {
-    @apply from-orange-500 to-slate-900;
+    @apply from-orange-500 to-teal-500;
   }
 
   .text-gradient-danger {
-    @apply from-red-500 to-orange-400;
+    @apply from-red-500 to-purple-600;
   }
 
   .text-gradient-light {

@@ -112,39 +112,40 @@ export class Badge extends Main {
   }
 }
 
-export class Button extends Component {
+export class Button extends Main {
   constructor(props) {
     super(props);
-    if (this.props.outline) {
-      this.variants = {
-        primary: "btn-outline-primary",
-        secondary: "btn-outline-secondary",
-        info: "btn-outline-info",
-        success: "btn-outline-success",
-        warning: "btn-outline-warning",
-        danger: "btn-outline-danger",
-        light: "btn-outline-light",
-        dark: "btn-outline-dark",
-      };
-    } else {
-      this.variants = {
-        primary: "btn-primary",
-        secondary: "btn-secondary",
-        info: "btn-info",
-        success: "btn-success",
-        warning: "btn-warning",
-        danger: "btn-danger",
-        light: "btn-light",
-        dark: "btn-dark",
-      };
-    }
-
-    this.modifierClass = this.variants[this.props.color];
 
     // Handling variants
     if (this.props.pill) {
       this.modifierClass += " rounded-full";
     }
+  }
+
+  getVariants() {
+    return {
+      primary: "btn-primary",
+      secondary: "btn-secondary",
+      info: "btn-info",
+      success: "btn-success",
+      warning: "btn-warning",
+      danger: "btn-danger",
+      light: "btn-light",
+      dark: "btn-dark",
+    };
+  }
+
+  getOutlineVarriants() {
+    return {
+      primary: "btn-outline-primary",
+      secondary: "btn-outline-secondary",
+      info: "btn-outline-info",
+      success: "btn-outline-success",
+      warning: "btn-outline-warning",
+      danger: "btn-outline-danger",
+      light: "btn-outline-light",
+      dark: "btn-outline-dark",
+    };
   }
 
   render() {
@@ -153,5 +154,29 @@ export class Button extends Component {
         {this.props.children}
       </button>
     );
+  }
+}
+
+export class Card extends Component {
+  render() {
+    return <div className="card">{this.props.children}</div>;
+  }
+}
+
+export class CardHeader extends Component {
+  render() {
+    return <div className="card-header">{this.props.children}</div>;
+  }
+}
+
+export class CardBody extends Component {
+  render() {
+    return <div className="card-body">{this.props.children}</div>;
+  }
+}
+
+export class CardFooter extends Component {
+  render() {
+    return <div className="card-footer">{this.props.children}</div>;
   }
 }
