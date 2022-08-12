@@ -3,6 +3,169 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply m-0 text-base text-slate-800 scroll-smooth;
+  }
+
+  hr {
+    @apply my-4 border-0;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-slate-700 font-bold mb-6;
+  }
+
+  h1 {
+    @apply text-6xl;
+  }
+
+  h2 {
+    @apply text-5xl;
+  }
+
+  h3 {
+    @apply text-4xl;
+  }
+
+  h4 {
+    @apply text-3xl;
+  }
+
+  h5 {
+    @apply text-2xl;
+  }
+
+  h6 {
+    @apply text-xl;
+  }
+  /* End Headings */
+
+  p {
+    @apply mb-4;
+  }
+
+  abbr[title] {
+    @apply underline decoration-dotted;
+  }
+
+  ol,
+  ul {
+    @apply pl-8;
+  }
+
+  blockquote {
+    @apply p-4 bg-slate-50 border-l-4 border-slate-400 rounded-sm;
+  }
+
+  mark {
+    @apply inline-block bg-yellow-300 px-1 rounded;
+  }
+
+  sub,
+  sup {
+    @apply relative text-sm align-baseline;
+  }
+
+  sub {
+    @apply -bottom-1;
+  }
+
+  sup {
+    @apply -top-2;
+  }
+
+  a {
+    @apply text-pink-400 hover:text-pink-500 hover:underline focus:outline-none focus:text-pink-500 focus:underline;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    @apply font-mono text-base;
+  }
+
+  pre {
+    @apply block overflow-auto;
+  }
+
+  figure {
+    @apply block mb-4;
+  }
+
+  figcaption {
+    @apply block text-center mt-2;
+  }
+
+  img,
+  svg {
+    @apply align-middle;
+  }
+
+  img,
+  video {
+    @apply block w-full;
+  }
+
+  table {
+    @apply table w-full border-collapse;
+  }
+
+  tr {
+    @apply border-b last:border-b-0;
+  }
+
+  td,
+  th {
+    @apply px-4 py-2 border-r last:border-r-0 rounded-lg text-center;
+  }
+
+  thead,
+  th,
+  tbody,
+  tr,
+  td,
+  tfoot {
+    @apply border-inherit border-solid;
+  }
+
+  caption {
+    @apply py-2 text-left;
+  }
+
+  label {
+    @apply inline-block mb-2;
+  }
+
+  textarea {
+    @apply resize-y;
+  }
+
+  legend {
+    @apply w-full mb-2;
+  }
+
+  output {
+    @apply inline-block;
+  }
+
+  iframe {
+    @apply border-0;
+  }
+
+  summary {
+    @apply list-item cursor-pointer;
+  }
+
+  progress {
+    @apply align-baseline;
+  }
 }
 
 @layer components {
@@ -55,7 +218,7 @@
 
   /* Badges */
   .badge {
-    @apply inline-block px-2 py-1 border rounded-lg text-white font-medium;
+    @apply inline-block text-sm px-2 py-1 border rounded-lg text-white font-medium;
   }
 
   .badge-primary {
@@ -122,6 +285,11 @@
     @apply bg-gray-100 border-gray-800 text-gray-700;
   }
   /* End badges */
+
+  /* Breadcrumbs */
+  .breadcrumb {
+  }
+  /* End breadcrumbs */
 
   /* Buttons */
   .btn {
@@ -195,14 +363,14 @@
 
   /* Containers */
   .container {
-    @apply w-auto mx-2 px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-96;
+    @apply w-auto mx-2 px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-auto;
   }
 
   /* End containers */
 
   /* Cards */
   .card {
-    @apply border rounded-lg shadow-lg;
+    @apply relative border rounded-lg shadow-lg;
   }
 
   .card-header {

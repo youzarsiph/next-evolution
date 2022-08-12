@@ -1,15 +1,22 @@
 import Head from "next/head";
 import { Component } from "react";
+import { Container, Flex, Grid } from "../components/utils";
+import { InlineInput, Input, Select, Switch } from "../components/forms";
 import {
   Alert,
   Badge,
+  Breadcrumb,
+  BreadcrumbItem,
   Button,
   Card,
   CardBody,
-  CardFooter,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
 } from "../components/view";
-import { Container, Flex, Grid } from "../components/utils";
-import { InlineInput, Input, Select, Switch } from "../components/forms";
+import Link from "next/link";
 
 export default class Home extends Component {
   constructor(props) {
@@ -35,23 +42,185 @@ export default class Home extends Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <header className="mb-8 text-center">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-bold text-gradient text-gradient-info mb-8">
+        <header className="mb-8">
+          <h1 className="text-gradient text-gradient-info lg:text-9xl">
             Next Evolution
           </h1>
 
-          <p className="text-3xl font-semibold text-gradient text-gradient-info">
-            Evolution UI in Next.js
+          <h2 className="text-gradient text-gradient-light">
+            Evolution of the UI
+          </h2>
+
+          <p className="text-xl text-left">
+            Evolution UI is a React component library for building elegant user
+            interfaces. Next Evolution is a version of{" "}
+            <abbr title="Evolution UI">EUI</abbr> that implemented to be used
+            with Next.js
           </p>
         </header>
 
-        <section className="mb-8 text-slate-800" title="Forms">
-          <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
-            Forms
-          </h2>
+        <section className="mb-8" title="Contents">
+          <h2 className="text-gradient text-gradient-info">Contents</h2>
 
-          <div className="mb-8">
-            <h3 className="text-3xl font-bold mb-6">Basic</h3>
+          <article className="mb-4" title="typography" id="typography">
+            <h3>Typography</h3>
+
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+
+            <p>
+              You can use the mark tag to <mark>highlight</mark> text.
+            </p>
+            <p>
+              <del>
+                This line of text is meant to be treated as deleted text.
+              </del>
+            </p>
+            <p>
+              <s>
+                This line of text is meant to be treated as no longer accurate.
+              </s>
+            </p>
+            <p>
+              <ins>
+                This line of text is meant to be treated as an addition to the
+                document.
+              </ins>
+            </p>
+            <p>
+              <u>Underlined text.</u>
+            </p>
+            <p>
+              <small>
+                This line of text is meant to be treated as fine print.
+              </small>
+            </p>
+            <p>
+              <strong>This line rendered as bold text.</strong>
+            </p>
+            <p>
+              <em>This line rendered as italicized text.</em>
+            </p>
+
+            <blockquote className="mb-4">
+              <p className="italic">
+                A well-known quote, contained in a blockquote element.
+              </p>
+              <footer>
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+
+            <ul className="mb-4">
+              <li>This is an unorderd list.</li>
+              <li>
+                Nested lists:
+                <ul>
+                  <li>The 1st item</li>
+                  <li>...</li>
+                  <li>The nth item</li>
+                </ul>
+              </li>
+              <li>The last item in the list</li>
+            </ul>
+
+            <ol>
+              <li>This is an orderd list.</li>
+              <li>
+                Nested lists:
+                <ul>
+                  <li>The 1st item</li>
+                  <li>...</li>
+                  <li>The nth item</li>
+                </ul>
+              </li>
+              <li>The last item in the list</li>
+            </ol>
+          </article>
+
+          <article className="mb-4" title="Images" id="images">
+            <h3>Images &amp; Figures</h3>
+            <div className="grid lg:grid-cols-2 gap-4">
+              <figure className="relative">
+                <img
+                  src="/curved-6.jpg"
+                  alt="Curved Image"
+                  className="rounded-lg"
+                />
+                <figcaption>This text explains the figure</figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="/curved-11.jpg"
+                  alt="Curved Image"
+                  className="rounded-lg"
+                />
+                <figcaption>A short description of the image</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article className="mb-4" title="Tables" id="tables">
+            <h3>Tables</h3>
+
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableCell scope="col" headerCell>
+                    #
+                  </TableCell>
+                  <TableCell scope="col" headerCell>
+                    First
+                  </TableCell>
+                  <TableCell scope="col" headerCell>
+                    Last
+                  </TableCell>
+                  <TableCell scope="col" headerCell>
+                    Handle
+                  </TableCell>
+                </TableRow>
+              </TableHeader>
+
+              <TableBody>
+                <TableRow>
+                  <TableCell scope="row" headerCell>
+                    1
+                  </TableCell>
+                  <TableCell>Yousef</TableCell>
+                  <TableCell>Abu Shanab</TableCell>
+                  <TableCell>@youzarsiph</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell scope="row" headerCell>
+                    2
+                  </TableCell>
+                  <TableCell>Arthur</TableCell>
+                  <TableCell>Morgan</TableCell>
+                  <TableCell>@argan</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell scope="row" headerCell>
+                    3
+                  </TableCell>
+                  <TableCell colSpan="2">John Marston</TableCell>
+                  <TableCell>@marston</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </article>
+        </section>
+
+        <section className="mb-8" title="Forms and Inputs">
+          <h2 className="text-gradient text-gradient-info">Forms</h2>
+
+          <article className="mb-8" title="Basic inputs">
+            <h3>Basic</h3>
+
             <Input
               id="email"
               label="Email address"
@@ -72,7 +241,7 @@ export default class Home extends Component {
               label="Check me out"
             />
 
-            <h4 className="text-2xl mb-4">Radio buttons</h4>
+            <h4>Radio buttons</h4>
 
             <InlineInput
               id="radio1"
@@ -101,10 +270,11 @@ export default class Home extends Component {
             <Button type="submit" color="primary">
               Submit
             </Button>
-          </div>
+          </article>
 
-          <div className="mb-8">
-            <h3 className="text-3xl font-bold mb-6">Floating labels</h3>
+          <article className="mb-8" title="Floating lables">
+            <h3>Floating labels</h3>
+
             <Input
               id="email1"
               label="Email"
@@ -121,10 +291,11 @@ export default class Home extends Component {
               placeholder="Password"
               floating
             />
-          </div>
+          </article>
 
-          <div>
-            <h3 className="text-3xl font-bold mb-6">Flushed</h3>
+          <article title="Flushed inputs">
+            <h3>Flushed</h3>
+
             <Input
               id="email2"
               label="Email"
@@ -143,19 +314,17 @@ export default class Home extends Component {
               flushed
               floating
             />
-          </div>
+          </article>
         </section>
 
-        <section className="mb-8 text-slate-800" title="Components">
-          <h2 className="text-4xl font-bold text-gradient text-gradient-info mb-8">
-            Components
-          </h2>
+        <section className="mb-8" title="Components">
+          <h2 className="text-gradient text-gradient-info">Components</h2>
 
-          <div className="mb-8" title="Alerts">
-            <h3 className="text-3xl font-bold mb-6">Alerts</h3>
+          <article className="mb-8" title="Alerts">
+            <h3>Alerts</h3>
 
+            <h4 className="text-2xl">Basic</h4>
             <div className="grid gap-4 mb-4">
-              <h4 className="text-2xl">Basic</h4>
               {this.colors.map((item) => {
                 return (
                   <Alert key={item} color={item}>
@@ -163,28 +332,28 @@ export default class Home extends Component {
                   </Alert>
                 );
               })}
+            </div>
 
-              <h4 className="text-2xl">Flushed</h4>
-
+            <h4>Flushed</h4>
+            <div className="mb-4">
               <Alert color="info" flushed>
                 This is a flushed alert without a link!
               </Alert>
-
-              <h4 className="text-2xl">Modern</h4>
-
-              <Alert color="info" modern>
-                <Badge color="info" pill>
-                  New
-                </Badge>
-                This is a modern alert with a badge component!
-              </Alert>
             </div>
-          </div>
 
-          <div className="mb-8" title="Badges">
-            <h3 className="text-3xl font-bold mb-6">Badges</h3>
+            <h4>Modern</h4>
+            <Alert color="info" modern>
+              <Badge color="info" pill>
+                New
+              </Badge>
+              This is a modern alert with a badge component!
+            </Alert>
+          </article>
 
-            <h4 className="text-2xl mb-4">Basic</h4>
+          <article className="mb-8" title="Badges">
+            <h3>Badges</h3>
+
+            <h4>Basic</h4>
 
             <Flex>
               {this.colors.map((item) => {
@@ -196,7 +365,7 @@ export default class Home extends Component {
               })}
             </Flex>
 
-            <h4 className="text-2xl mb-4">Outline</h4>
+            <h4>Outline</h4>
 
             <Flex>
               {this.colors.map((item) => {
@@ -207,12 +376,31 @@ export default class Home extends Component {
                 );
               })}
             </Flex>
-          </div>
+          </article>
 
-          <div className="mb-8" title="Buttons">
-            <h3 className="text-3xl font-bold mb-6">Buttons</h3>
+          <article className="mb-8" title="Breadcrumbs">
+            <h3>Breadcrumbs</h3>
 
-            <h4 className="text-2xl mb-4">Basic</h4>
+            <Breadcrumb>
+              <BreadcrumbItem>
+                <Link href={"#"}>Home</Link>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <Link href={"#"}>Docs</Link>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <Link href={"#"}>Components</Link>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <Link href={"#"}>Breadcrumbs</Link>
+              </BreadcrumbItem>
+            </Breadcrumb>
+          </article>
+
+          <article className="mb-8" title="Buttons">
+            <h3>Buttons</h3>
+
+            <h4>Basic</h4>
 
             <Flex>
               {this.colors.map((item) => {
@@ -224,7 +412,7 @@ export default class Home extends Component {
               })}
             </Flex>
 
-            <h4 className="text-2xl mb-4">Outline</h4>
+            <h4>Outline</h4>
 
             <Flex>
               {this.colors.map((item) => {
@@ -235,22 +423,20 @@ export default class Home extends Component {
                 );
               })}
             </Flex>
-          </div>
+          </article>
 
-          <div className="mb-8" title="Cards">
-            <h3 className="text-3xl font-bold mb-6">Cards</h3>
+          <article className="mb-8" title="Cards">
+            <h3>Cards</h3>
 
-            <h4 className="text-2xl mb-4">Basic</h4>
+            <h4>Basic</h4>
 
             <Grid>
               <Card>
                 <CardBody>
-                  <h1 className="text-5xl font-bold text-gradient text-gradient-primary mb-8">
+                  <h3 className="text-gradient text-gradient-primary">
                     Next Evolution
-                  </h1>
-                  <h2 className="text-2xl font-light mb-4">
-                    Evolution UI in Next.js
-                  </h2>
+                  </h3>
+                  <h4 className="font-light">Evolution UI in Next.js</h4>
                   <p className="mb-4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolorem veniam suscipit sed autem animi culpa dolores
@@ -263,24 +449,60 @@ export default class Home extends Component {
 
               <Card>
                 <CardBody>
-                  <h1 className="text-5xl font-bold text-gradient text-gradient-info mb-8">
-                    Evolution UI
-                  </h1>
-                  <h2 className="text-2xl font-light mb-4">
-                    Build modern UIs in no time
-                  </h2>
-                  <p className="mb-4">
+                  <h3 className="text-gradient text-gradient-info">
+                    The Evolution of the UI
+                  </h3>
+                  <h4 className="font-light">Build modern UIs in no time</h4>
+                  <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Obcaecati quos, minima, earum error culpa eius repudiandae
                     aspernatur tempore id quis voluptates inventore ullam.
-                    Laborum voluptates nihil saepe. Praesentium, recusandae
-                    voluptas?
+                    Laborum voluptates nihil saepe.
                   </p>
-                  <Button color="info">Read more...</Button>
+                </CardBody>
+              </Card>
+
+              <Card>
+                <img
+                  src="/curved-6.jpg"
+                  alt="An image with no description"
+                  className="rounded-t-lg object-cover"
+                />
+                <CardBody>
+                  <h3 className="text-gradient text-gradient-success">
+                    Evolution in the UI
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Odit culpa ea, aliquid ad excepturi fugit asperiores a
+                    impedit debitis, obcaecati error eligendi amet fuga sed
+                    veritatis recusandae suscipit iure nisi.
+                  </p>
+                </CardBody>
+              </Card>
+
+              <Card>
+                <div className="px-3 pt-3">
+                  <img
+                    src="/curved-10.jpg"
+                    alt="An image with no description"
+                    className="rounded-lg object-cover"
+                  />
+                </div>
+                <CardBody>
+                  <h3 className="text-gradient text-gradient-warning">
+                    UI Evoloved
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Necessitatibus rem eligendi provident dolores, ad quis
+                    blanditiis ex vel consectetur est beatae? In porro error
+                    optio id pariatur voluptas cumque iure?
+                  </p>
                 </CardBody>
               </Card>
             </Grid>
-          </div>
+          </article>
         </section>
       </Container>
     );

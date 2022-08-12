@@ -165,7 +165,7 @@ export class Card extends Component {
 
 export class CardHeader extends Component {
   render() {
-    return <div className="card-header">{this.props.children}</div>;
+    return <header className="card-header">{this.props.children}</header>;
   }
 }
 
@@ -177,6 +177,93 @@ export class CardBody extends Component {
 
 export class CardFooter extends Component {
   render() {
-    return <div className="card-footer">{this.props.children}</div>;
+    return <footer className="card-footer">{this.props.children}</footer>;
+  }
+}
+
+export class Breadcrumb extends Component {
+  render() {
+    return (
+      <nav
+        role={"navigation"}
+        className="p-4 border-y my-4"
+        aria-label={this.props.ariaLabel}
+      >
+        <ol className="flex flex-wrap items-center gap-4 p-0">
+          {this.props.children}
+        </ol>
+      </nav>
+    );
+  }
+}
+
+export class BreadcrumbItem extends Component {
+  render() {
+    return (
+      <>
+        <li>{this.props.children}</li>
+        <li role={"presentation"} className="last:hidden">
+          »
+        </li>
+      </>
+    );
+  }
+}
+
+export class Table extends Component {
+  render() {
+    return (
+      <div className="overflow-auto border rounded-lg mb-4">
+        <table>{this.props.children}</table>
+      </div>
+    );
+  }
+}
+
+export class TableHeader extends Component {
+  render() {
+    return <thead>{this.props.children}</thead>;
+  }
+}
+
+export class TableBody extends Component {
+  render() {
+    return <tbody>{this.props.children}</tbody>;
+  }
+}
+
+export class TableRow extends Component {
+  render() {
+    return <tr>{this.props.children}</tr>;
+  }
+}
+
+export class TableCell extends Component {
+  constructor(props) {
+    super(props);
+
+    if (this.props.headerCell) {
+      this.element = (
+        <th scope={this.props.scope} colSpan={this.props.colSpan}>
+          {this.props.children}
+        </th>
+      );
+    } else {
+      this.element = (
+        <td scope={this.props.scope} colSpan={this.props.colSpan}>
+          {this.props.children}
+        </td>
+      );
+    }
+  }
+
+  render() {
+    return this.element;
+  }
+}
+
+export class TableFooter extends Component {
+  render() {
+    return <tfoot>{this.props.children}</tfoot>;
   }
 }
