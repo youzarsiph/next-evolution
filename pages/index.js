@@ -17,6 +17,7 @@ import {
   TableRow,
 } from "../components/view";
 import Link from "next/link";
+import Image from "next/image";
 
 export default class Home extends Component {
   constructor(props) {
@@ -145,21 +146,25 @@ export default class Home extends Component {
           <article className="mb-4" title="Images" id="images">
             <h3>Images &amp; Figures</h3>
             <div className="grid lg:grid-cols-2 gap-4">
-              <figure className="relative">
-                <img
-                  src="/curved-6.jpg"
-                  alt="Curved Image"
-                  className="rounded-lg"
-                />
+              <figure>
+                <div className="relative h-96">
+                  <Image
+                    src={"/curved-6.jpg"}
+                    alt="Curved Image"
+                    layout="fill"
+                  />
+                </div>
                 <figcaption>This text explains the figure</figcaption>
               </figure>
 
               <figure>
-                <img
-                  src="/curved-11.jpg"
-                  alt="Curved Image"
-                  className="rounded-lg"
-                />
+                <div className="relative h-96">
+                  <Image
+                    src={"/curved-10.jpg"}
+                    alt="Curved Image"
+                    layout="fill"
+                  />
+                </div>
                 <figcaption>A short description of the image</figcaption>
               </figure>
             </div>
@@ -463,11 +468,13 @@ export default class Home extends Component {
               </Card>
 
               <Card>
-                <img
-                  src="/curved-6.jpg"
-                  alt="An image with no description"
-                  className="rounded-t-lg object-cover"
-                />
+                <figure className="relative h-96">
+                  <Image
+                    src={"/curved-11.jpg"}
+                    alt="An image without description"
+                    layout="fill"
+                  />
+                </figure>
                 <CardBody>
                   <h3 className="text-gradient text-gradient-success">
                     Evolution in the UI
@@ -482,13 +489,13 @@ export default class Home extends Component {
               </Card>
 
               <Card>
-                <div className="px-3 pt-3">
-                  <img
-                    src="/curved-10.jpg"
-                    alt="An image with no description"
-                    className="rounded-lg object-cover"
+                <figure className="relative h-96">
+                  <Image
+                    src={"/curved-6.jpg"}
+                    alt="An image without description"
+                    layout="fill"
                   />
-                </div>
+                </figure>
                 <CardBody>
                   <h3 className="text-gradient text-gradient-warning">
                     UI Evoloved

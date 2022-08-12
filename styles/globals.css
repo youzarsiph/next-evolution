@@ -99,6 +99,10 @@
     @apply block mb-4;
   }
 
+  figure img {
+    @apply rounded-lg;
+  }
+
   figcaption {
     @apply block text-center mt-2;
   }
