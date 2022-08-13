@@ -67,7 +67,6 @@ class BaseInput extends Component {
   getInput() {
     /**
      * A method to render the input field.
-     * You need to override this method in sub-classes if you want to render
      */
     return (
       <input

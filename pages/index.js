@@ -1,9 +1,16 @@
 import Head from "next/head";
 import { Component } from "react";
 import { Container, Flex, Grid } from "../components/utils";
-import { InlineInput, Input, Select, Switch } from "../components/forms";
+import {
+  InlineInput,
+  Input,
+  Select,
+  Switch,
+  Textarea,
+} from "../components/forms";
 import {
   Alert,
+  Avatar,
   Badge,
   Breadcrumb,
   BreadcrumbItem,
@@ -22,6 +29,8 @@ import Image from "next/image";
 export default class Home extends Component {
   constructor(props) {
     super(props);
+
+    // Colors
     this.colors = [
       "primary",
       "secondary",
@@ -32,6 +41,9 @@ export default class Home extends Component {
       "light",
       "dark",
     ];
+
+    // Sizing
+    this.sizes = ["lg", "md", "sm"];
   }
 
   render() {
@@ -239,6 +251,7 @@ export default class Home extends Component {
               name="password"
               label="Password"
             />
+            <Textarea id="message" name="message" label="Message"></Textarea>
             <InlineInput
               id="check"
               name="check"
@@ -261,7 +274,7 @@ export default class Home extends Component {
               label="Another radio"
             />
 
-            <Select id="country" label="Select input" placeholder="Country">
+            <Select id="number" label="Select input" placeholder="number">
               <option value="0">Open this select menu</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -285,20 +298,45 @@ export default class Home extends Component {
               label="Email"
               type="email"
               name="email"
-              placeholder="Email Address"
               floating
+              helpText="We'll never share your email with anyone else."
             />
             <Input
               id="password1"
               label="Password"
-              type="password"
+              type="password1"
               name="password"
-              placeholder="Password"
+              floating
+            />
+            <Textarea
+              id="message1"
+              name="message1"
+              label="Message"
+              floating
+            ></Textarea>
+
+            <Select
+              id="number1"
+              label="Floating select input"
+              placeholder="number1"
+              floating
+            >
+              <option value="0">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Select>
+
+            <Input
+              id="upload1"
+              type="file"
+              name="upload1"
+              label="Upload"
               floating
             />
           </article>
 
-          <article title="Flushed inputs">
+          <article className="mb-8" title="Flushed inputs">
             <h3>Flushed</h3>
 
             <Input
@@ -308,7 +346,7 @@ export default class Home extends Component {
               name="email"
               placeholder="Email Address"
               flushed
-              floating
+              helpText="We'll never share your email with anyone else."
             />
             <Input
               id="password2"
@@ -317,8 +355,68 @@ export default class Home extends Component {
               name="password"
               placeholder="Password"
               flushed
+            />
+            <Textarea
+              id="message2"
+              name="message2"
+              label="Message"
+              placeholder="What do you want to tell us?"
+              flushed
+            ></Textarea>
+
+            <Select
+              id="number1"
+              label="Flushed select input"
+              placeholder="number1"
+              flushed
+            >
+              <option value="0">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Select>
+          </article>
+
+          <article title="Flushed & folating inputs">
+            <h3>Flushed & folating</h3>
+
+            <Input
+              id="email2"
+              label="Email"
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              flushed
+              floating
+              helpText="We'll never share your email with anyone else."
+            />
+            <Input
+              id="password3"
+              label="Password"
+              type="password"
+              name="password"
+              flushed
               floating
             />
+            <Textarea
+              id="message3"
+              name="message3"
+              label="Message"
+              flushed
+              floating
+            ></Textarea>
+
+            <Select
+              id="number2"
+              label="Flushed & floating select input"
+              flushed
+              floating
+            >
+              <option value="0">Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Select>
           </article>
         </section>
 
@@ -328,7 +426,7 @@ export default class Home extends Component {
           <article className="mb-8" title="Alerts">
             <h3>Alerts</h3>
 
-            <h4 className="text-2xl">Basic</h4>
+            <h4>Basic</h4>
             <div className="grid gap-4 mb-4">
               {this.colors.map((item) => {
                 return (
@@ -355,7 +453,34 @@ export default class Home extends Component {
             </Alert>
           </article>
 
-          <article className="mb-8" title="Badges">
+          <article className="mb-8" title="Avatars">
+            <h3>Avatars</h3>
+
+            <h4>Basic</h4>
+
+            <Flex>
+              {this.colors.map((item) => {
+                return (
+                  <Avatar key={item} color={item}>
+                    YAS
+                  </Avatar>
+                );
+              })}
+            </Flex>
+
+            <h4>Sizing</h4>
+            <Flex>
+              {this.sizes.map((item) => {
+                return (
+                  <Avatar key={item} sizingEnabled size={item} color="primary">
+                    YAS
+                  </Avatar>
+                );
+              })}
+            </Flex>
+          </article>
+
+          <article className="mb-8 rounded-" title="Badges">
             <h3>Badges</h3>
 
             <h4>Basic</h4>
@@ -387,9 +512,6 @@ export default class Home extends Component {
             <h3>Breadcrumbs</h3>
 
             <Breadcrumb>
-              <BreadcrumbItem>
-                <Link href={"#"}>Home</Link>
-              </BreadcrumbItem>
               <BreadcrumbItem>
                 <Link href={"#"}>Docs</Link>
               </BreadcrumbItem>
@@ -428,6 +550,18 @@ export default class Home extends Component {
                 );
               })}
             </Flex>
+
+            <h4>Sizing</h4>
+
+            <Flex>
+              {this.sizes.map((item) => {
+                return (
+                  <Button key={item} color={"info"} sizingEnabled size={item}>
+                    btn-{item}
+                  </Button>
+                );
+              })}
+            </Flex>
           </article>
 
           <article className="mb-8" title="Cards">
@@ -441,7 +575,6 @@ export default class Home extends Component {
                   <h3 className="text-gradient text-gradient-primary">
                     Next Evolution
                   </h3>
-                  <h4 className="font-light">Evolution UI in Next.js</h4>
                   <p className="mb-4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolorem veniam suscipit sed autem animi culpa dolores
@@ -457,7 +590,6 @@ export default class Home extends Component {
                   <h3 className="text-gradient text-gradient-info">
                     The Evolution of the UI
                   </h3>
-                  <h4 className="font-light">Build modern UIs in no time</h4>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Obcaecati quos, minima, earum error culpa eius repudiandae

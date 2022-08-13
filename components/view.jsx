@@ -8,15 +8,25 @@ class Main extends Component {
   constructor(props) {
     super(props);
 
+    // Options
+    this.sizingEnabled = props.sizingEnabled;
+
     // Handling variants
-    if (this.props.outline) {
+    if (props.outline) {
       this.variants = this.getOutlineVarriants();
     } else {
       this.variants = this.getVariants();
     }
 
+    if (this.sizingEnabled) {
+      // Sizing
+      let key = props.size === "" ? "md" : props.size;
+      this.sizinOptions = this.getSizes();
+      this.size = this.sizinOptions[key];
+    }
+
     // Modifier class
-    this.modifierClass = this.variants[this.props.color];
+    this.modifierClass = this.variants[props.color];
   }
 
   getVariants() {
@@ -30,6 +40,12 @@ class Main extends Component {
      * A method to define outline variants of a component
      */
   }
+
+  getSizes() {
+    /**
+     * A method to define the size of an element
+     */
+  }
 }
 
 export class Alert extends Main {
@@ -37,10 +53,10 @@ export class Alert extends Main {
     super(props);
 
     // Handling modifier class
-    if (this.props.flushed) {
+    if (props.flushed) {
       this.modifierClass += " alert-flushed";
     }
-    if (this.props.modern) {
+    if (props.modern) {
       this.modifierClass += " alert-modern";
     }
   }
@@ -63,6 +79,41 @@ export class Alert extends Main {
       <div className={`alert ${this.modifierClass}`} role={"alert"}>
         {this.props.children}
       </div>
+    );
+  }
+}
+
+export class Avatar extends Main {
+  constructor(props) {
+    super(props);
+  }
+
+  getVariants() {
+    return {
+      primary: "avatar-primary",
+      secondary: "avatar-secondary",
+      info: "avatar-info",
+      success: "avatar-success",
+      warning: "avatar-warning",
+      danger: "avatar-danger",
+      light: "avatar-light",
+      dark: "avatar-dark",
+    };
+  }
+
+  getSizes() {
+    return {
+      sm: "avatar-sm",
+      md: "",
+      lg: "avatar-lg",
+    };
+  }
+
+  render() {
+    return (
+      <span className={`avatar ${this.size} ${this.modifierClass}`}>
+        {this.props.children}
+      </span>
     );
   }
 }
@@ -112,6 +163,35 @@ export class Badge extends Main {
   }
 }
 
+export class Breadcrumb extends Component {
+  render() {
+    return (
+      <nav
+        role={"navigation"}
+        className="p-4 border-y my-4"
+        aria-label={this.props.ariaLabel}
+      >
+        <ol className="flex flex-wrap items-center gap-4 p-0">
+          {this.props.children}
+        </ol>
+      </nav>
+    );
+  }
+}
+
+export class BreadcrumbItem extends Component {
+  render() {
+    return (
+      <>
+        <li>{this.props.children}</li>
+        <li role={"presentation"} className="last:hidden">
+          »
+        </li>
+      </>
+    );
+  }
+}
+
 export class Button extends Main {
   constructor(props) {
     super(props);
@@ -148,9 +228,20 @@ export class Button extends Main {
     };
   }
 
+  getSizes() {
+    return {
+      sm: "text-sm",
+      md: "",
+      lg: "text-xl",
+    };
+  }
+
   render() {
     return (
-      <button type={this.props.type} className={`btn ${this.modifierClass}`}>
+      <button
+        type={this.props.type}
+        className={`btn ${this.size} ${this.modifierClass}`}
+      >
         {this.props.children}
       </button>
     );
@@ -178,35 +269,6 @@ export class CardBody extends Component {
 export class CardFooter extends Component {
   render() {
     return <footer className="card-footer">{this.props.children}</footer>;
-  }
-}
-
-export class Breadcrumb extends Component {
-  render() {
-    return (
-      <nav
-        role={"navigation"}
-        className="p-4 border-y my-4"
-        aria-label={this.props.ariaLabel}
-      >
-        <ol className="flex flex-wrap items-center gap-4 p-0">
-          {this.props.children}
-        </ol>
-      </nav>
-    );
-  }
-}
-
-export class BreadcrumbItem extends Component {
-  render() {
-    return (
-      <>
-        <li>{this.props.children}</li>
-        <li role={"presentation"} className="last:hidden">
-          »
-        </li>
-      </>
-    );
   }
 }
 
