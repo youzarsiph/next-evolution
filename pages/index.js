@@ -56,11 +56,11 @@ export default class Home extends Component {
         </Head>
 
         <header className="mb-8">
-          <h1 className="text-gradient text-gradient-info lg:text-9xl">
+          <h1 className="text-gradient gradient-info lg:text-9xl">
             Next Evolution
           </h1>
 
-          <h2 className="text-gradient text-gradient-light">
+          <h2 className="text-gradient gradient-light">
             Evolution of the UI
           </h2>
 
@@ -73,7 +73,7 @@ export default class Home extends Component {
         </header>
 
         <section className="mb-8" title="Contents">
-          <h2 className="text-gradient text-gradient-info">Contents</h2>
+          <h2 className="text-gradient gradient-info">Contents</h2>
 
           <article className="mb-4" title="typography" id="typography">
             <h3>Typography</h3>
@@ -233,7 +233,7 @@ export default class Home extends Component {
         </section>
 
         <section className="mb-8" title="Forms and Inputs">
-          <h2 className="text-gradient text-gradient-info">Forms</h2>
+          <h2 className="text-gradient gradient-info">Forms</h2>
 
           <article className="mb-8" title="Basic inputs">
             <h3>Basic</h3>
@@ -381,7 +381,7 @@ export default class Home extends Component {
             <h3>Flushed & folating</h3>
 
             <Input
-              id="email2"
+              id="email3"
               label="Email"
               type="email"
               name="email"
@@ -421,7 +421,7 @@ export default class Home extends Component {
         </section>
 
         <section className="mb-8" title="Components">
-          <h2 className="text-gradient text-gradient-info">Components</h2>
+          <h2 className="text-gradient gradient-info">Components</h2>
 
           <article className="mb-8" title="Alerts">
             <h3>Alerts</h3>
@@ -472,7 +472,7 @@ export default class Home extends Component {
             <Flex>
               {this.sizes.map((item) => {
                 return (
-                  <Avatar key={item} sizingEnabled size={item} color="primary">
+                  <Avatar key={item} sizingEnabled size={item} color="info">
                     YAS
                   </Avatar>
                 );
@@ -572,7 +572,7 @@ export default class Home extends Component {
             <Grid>
               <Card>
                 <CardBody>
-                  <h3 className="text-gradient text-gradient-primary">
+                  <h3 className="text-gradient gradient-primary">
                     Next Evolution
                   </h3>
                   <p className="mb-4">
@@ -587,7 +587,7 @@ export default class Home extends Component {
 
               <Card>
                 <CardBody>
-                  <h3 className="text-gradient text-gradient-info">
+                  <h3 className="text-gradient gradient-info">
                     The Evolution of the UI
                   </h3>
                   <p>
@@ -608,7 +608,7 @@ export default class Home extends Component {
                   />
                 </figure>
                 <CardBody>
-                  <h3 className="text-gradient text-gradient-success">
+                  <h3 className="text-gradient gradient-success">
                     Evolution in the UI
                   </h3>
                   <p>
@@ -629,7 +629,7 @@ export default class Home extends Component {
                   />
                 </figure>
                 <CardBody>
-                  <h3 className="text-gradient text-gradient-warning">
+                  <h3 className="text-gradient gradient-warning">
                     UI Evoloved
                   </h3>
                   <p>

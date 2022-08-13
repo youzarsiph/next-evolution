@@ -511,20 +511,24 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r;
   }
 
+  .bg-gradient{
+    @apply bg-gradient-to-tr
+  }
+
   /* Todo update the colors */
-  .text-gradient-primary {
+  .gradient-primary {
     @apply from-pink-500 to-blue-500;
   }
 
-  .text-gradient-secondary {
+  .gradient-secondary {
     @apply from-slate-500 to-sky-500;
   }
 
-  .text-gradient-info {
+  .gradient-info {
     @apply from-sky-500 to-lime-500;
   }
 
-  .text-gradient-success {
+  .gradient-success {
     @apply from-green-500 to-violet-700;
   }
 
@@ -532,15 +536,15 @@
     @apply from-orange-500 to-teal-500;
   }
 
-  .text-gradient-danger {
+  .gradient-danger {
     @apply from-red-500 to-purple-600;
   }
 
-  .text-gradient-light {
+  .gradient-light {
     @apply from-gray-300 to-gray-900;
   }
 
-  .text-gradient-dark {
+  .gradient-dark {
     @apply from-slate-900 to-slate-300;
   }
 }

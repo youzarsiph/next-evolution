@@ -10,6 +10,8 @@ class Main extends Component {
 
     // Options
     this.sizingEnabled = props.sizingEnabled;
+    this.bgGradinetEnabled = props.bgGradinetEnabled;
+    this.textGradientEnabled = props.textGradientEnabled;
 
     // Handling variants
     if (props.outline) {
