@@ -60,9 +60,7 @@ export default class Home extends Component {
             Next Evolution
           </h1>
 
-          <h2 className="text-gradient gradient-light">
-            Evolution of the UI
-          </h2>
+          <h2 className="text-gradient gradient-success">Evolution of the UI</h2>
 
           <p className="text-xl text-left">
             Evolution UI is a React component library for building elegant user
@@ -76,7 +74,7 @@ export default class Home extends Component {
           <h2 className="text-gradient gradient-info">Contents</h2>
 
           <article className="mb-4" title="typography" id="typography">
-            <h3>Typography</h3>
+            <h3 className="text-gradient gradient-success">Typography</h3>
 
             <h1>Heading 1</h1>
             <h2>Heading 2</h2>
@@ -156,7 +154,9 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-4" title="Images" id="images">
-            <h3>Images &amp; Figures</h3>
+            <h3 className="text-gradient gradient-success">
+              Images &amp; Figures
+            </h3>
             <div className="grid lg:grid-cols-2 gap-4">
               <figure>
                 <div className="relative h-96">
@@ -183,7 +183,7 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-4" title="Tables" id="tables">
-            <h3>Tables</h3>
+            <h3 className="text-gradient gradient-success">Tables</h3>
 
             <Table>
               <TableHeader>
@@ -236,7 +236,7 @@ export default class Home extends Component {
           <h2 className="text-gradient gradient-info">Forms</h2>
 
           <article className="mb-8" title="Basic inputs">
-            <h3>Basic</h3>
+            <h3 className="text-gradient gradient-success">Basic</h3>
 
             <Input
               id="email"
@@ -291,7 +291,7 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-8" title="Floating lables">
-            <h3>Floating labels</h3>
+            <h3 className="text-gradient gradient-success">Floating labels</h3>
 
             <Input
               id="email1"
@@ -337,7 +337,7 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-8" title="Flushed inputs">
-            <h3>Flushed</h3>
+            <h3 className="text-gradient gradient-success">Flushed</h3>
 
             <Input
               id="email2"
@@ -378,7 +378,9 @@ export default class Home extends Component {
           </article>
 
           <article title="Flushed & folating inputs">
-            <h3>Flushed & folating</h3>
+            <h3 className="text-gradient gradient-success">
+              Flushed & folating
+            </h3>
 
             <Input
               id="email3"
@@ -424,7 +426,7 @@ export default class Home extends Component {
           <h2 className="text-gradient gradient-info">Components</h2>
 
           <article className="mb-8" title="Alerts">
-            <h3>Alerts</h3>
+            <h3 className="text-gradient gradient-success">Alerts</h3>
 
             <h4>Basic</h4>
             <div className="grid gap-4 mb-4">
@@ -454,7 +456,7 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-8" title="Avatars">
-            <h3>Avatars</h3>
+            <h3 className="text-gradient gradient-success">Avatars</h3>
 
             <h4>Basic</h4>
 
@@ -469,6 +471,7 @@ export default class Home extends Component {
             </Flex>
 
             <h4>Sizing</h4>
+
             <Flex>
               {this.sizes.map((item) => {
                 return (
@@ -478,10 +481,34 @@ export default class Home extends Component {
                 );
               })}
             </Flex>
+
+            <h4>Gradients</h4>
+
+            <Flex>
+              {this.colors.map((item) => {
+                return (
+                  <Avatar key={item} bgGradinetEnabled color={item}>
+                    YAS
+                  </Avatar>
+                );
+              })}
+            </Flex>
+
+            <h4>Images</h4>
+
+            <Flex>
+              {this.sizes.map((item) => {
+                return (
+                  <Avatar key={item} sizingEnabled size={item} color="info">
+                    <Image src={"/curved-6.jpg"} layout={"fill"} alt="Image" />
+                  </Avatar>
+                );
+              })}
+            </Flex>
           </article>
 
           <article className="mb-8 rounded-" title="Badges">
-            <h3>Badges</h3>
+            <h3 className="text-gradient gradient-success">Badges</h3>
 
             <h4>Basic</h4>
 
@@ -509,7 +536,7 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-8" title="Breadcrumbs">
-            <h3>Breadcrumbs</h3>
+            <h3 className="text-gradient gradient-success">Breadcrumbs</h3>
 
             <Breadcrumb>
               <BreadcrumbItem>
@@ -525,7 +552,7 @@ export default class Home extends Component {
           </article>
 
           <article className="mb-8" title="Buttons">
-            <h3>Buttons</h3>
+            <h3 className="text-gradient gradient-success">Buttons</h3>
 
             <h4>Basic</h4>
 
@@ -562,10 +589,22 @@ export default class Home extends Component {
                 );
               })}
             </Flex>
+
+            <h4>Gradient</h4>
+
+            <Flex>
+              {this.colors.map((item) => {
+                return (
+                  <Button key={item} bgGradinetEnabled color={item}>
+                    {item}
+                  </Button>
+                );
+              })}
+            </Flex>
           </article>
 
           <article className="mb-8" title="Cards">
-            <h3>Cards</h3>
+            <h3 className="text-gradient gradient-success">Cards</h3>
 
             <h4>Basic</h4>
 

@@ -11,12 +11,16 @@ class Main extends Component {
     // Options
     this.sizingEnabled = props.sizingEnabled;
     this.bgGradinetEnabled = props.bgGradinetEnabled;
-    this.textGradientEnabled = props.textGradientEnabled;
 
     // Handling variants
     if (props.outline) {
+      // Outline
       this.variants = this.getOutlineVarriants();
+    } else if (this.bgGradinetEnabled) {
+      // Gradient
+      this.variants = this.getGradientVariants();
     } else {
+      // Default
       this.variants = this.getVariants();
     }
 
@@ -25,6 +29,8 @@ class Main extends Component {
       let key = props.size === "" ? "md" : props.size;
       this.sizinOptions = this.getSizes();
       this.size = this.sizinOptions[key];
+    } else {
+      this.size = "";
     }
 
     // Modifier class
@@ -37,10 +43,23 @@ class Main extends Component {
      */
   }
 
-  getOutlineVarriants() {
+  getOutlineVariants() {
     /**
      * A method to define outline variants of a component
      */
+  }
+
+  getGradientVariants() {
+    return {
+      primary: "gradient-primary",
+      secondary: "gradient-secondary",
+      info: "gradient-info",
+      success: "gradient-success",
+      warning: "gradient-warning",
+      danger: "gradient-danger",
+      light: "gradient-light",
+      dark: "gradient-dark",
+    };
   }
 
   getSizes() {
@@ -53,6 +72,8 @@ class Main extends Component {
 export class Alert extends Main {
   constructor(props) {
     super(props);
+    this.sizingEnabled = false;
+    this.bgGradinetEnabled = false;
 
     // Handling modifier class
     if (props.flushed) {
@@ -88,6 +109,11 @@ export class Alert extends Main {
 export class Avatar extends Main {
   constructor(props) {
     super(props);
+
+    // Gradinet
+    if (this.props.bgGradinetEnabled) {
+      this.modifierClass += " bg-gradient";
+    }
   }
 
   getVariants() {
@@ -123,6 +149,8 @@ export class Avatar extends Main {
 export class Badge extends Main {
   constructor(props) {
     super(props);
+    this.sizingEnabled = false;
+    this.bgGradinetEnabled = false;
 
     // Handling modifier class
     if (this.props.pill) {
@@ -173,7 +201,7 @@ export class Breadcrumb extends Component {
         className="p-4 border-y my-4"
         aria-label={this.props.ariaLabel}
       >
-        <ol className="flex flex-wrap items-center gap-4 p-0">
+        <ol className="breadcrumb">
           {this.props.children}
         </ol>
       </nav>
@@ -201,6 +229,11 @@ export class Button extends Main {
     // Handling variants
     if (this.props.pill) {
       this.modifierClass += " rounded-full";
+    }
+
+    // Gradinet
+    if (this.props.bgGradinetEnabled) {
+      this.modifierClass += " bg-gradient";
     }
   }
 
@@ -232,9 +265,9 @@ export class Button extends Main {
 
   getSizes() {
     return {
-      sm: "text-sm",
+      sm: "btn-sm",
       md: "",
-      lg: "text-xl",
+      lg: "btn-lg",
     };
   }
 

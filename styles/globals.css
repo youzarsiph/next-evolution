@@ -222,7 +222,11 @@
 
   /* Avatars */
   .avatar {
-    @apply inline-flex items-center justify-center w-14 h-14 text-white rounded-full;
+    @apply relative inline-flex items-center justify-center w-14 h-14 text-white rounded-full shadow-sm;
+  }
+
+  .avatar img {
+    @apply absolute inset-0 w-full h-full object-cover rounded-full;
   }
 
   .avatar-sm {
@@ -258,13 +262,12 @@
   }
 
   .avatar-light {
-    @apply text-gray-800 bg-gray-300 border border-gray-500;
+    @apply text-gray-600 bg-gray-200 border border-gray-300;
   }
 
   .avatar-dark {
     @apply bg-gray-700 border border-gray-900;
   }
-
 
   /* End avatars */
 
@@ -340,12 +343,21 @@
 
   /* Breadcrumbs */
   .breadcrumb {
+    @apply flex flex-wrap items-center gap-4 p-0;
   }
   /* End breadcrumbs */
 
   /* Buttons */
   .btn {
-    @apply bg-white text-slate-600 py-2 px-4 border rounded-lg shadow-sm outline-none  hover:shadow-lg focus:ring active:ring transition-all;
+    @apply bg-white text-slate-600 py-2 px-4 border rounded-lg shadow-sm outline-none hover:shadow-lg focus:ring active:ring transition-all;
+  }
+
+  .btn-sm {
+    @apply text-sm px-3 py-1.5;
+  }
+
+  .btn-lg {
+    @apply text-lg px-6 py-3;
   }
 
   .btn-primary {
@@ -502,7 +514,6 @@
   .form-switch::before {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
-    /* url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28236 72 153 / 1%29'/%3e%3c/svg%3e") */
   }
   /* End forms */
 
@@ -511,17 +522,21 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r;
   }
 
-  .bg-gradient{
-    @apply bg-gradient-to-tr
+  .bg-gradient {
+    @apply text-white bg-gradient-to-r;
+  }
+
+  .btn.bg-gradient {
+    @apply ring-0 border-0 active:translate-y-1;
   }
 
   /* Todo update the colors */
   .gradient-primary {
-    @apply from-pink-500 to-blue-500;
+    @apply from-pink-500 to-blue-600;
   }
 
   .gradient-secondary {
-    @apply from-slate-500 to-sky-500;
+    @apply from-slate-400 to-slate-900;
   }
 
   .gradient-info {
@@ -532,7 +547,7 @@
     @apply from-green-500 to-violet-700;
   }
 
-  .text-gradient-warning {
+  .gradient-warning {
     @apply from-orange-500 to-teal-500;
   }
 
@@ -541,10 +556,10 @@
   }
 
   .gradient-light {
-    @apply from-gray-300 to-gray-900;
+    @apply from-gray-100 to-gray-400;
   }
 
   .gradient-dark {
-    @apply from-slate-900 to-slate-300;
+    @apply from-slate-500 to-black;
   }
 }
