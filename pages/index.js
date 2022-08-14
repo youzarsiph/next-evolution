@@ -19,7 +19,6 @@ import {
   CardBody,
   Pagination,
   PaginationItem,
-  Progress,
   Table,
   TableBody,
   TableCell,
@@ -164,24 +163,31 @@ export default class Home extends Component {
             </h3>
             <div className="grid lg:grid-cols-2 gap-4">
               <figure>
-                <div className="relative h-96">
-                  <Image
-                    src={"/curved-6.jpg"}
-                    alt="Curved Image"
-                    layout="fill"
-                  />
-                </div>
+                <svg
+                  className="w-full rounded-lg"
+                  width="800"
+                  height="400"
+                  role="img"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#777"></rect>
+                </svg>
                 <figcaption>This text explains the figure</figcaption>
               </figure>
 
               <figure>
-                <div className="relative h-96">
-                  <Image
-                    src={"/curved-10.jpg"}
-                    alt="Curved Image"
-                    layout="fill"
-                  />
-                </div>
+                <svg
+                  className="w-full rounded-3xl"
+                  width="800"
+                  height="400"
+                  role="img"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#777"></rect>
+                </svg>
                 <figcaption>A short description of the image</figcaption>
               </figure>
             </div>
@@ -644,12 +650,18 @@ export default class Home extends Component {
               </Card>
 
               <Card>
-                <figure className="relative h-96">
-                  <Image
-                    src={"/curved-11.jpg"}
-                    alt="An image without description"
-                    layout="fill"
-                  />
+                <figure>
+                  <svg
+                    className="w-full rounded-lg"
+                    width="800"
+                    height="400"
+                    role="img"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777"></rect>
+                  </svg>
                 </figure>
                 <CardBody>
                   <h3 className="text-gradient gradient-success">
@@ -665,12 +677,18 @@ export default class Home extends Component {
               </Card>
 
               <Card>
-                <figure className="relative h-96">
-                  <Image
-                    src={"/curved-6.jpg"}
-                    alt="An image without description"
-                    layout="fill"
-                  />
+                <figure className="pt-4 px-2">
+                  <svg
+                    className="w-full rounded-lg"
+                    width="800"
+                    height="400"
+                    role="img"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777"></rect>
+                  </svg>
                 </figure>
                 <CardBody>
                   <h3 className="text-gradient gradient-warning">
