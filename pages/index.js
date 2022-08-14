@@ -17,6 +17,9 @@ import {
   Button,
   Card,
   CardBody,
+  Pagination,
+  PaginationItem,
+  Progress,
   Table,
   TableBody,
   TableCell,
@@ -60,7 +63,9 @@ export default class Home extends Component {
             Next Evolution
           </h1>
 
-          <h2 className="text-gradient gradient-success">Evolution of the UI</h2>
+          <h2 className="text-gradient gradient-success">
+            Evolution of the UI
+          </h2>
 
           <p className="text-xl text-left">
             Evolution UI is a React component library for building elegant user
@@ -433,7 +438,7 @@ export default class Home extends Component {
               {this.colors.map((item) => {
                 return (
                   <Alert key={item} color={item}>
-                    This is the {item} alert without a link!
+                    This is a simple {item} alert!
                   </Alert>
                 );
               })}
@@ -442,7 +447,7 @@ export default class Home extends Component {
             <h4>Flushed</h4>
             <div className="mb-4">
               <Alert color="info" flushed>
-                This is a flushed alert without a link!
+                This is a flushed alert!
               </Alert>
             </div>
 
@@ -680,6 +685,57 @@ export default class Home extends Component {
                 </CardBody>
               </Card>
             </Grid>
+          </article>
+
+          <article className="mb-8" title="Pagination">
+            <h3 className="text-gradient gradient-success">Pagination</h3>
+
+            <h4>Basic</h4>
+
+            <Pagination>
+              <PaginationItem>
+                <Link href={"#"}>« Prev</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>Next »</Link>
+              </PaginationItem>
+            </Pagination>
+
+            <Pagination>
+              <PaginationItem>
+                <Link href={"#"}>«</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>1</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>2</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>3</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>»</Link>
+              </PaginationItem>
+            </Pagination>
+
+            <Pagination>
+              <PaginationItem>
+                <Link href={"#"}>Prev</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>1</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>2</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>3</Link>
+              </PaginationItem>
+              <PaginationItem>
+                <Link href={"#"}>Next</Link>
+              </PaginationItem>
+            </Pagination>
           </article>
         </section>
       </Container>

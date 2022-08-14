@@ -81,7 +81,7 @@
   }
 
   a {
-    @apply text-pink-400 hover:text-pink-500 hover:underline focus:outline-none focus:text-pink-500 focus:underline;
+    @apply text-sky-400 hover:text-sky-500 hover:underline focus:outline-none focus:text-sky-500 focus:underline;
   }
 
   code,
@@ -427,7 +427,7 @@
 
   /* Containers */
   .container {
-    @apply w-auto mx-2 px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-auto;
+    @apply w-auto 2xl:max-w-6xl mx-2 px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-auto;
   }
 
   /* End containers */

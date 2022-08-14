@@ -201,9 +201,7 @@ export class Breadcrumb extends Component {
         className="p-4 border-y my-4"
         aria-label={this.props.ariaLabel}
       >
-        <ol className="breadcrumb">
-          {this.props.children}
-        </ol>
+        <ol className="breadcrumb">{this.props.children}</ol>
       </nav>
     );
   }
@@ -304,6 +302,28 @@ export class CardBody extends Component {
 export class CardFooter extends Component {
   render() {
     return <footer className="card-footer">{this.props.children}</footer>;
+  }
+}
+
+export class Pagination extends Component {
+  render() {
+    return (
+      <nav aria-label={this.props.ariaLabel} className="mb-4">
+        <ol className="flex flex-wrap items-center justify-center gap-4 pl-0">
+          {this.props.children}
+        </ol>
+      </nav>
+    );
+  }
+}
+
+export class PaginationItem extends Component {
+  render() {
+    return (
+      <li className="inline-flex items-center justify-center px-4 py-2 border rounded-lg shadow-sm transition-all hover:shadow-lg active:translate-y-1">
+        {this.props.children}
+      </li>
+    );
   }
 }
 
