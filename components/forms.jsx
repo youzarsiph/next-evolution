@@ -25,13 +25,14 @@ class BaseInput extends Component {
    */
   constructor(props) {
     super(props);
+
     // Input attributes
     this.id = this.props.id;
     this.type = this.props.type;
     this.name = this.props.name;
     this.inputStyles = "form-control";
-    this.placeholder = this.props.placeholder;
     this.helpText = this.props.helpText;
+    this.placeholder = this.props.placeholder;
 
     // Label attributes
     this.labelBefore = true;
@@ -40,10 +41,10 @@ class BaseInput extends Component {
 
     // Handling variants
     if (this.props.floating) {
-      this.inputStyles += " form-control-floating peer";
-      this.labelStyles = "floating-label left-4";
       this.labelBefore = false;
-      this.placeholder = this.props.label;
+      this.placeholder = this.label;
+      this.labelStyles = "floating-label left-4";
+      this.inputStyles += " form-control-floating peer";
     }
 
     if (this.props.flushed) {
@@ -70,11 +71,11 @@ class BaseInput extends Component {
      */
     return (
       <input
+        id={this.id}
         type={this.type}
         name={this.name}
-        id={this.id}
-        placeholder={this.placeholder}
         className={this.inputStyles}
+        placeholder={this.placeholder}
       />
     );
   }
@@ -90,24 +91,16 @@ class BaseInput extends Component {
   }
 }
 
-export class Input extends BaseInput {
-  constructor(props) {
-    super(props);
-  }
-}
+export class Input extends BaseInput {}
 
 export class Select extends BaseInput {
-  constructor(props) {
-    super(props);
-  }
-
   getInput() {
     return (
       <select
-        name={this.props.name}
         id={this.props.id}
-        placeholder={this.placeholder}
+        name={this.props.name}
         className={this.inputStyles}
+        placeholder={this.placeholder}
       >
         {this.props.children}
       </select>
@@ -118,17 +111,19 @@ export class Select extends BaseInput {
 export class Textarea extends BaseInput {
   constructor(props) {
     super(props);
+
+    // The number of the lines inside the textarea
     this.rows = this.props.rows;
   }
 
   getInput() {
     return (
       <textarea
-        name={this.props.name}
         id={this.props.id}
-        placeholder={this.placeholder}
-        className={this.inputStyles}
+        name={this.props.name}
         rows={this.props.rows}
+        className={this.inputStyles}
+        placeholder={this.placeholder}
       ></textarea>
     );
   }
@@ -141,27 +136,27 @@ export class InlineInput extends BaseInput {
    */
   constructor(props) {
     super(props);
+
     // Input attributes
     this.type = this.props.type === "checkbox" ? "checkbox" : "radio";
     this.inputStyles = "form-check";
+    
     if (this.props.type === "radio") {
-      this.inputStyles += " before:rounded-full";
+      this.inputStyles += " rounded-full";
     }
 
     // Label attributes
     this.labelBefore = false;
-    this.labelStyles = "inline-block ml-4";
+    this.labelStyles = "ml-4";
   }
 }
 
 export class Switch extends InlineInput {
   constructor(props) {
     super(props);
+
     // Input attributes
     this.type = "checkbox";
     this.inputStyles = "form-switch";
-
-    // Label attributes
-    this.labelStyles = "inline-block ml-8";
   }
 }

@@ -489,31 +489,25 @@
   }
 
   .form-check {
-    @apply outline-none inline-block h-0 before:transition-all before:absolute before:top-1 before:w-4 before:h-4 before:border before:rounded before:shadow-sm before:bg-white before:focus:border-pink-500 before:ring before:ring-transparent before:focus:ring-pink-300 checked:before:bg-pink-400 checked:before:border-pink-500;
+    @apply inline-block w-4 h-4 mt-1 align-top rounded bg-white bg-no-repeat bg-center bg-contain border appearance-none shadow-sm transition-all outline-none focus:border-pink-500 ring ring-transparent focus:ring-pink-300 checked:bg-pink-400 checked:border-pink-500;
   }
 
-  .form-check:checked::before {
+  .form-check:checked {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
   }
 
   .form-switch {
-    @apply form-check before:w-8 before:rounded checked:before:bg-right;
+    @apply form-check w-8 bg-left checked:bg-right;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
   }
-
-  .form-switch:checked::before,
-  .form-switch:checked:focus::before {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-  }
-
-  .form-switch:focus::before {
+  
+  .form-switch:focus {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28236 72 153 / 1%29'/%3e%3c/svg%3e");
   }
 
-  .form-switch::before {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
+  .form-switch:checked,
+  .form-switch:checked:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
   }
   /* End forms */
 
