@@ -6,6 +6,10 @@ export default function Typography() {
     <View prevPage={urls["docs"]} nextPage={urls["images"]}>
       <article title="Typography">
         <h1 className="text-gradient gradient-primary">Typography</h1>
+        <p className="text-xl font-light">
+          Documentation and examples for typography, including global settings,
+          headings, body text, lists, and more.
+        </p>
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>

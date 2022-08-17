@@ -13,8 +13,13 @@ export default function Overview() {
   return (
     <View prevPage={urls["tables"]} nextPage={urls["floating"]}>
       <article title="Basic inputs">
-      <h1 className="text-gradient gradient-primary">Forms Overview</h1>
+        <h1 className="text-gradient gradient-primary">Forms Overview</h1>
+        <p className="text-xl font-light">
+          Examples and usage guidelines for form using inputs, layout options
+          for creating a wide variety of forms.
+        </p>
 
+        <h2>Basic</h2>
         <Input
           id="email"
           label="Email address"

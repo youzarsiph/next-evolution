@@ -21,7 +21,7 @@
   h4,
   h5,
   h6 {
-    @apply text-slate-700 font-bold mb-6;
+    @apply text-slate-700 font-bold mb-10;
   }
 
   h1 {
@@ -440,15 +440,15 @@
   }
 
   .card-header {
-    @apply p-6 border-b;
+    @apply px-8 py-4 border-b;
   }
 
   .card-body {
-    @apply p-6 text-lg font-light;
+    @apply p-8 text-lg font-light;
   }
 
   .card-footer {
-    @apply p-6 border-t;
+    @apply px-8 py-4 border-t;
   }
   /* End cards */
 
@@ -582,6 +582,11 @@
     @apply flex items-center justify-center outline-none lg:hidden;
   }
 
+  .toggling {
+    @apply relative overflow-hidden h-0;
+    transition: height 0.2s ease;
+  }
+
   .navbar-menu {
     @apply flex flex-col lg:flex-row gap-4 pl-0 bg-white w-full lg:w-auto font-semibold;
   }
@@ -591,7 +596,7 @@
   }
 
   .navbar-menu-item {
-    @apply text-lg font-light px-4 lg:px-0;
+    @apply text-lg font-light px-4;
   }
 
   .navbar-menu-item a {

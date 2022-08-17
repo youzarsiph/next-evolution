@@ -28,7 +28,7 @@ export class View extends Component {
 
         <Grid>
           <Column span="3">
-            <div className="h-full lg:border-r">
+            <div className="lg:h-screen-4rem lg:overflow-y-auto lg:border-r">
               <Navbar id="sidebar" sidebar>
                 <NavbarContainer>
                   <NavbarBrand href={urls["docs"]}>Docs</NavbarBrand>
@@ -110,16 +110,6 @@ export class View extends Component {
   }
 }
 
-export default function Components() {
-  return (
-    <View prevPage={urls["flushed"]} nextPage={urls["alerts"]}>
-      <section title="Components">
-        <h1 className="text-gradient gradient-primary">Components</h1>
-      </section>
-    </View>
-  );
-}
-
 export let colors = [
   "primary",
   "secondary",
@@ -130,4 +120,24 @@ export let colors = [
   "light",
   "dark",
 ];
+
 export let sizes = ["lg", "md", "sm"];
+
+export default function Components() {
+  return (
+    <View prevPage={urls["flushed"]} nextPage={urls["alerts"]}>
+      <section title="Components">
+        <h1 className="text-gradient gradient-primary">
+          Compone
+          <wbr />
+          nts
+        </h1>
+        <p className="text-xl font-light">
+          Components are the building blocks of a react application. In this
+          section and the following sections we are going to learn about
+          components in Evolution UI
+        </p>
+      </section>
+    </View>
+  );
+}

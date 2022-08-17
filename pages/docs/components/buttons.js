@@ -8,6 +8,10 @@ export default function Buttons() {
     <View prevPage={urls["breadcrumbs"]} nextPage={urls["cards"]}>
       <article title="Buttons">
         <h1 className="text-gradient gradient-primary">Buttons</h1>
+        <p className="text-xl font-light">
+          Use our buttons for actions in forms, dialogs, and more
+          with support for multiple sizes, states, and more.
+        </p>
 
         <h2>Basic</h2>
 

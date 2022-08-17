@@ -8,11 +8,12 @@ export default function Breadcrumbs() {
     <View prevPage={urls["badges"]} nextPage={urls["buttons"]}>
       <article title="Breadcrumbs">
         <h1 className="text-gradient gradient-primary">Breadcrumbs</h1>
+        <p className="text-xl font-light">
+          Indicate the current page&apos; location within a navigational hierarchy
+          that automatically adds separators.
+        </p>
 
         <Breadcrumb>
-          <BreadcrumbItem>
-            <Link href={urls["home"]}>Home</Link>
-          </BreadcrumbItem>
           <BreadcrumbItem>
             <Link href={urls["docs"]}>Docs</Link>
           </BreadcrumbItem>

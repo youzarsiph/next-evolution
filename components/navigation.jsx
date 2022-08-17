@@ -134,7 +134,7 @@ export class MenuItem extends Component {
 
     // Heading
     if (props.heading) {
-      this.modifierClass = "text-xl font-semibold";
+      this.modifierClass = "text-xl font-semibold px-0";
     }
   }
   render() {

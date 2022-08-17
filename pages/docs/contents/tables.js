@@ -13,6 +13,9 @@ export default function tables() {
     <View prevPage={urls["images"]} nextPage={urls["forms"]}>
       <article className="mb-4" title="Tables" id="tables">
         <h1 className="text-gradient gradient-primary">Tables</h1>
+        <p className="text-xl font-light">
+          Documentaion for using Table Components
+        </p>
 
         <Table>
           <TableHeader>
