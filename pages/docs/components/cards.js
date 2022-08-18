@@ -5,6 +5,7 @@ import {
   Card,
   CardBody,
   CardFooter,
+  CardHeader,
 } from "../../../components/view";
 import urls from "../../../urls";
 
@@ -19,7 +20,7 @@ export default function Cards() {
         </p>
 
         <h2>Basic</h2>
-        <div className="mb-4 max-w-md">
+        <div className="max-w-md mb-8">
           <Card>
             <div className="flex items-center justify-center h-72 bg-gradient gradient-primary text-white text-5xl rounded-t-lg">
               Next Evolution
@@ -33,7 +34,7 @@ export default function Cards() {
         </div>
 
         <h2>Metadata</h2>
-        <div className="grid lg:grid-cols-2 gap-4 mb-4">
+        <div className="grid lg:grid-cols-2 gap-4 mb-8">
           <Card>
             <CardBody>
               <h3>Special treatment</h3>
@@ -105,13 +106,106 @@ export default function Cards() {
           </Card>
         </div>
 
+        <h2>Actions</h2>
+        <div className="grid lg:grid-cols-2 gap-4 mb-8">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <h3 className="mb-0">Favorite Post</h3>
+                <span className="text-xl font-bold text-yellow-400 hover:text-yellow-500">
+                  Star
+                </span>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <p>
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+            </CardBody>
+            <CardFooter>
+              <div className="flex items-center justify-between">
+                <Button color="primary">Action Button</Button>
+                <div className="font-bold text-slate-400">2hrs</div>
+              </div>
+            </CardFooter>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <h3 className="mb-0">Favorite Post</h3>
+                <span className="text-xl font-bold text-yellow-400 hover:text-yellow-500">
+                  Star
+                </span>
+                <span className="text-xl font-bold text-red-500 hover:text-red-600">
+                  Love
+                </span>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <p>
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+            </CardBody>
+            <CardFooter>
+              <div className="flex items-center justify-between">
+                <Button color="primary">Action Button</Button>
+                <div className="font-bold text-slate-400">2hrs</div>
+              </div>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div className="max-w-lg mb-8">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <Avatar color="info" sizingEnabled size="sm">
+                    YAS
+                  </Avatar>
+                  <div className="grid">
+                    <span className="font-semibold">Yousef Abu Shanab</span>
+                    <span className="text-sm text-slate-400">New York, US</span>
+                  </div>
+                </div>
+              </div>
+            </CardHeader>
+            <figure>
+              <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-info text-white text-4xl lg:text-5xl">
+                Next Evolution
+              </div>
+            </figure>
+            <CardBody>
+              <div className="flex items-center justify-between mb-4 text-sm">
+                <div>
+                  <span className="text-red-500 mr-4">Loved</span>
+                  Commnent
+                </div>
+                Bookmark
+              </div>
+              <p>
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+            </CardBody>
+            <CardFooter>
+              <input
+                type="text"
+                className="form-control form-control-flushed py-0 border-b-0"
+                placeholder="Add comment"
+              />
+            </CardFooter>
+          </Card>
+        </div>
+
         <h2>Gradients</h2>
         <div className="grid lg:grid-cols-2 gap-4">
           <Card>
             <CardBody>
-              <h3 className="text-gradient gradient-primary grid-row">
-                Next Evolution
-              </h3>
+              <h3 className="text-gradient gradient-primary">Next Evolution</h3>
               <p className="mb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
                 veniam suscipit sed autem animi culpa dolores voluptatibus
@@ -137,7 +231,7 @@ export default function Cards() {
 
           <Card>
             <figure>
-              <div className="flex items-center justify-center h-96 bg-gradient gradient-success rounded-lg text-white text-5xl">
+              <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-success rounded-lg text-white text-4xl lg:text-5xl">
                 Evolution UI
               </div>
             </figure>
@@ -157,7 +251,7 @@ export default function Cards() {
           <Card>
             <CardBody>
               <figure>
-                <div className="flex items-center justify-center h-96 bg-gradient gradient-danger rounded-xl text-white text-5xl">
+                <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-danger rounded-xl text-white text-4xl lg:text-5xl">
                   Evolution UI
                 </div>
               </figure>

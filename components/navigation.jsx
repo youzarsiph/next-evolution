@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Component } from "react";
 
 export class Breadcrumb extends Component {
@@ -37,9 +38,8 @@ class MianNav extends Component {
     // Modifier class
     this.modifierClass = "";
 
-    if (props.sidebar) {
-      this.modifierClass += " sidebar";
-      this.menuClass = "flex-col";
+    if (props.vertical) {
+      this.modifierClass += " navbar-vertical";
     }
 
     if (props.fixed && !props.sidebar) {
@@ -75,7 +75,7 @@ export class Navbar extends MianNav {
 export class NavbarContainer extends Component {
   render() {
     return (
-      <div className="flex items-center justify-between w-full lg:w-auto">
+      <div className="navbar-container">
         {this.props.children}
       </div>
     );
@@ -85,9 +85,9 @@ export class NavbarContainer extends Component {
 export class NavbarBrand extends Component {
   render() {
     return (
-      <a href={this.props.href} className="navbar-brand">
-        {this.props.children}
-      </a>
+      <span className="navbar-brand">
+        <Link href={this.props.href}>{this.props.children}</Link>
+      </span>
     );
   }
 }
@@ -95,10 +95,7 @@ export class NavbarBrand extends Component {
 export class NavbarMenu extends MianNav {
   render() {
     return (
-      <ul
-        id={this.id}
-        className={`navbar-menu ${this.menuClass} lg:flex hidden`}
-      >
+      <ul id={this.id} className={`navbar-menu lg:flex hidden`}>
         {this.props.children}
       </ul>
     );
@@ -132,9 +129,11 @@ export class MenuItem extends Component {
   constructor(props) {
     super(props);
 
+    this.modifierClass = "";
+
     // Heading
     if (props.heading) {
-      this.modifierClass = "text-xl font-semibold px-0";
+      this.modifierClass = "navbar-menu-heading px-0";
     }
   }
   render() {
@@ -167,7 +166,7 @@ export class Pagination extends Component {
     return (
       <nav aria-label={this.props.ariaLabel} className="my-4">
         <ol
-          className={`flex flex-wrap items-center ${this.justify} gap-4 pl-0`}
+          className={`pagination ${this.justify}`}
         >
           {this.props.children}
         </ol>
@@ -179,7 +178,7 @@ export class Pagination extends Component {
 export class PaginationItem extends Component {
   render() {
     return (
-      <li className="inline-flex items-center justify-center px-4 py-2 border rounded-lg shadow-sm transition-all hover:shadow-lg active:translate-y-1">
+      <li className="pagination-item">
         {this.props.children}
       </li>
     );

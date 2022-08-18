@@ -22,9 +22,7 @@ export function BaseNavbar(props) {
       rounded={props.rounded}
     >
       <NavbarContainer>
-        <NavbarBrand href={urls["home"]}>
-          E<span className="hidden lg:inline-block">volution</span>UI
-        </NavbarBrand>
+        <NavbarBrand href={urls["home"]}>EvolutionUI</NavbarBrand>
         <MenuToggler id="toggler" menuID="navMenu" />
       </NavbarContainer>
 
@@ -77,7 +75,9 @@ export default class Home extends Component {
             <Card>
               <CardBody>
                 <h3 className="font-light">Open Source & Free</h3>
-                <p className="mb-4">Next Evolution is an open source project hosted on Github</p>
+                <p className="mb-4">
+                  Next Evolution is an open source project hosted on Github
+                </p>
                 <a
                   className="btn bg-gradient gradient-info hover:text-white"
                   href={urls["github"]}

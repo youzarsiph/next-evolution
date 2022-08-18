@@ -29,7 +29,7 @@ export class View extends Component {
         <Grid>
           <Column span="3">
             <div className="lg:h-screen-4rem lg:overflow-y-auto lg:border-r">
-              <Navbar id="sidebar" sidebar>
+              <Navbar id="sidebar" vertical>
                 <NavbarContainer>
                   <NavbarBrand href={urls["docs"]}>Docs</NavbarBrand>
                   <MenuToggler id="sidebarToggler" menuID="sidebarMenu" />
@@ -59,6 +59,9 @@ export class View extends Component {
                   </MenuItem>
 
                   <MenuItem heading>Components</MenuItem>
+                  <MenuItem>
+                    <Link href={urls["accordions"]}>Accordions</Link>
+                  </MenuItem>
                   <MenuItem>
                     <Link href={urls["alerts"]}>Alerts</Link>
                   </MenuItem>

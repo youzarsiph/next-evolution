@@ -69,6 +69,57 @@ class Main extends Component {
   }
 }
 
+export class Accordion extends Component {
+  render() {
+    return (
+      <ul className="accordion">
+        {this.props.children}
+      </ul>
+    );
+  }
+}
+
+export class AccordionItem extends Component {
+  render() {
+    return <li className="accordion-item">{this.props.children}</li>;
+  }
+}
+
+export class AccordionButton extends Component {
+  constructor(props) {
+    super(props);
+    this.target = this.props.target;
+  }
+
+  render() {
+    return (
+      <button
+        type="button"
+        className="accordion-btn group"
+        onClick={() => {
+          document.getElementById(this.target).classList.toggle("hidden")
+        }}
+      >
+        {this.props.children}
+        <span className="accordion-btn-icon group-focus:-rotate-180 group-active:-rotate-180"></span>
+      </button>
+    );
+  }
+}
+
+export class AccordionContent extends Component {
+  render() {
+    return (
+      <p
+        id={this.props.id}
+        className="accordion-content hidden"
+      >
+        {this.props.children}
+      </p>
+    );
+  }
+}
+
 export class Alert extends Main {
   constructor(props) {
     super(props);

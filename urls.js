@@ -16,6 +16,7 @@ let urls = {
 
   // Components
   components: "/docs/components/",
+  accordions: "/docs/components/accordions/",
   alerts: "/docs/components/alerts/",
   avatars: "/docs/components/avatars/",
   badges: "/docs/components/badges/",

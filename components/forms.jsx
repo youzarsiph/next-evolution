@@ -7,11 +7,7 @@ export class Form extends Component {
    */
   render() {
     return (
-      <form
-        method={this.props.method}
-        action={this.props.action}
-        encType={this.props.encType}
-      >
+      <form method={this.props.method} action={this.props.action} encType={this.props.encType}>
         {this.props.children}
       </form>
     );
@@ -27,27 +23,27 @@ class BaseInput extends Component {
     super(props);
 
     // Input attributes
-    this.id = this.props.id;
-    this.type = this.props.type;
-    this.name = this.props.name;
+    this.id = props.id;
+    this.type = props.type;
+    this.name = props.name;
     this.inputStyles = "form-control";
-    this.helpText = this.props.helpText;
-    this.placeholder = this.props.placeholder;
+    this.helpText = props.helpText;
+    this.placeholder = props.placeholder;
 
     // Label attributes
     this.labelBefore = true;
-    this.label = this.props.label;
-    this.labelStyles = "inline-block mb-2";
+    this.label = props.label;
+    this.labelStyles = "";
 
     // Handling variants
-    if (this.props.floating) {
+    if (props.floating) {
       this.labelBefore = false;
       this.placeholder = this.label;
       this.labelStyles = "floating-label left-4";
       this.inputStyles += " form-control-floating peer";
     }
 
-    if (this.props.flushed) {
+    if (props.flushed) {
       this.inputStyles += " form-control-flushed";
       this.labelStyles = this.labelStyles.replace("left-4", "");
     }
@@ -97,8 +93,8 @@ export class Select extends BaseInput {
   getInput() {
     return (
       <select
-        id={this.props.id}
-        name={this.props.name}
+        id={this.id}
+        name={this.name}
         className={this.inputStyles}
         placeholder={this.placeholder}
       >
@@ -113,15 +109,15 @@ export class Textarea extends BaseInput {
     super(props);
 
     // The number of the lines inside the textarea
-    this.rows = this.props.rows;
+    this.rows = props.rows;
   }
 
   getInput() {
     return (
       <textarea
-        id={this.props.id}
-        name={this.props.name}
-        rows={this.props.rows}
+        id={this.id}
+        name={this.name}
+        rows={this.rows}
         className={this.inputStyles}
         placeholder={this.placeholder}
       ></textarea>
@@ -138,10 +134,10 @@ export class InlineInput extends BaseInput {
     super(props);
 
     // Input attributes
-    this.type = this.props.type === "checkbox" ? "checkbox" : "radio";
+    this.type = props.type === "checkbox" ? "checkbox" : "radio";
     this.inputStyles = "form-check";
-    
-    if (this.props.type === "radio") {
+
+    if (props.type === "radio") {
       this.inputStyles += " rounded-full";
     }
 

@@ -4,7 +4,7 @@ import { Alert, Badge } from "../../../components/view";
 
 export default function Alerts() {
   return (
-    <View prevPage={urls["components"]} nextPage={urls["avatars"]}>
+    <View prevPage={urls["accordions"]} nextPage={urls["avatars"]}>
       <article title="Alerts">
         <h1 className="text-gradient gradient-primary">Alerts</h1>
         <p className="text-xl font-light">
