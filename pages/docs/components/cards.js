@@ -26,7 +26,7 @@ export default function Cards() {
               Next Evolution
             </div>
             <CardBody>
-              <h3>Card title</h3>
+              <h5>Card title</h5>
               <p>Some quick example text...</p>
               <Button color="info">Go somewhere</Button>
             </CardBody>
@@ -37,7 +37,7 @@ export default function Cards() {
         <div className="grid lg:grid-cols-2 gap-4 mb-8">
           <Card>
             <CardBody>
-              <h3>Special treatment</h3>
+              <h5>Special treatment</h5>
               <p className="font-bold text-slate-400 mb-6">2hrs ago</p>
               <p>
                 With supporting text below as a natural lead-in to additional
@@ -49,7 +49,7 @@ export default function Cards() {
 
           <Card>
             <CardBody>
-              <h3>Special treatment</h3>
+              <h5>Special treatment</h5>
               <div className="flex items-center gap-4 mb-6 font-bold">
                 <span className="text-pink-400">50 Likes</span>
                 750 Views
@@ -64,7 +64,7 @@ export default function Cards() {
 
           <Card>
             <CardBody>
-              <h3>Special treatment</h3>
+              <h5>Special treatment</h5>
               <p>
                 With supporting text below as a natural lead-in to additional
                 content.
@@ -87,7 +87,7 @@ export default function Cards() {
 
           <Card>
             <CardBody>
-              <h3>Special treatment</h3>
+              <h5>Special treatment</h5>
               <p>
                 With supporting text below as a natural lead-in to additional
                 content.
@@ -111,7 +111,7 @@ export default function Cards() {
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
-                <h3 className="mb-0">Favorite Post</h3>
+                <h5 className="mb-0">Favorite Post</h5>
                 <span className="text-xl font-bold text-yellow-400 hover:text-yellow-500">
                   Star
                 </span>
@@ -134,7 +134,7 @@ export default function Cards() {
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
-                <h3 className="mb-0">Favorite Post</h3>
+                <h5 className="mb-0">Favorite Post</h5>
                 <span className="text-xl font-bold text-yellow-400 hover:text-yellow-500">
                   Star
                 </span>
@@ -205,7 +205,7 @@ export default function Cards() {
         <div className="grid lg:grid-cols-2 gap-4">
           <Card>
             <CardBody>
-              <h3 className="text-gradient gradient-primary">Next Evolution</h3>
+              <h5 className="text-gradient gradient-primary">Next Evolution</h5>
               <p className="mb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
                 veniam suscipit sed autem animi culpa dolores voluptatibus
@@ -217,9 +217,9 @@ export default function Cards() {
 
           <Card>
             <CardBody>
-              <h3 className="text-gradient gradient-info">
+              <h5 className="text-gradient gradient-info">
                 The Evolution of the UI
-              </h3>
+              </h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Obcaecati quos, minima, earum error culpa eius repudiandae
@@ -236,9 +236,9 @@ export default function Cards() {
               </div>
             </figure>
             <CardBody>
-              <h3 className="text-gradient gradient-info">
+              <h5 className="text-gradient gradient-info">
                 Evolution in the UI
-              </h3>
+              </h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit
                 culpa ea, aliquid ad excepturi fugit asperiores a impedit
@@ -255,7 +255,7 @@ export default function Cards() {
                   Evolution UI
                 </div>
               </figure>
-              <h3 className="text-gradient gradient-warning">UI Evolved</h3>
+              <h5 className="text-gradient gradient-warning">UI Evolved</h5>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Necessitatibus rem eligendi provident dolores, ad quis
