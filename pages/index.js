@@ -104,7 +104,7 @@ export default class Home extends Component {
             <h3 className="text-white">Open Source React Component Library</h3>
 
             <p className="text-white text-xl">
-              All rights reserved &copy;{" "}
+              Made with love by{" "}
               <a
                 href="https://github.com/youzarsiph"
                 className="text-white hover:text-white"
