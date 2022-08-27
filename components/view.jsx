@@ -8,15 +8,20 @@ class Main extends Component {
   constructor(props) {
     super(props);
 
+    // Attrs
+    this.baseClass = "";
+    this.modifierClass = "";
+
     // Options
-    this.sizingEnabled = props.sizingEnabled;
-    this.bgGradinetEnabled = props.bgGradinetEnabled;
+    this.enableSizing = props.enableSizing;
+    this.enableOutline = props.enableOutline;
+    this.enableBgGradient = props.enableBgGradient;
 
     // Handling variants
-    if (props.outline) {
+    if (this.enableOutline) {
       // Outline
-      this.variants = this.getOutlineVarriants();
-    } else if (this.bgGradinetEnabled) {
+      this.variants = this.getOutlineVariants();
+    } else if (this.enableBgGradient) {
       // Gradient
       this.variants = this.getGradientVariants();
     } else {
@@ -24,7 +29,7 @@ class Main extends Component {
       this.variants = this.getVariants();
     }
 
-    if (this.sizingEnabled) {
+    if (this.enableSizing) {
       // Sizing
       let key = props.size === "" ? "md" : props.size;
       this.sizinOptions = this.getSizes();
@@ -37,9 +42,21 @@ class Main extends Component {
     this.modifierClass = this.variants[props.color];
   }
 
+  getBaseClass() {
+    /**
+     * A method to define the base css class of an element
+     */
+  }
+
+  getModifierClass() {
+    /**
+     * A method to define
+     */
+  }
+
   getVariants() {
     /**
-     * A method to define varinats of a component
+     * A method to define variants of a component
      */
   }
 
@@ -71,11 +88,7 @@ class Main extends Component {
 
 export class Accordion extends Component {
   render() {
-    return (
-      <ul className="accordion">
-        {this.props.children}
-      </ul>
-    );
+    return <ul className="accordion">{this.props.children}</ul>;
   }
 }
 
@@ -97,11 +110,11 @@ export class AccordionButton extends Component {
         type="button"
         className="accordion-btn group"
         onClick={() => {
-          document.getElementById(this.target).classList.toggle("hidden")
+          document.getElementById(this.target).classList.toggle("hidden");
         }}
       >
         {this.props.children}
-        <span className="accordion-btn-icon group-focus:-rotate-180 group-active:-rotate-180"></span>
+        <span className="accordion-btn-icon group-focus:-rotate-180 group-active:-rotate-180" />
       </button>
     );
   }
@@ -110,10 +123,7 @@ export class AccordionButton extends Component {
 export class AccordionContent extends Component {
   render() {
     return (
-      <p
-        id={this.props.id}
-        className="accordion-content hidden"
-      >
+      <p id={this.props.id} className="accordion-content hidden">
         {this.props.children}
       </p>
     );
@@ -123,8 +133,14 @@ export class AccordionContent extends Component {
 export class Alert extends Main {
   constructor(props) {
     super(props);
-    this.sizingEnabled = false;
-    this.bgGradinetEnabled = false;
+
+    // Attrs
+    this.baseClass = "alert";
+
+    // Options
+    this.enableSizing = false;
+    this.enableOutline = false;
+    this.enableBgGradient = false;
 
     // Handling modifier class
     if (props.flushed) {
@@ -150,7 +166,7 @@ export class Alert extends Main {
 
   render() {
     return (
-      <div className={`alert ${this.modifierClass}`} role={"alert"}>
+      <div className={`${this.baseClass} ${this.modifierClass}`} role={"alert"}>
         {this.props.children}
       </div>
     );
@@ -161,8 +177,11 @@ export class Avatar extends Main {
   constructor(props) {
     super(props);
 
-    // Gradinet
-    if (this.props.bgGradinetEnabled) {
+    // Attrs
+    this.baseClass = "avatar";
+
+    // Gradient
+    if (this.props.enableBgGradient) {
       this.modifierClass += " bg-gradient";
     }
   }
@@ -190,7 +209,7 @@ export class Avatar extends Main {
 
   render() {
     return (
-      <span className={`avatar ${this.size} ${this.modifierClass}`}>
+      <span className={`${this.baseClass} ${this.size} ${this.modifierClass}`}>
         {this.props.children}
       </span>
     );
@@ -200,8 +219,13 @@ export class Avatar extends Main {
 export class Badge extends Main {
   constructor(props) {
     super(props);
-    this.sizingEnabled = false;
-    this.bgGradinetEnabled = false;
+
+    // Attrs
+    this.baseClass = "badge";
+
+    // Options
+    this.enableSizing = false;
+    this.enableBgGradient = false;
 
     // Handling modifier class
     if (this.props.pill) {
@@ -222,7 +246,7 @@ export class Badge extends Main {
     };
   }
 
-  getOutlineVarriants() {
+  getOutlineVariants() {
     return {
       primary: "badge-outline-primary",
       secondary: "badge-outline-secondary",
@@ -237,7 +261,7 @@ export class Badge extends Main {
 
   render() {
     return (
-      <span className={`badge ${this.modifierClass}`}>
+      <span className={`${this.baseClass} ${this.modifierClass}`}>
         {this.props.children}
       </span>
     );
@@ -253,8 +277,8 @@ export class Button extends Main {
       this.modifierClass += " rounded-full";
     }
 
-    // Gradinet
-    if (this.props.bgGradinetEnabled) {
+    // Gradient
+    if (this.props.enableBgGradient) {
       this.modifierClass += " bg-gradient";
     }
   }
@@ -272,7 +296,7 @@ export class Button extends Main {
     };
   }
 
-  getOutlineVarriants() {
+  getOutlineVariants() {
     return {
       primary: "btn-outline-primary",
       secondary: "btn-outline-secondary",
@@ -326,6 +350,103 @@ export class CardBody extends Component {
 export class CardFooter extends Component {
   render() {
     return <footer className="card-footer">{this.props.children}</footer>;
+  }
+}
+
+export class Skeleton extends Main {
+  constructor(props) {
+    super(props);
+
+    // Attrs
+    this.baseClass = "skeleton";
+    this.type = this.props.type;
+
+    // Options
+    this.enableOutline = false;
+    this.enableBgGradient = false;
+
+    if (this.type === "circle") {
+      this.modifierClass += " skeleton-circle";
+    } else if (this.type === "text") {
+      this.modifierClass += " skeleton-text " + this.size;
+    } else {
+      this.modifierClass += " skeleton-square";
+    }
+  }
+
+  getVariants() {
+    return {};
+  }
+
+  getSizes() {
+    return {
+      word: "w-16",
+      "2word": "w-32",
+      "3word": "w-48",
+      "4word": "w-64",
+      "5word": "w-80",
+    };
+  }
+
+  render() {
+    return (
+      <span
+        role={"status"}
+        title={"Loading"}
+        className={`${this.baseClass} ${this.modifierClass}`}
+      />
+    );
+  }
+}
+
+export class Spinner extends Main {
+  constructor(props) {
+    super(props);
+
+    // Attrs
+    this.baseClass = "spinner";
+    this.type = this.props.type;
+
+    // Options
+    this.enableSizing = false;
+    this.enableOutline = false;
+    this.enableBgGradient = false;
+
+    // Spinner types
+    if (this.type === "circle") {
+      this.modifierClass += " spinner-circle";
+    } else if (this.type === "filled") {
+      this.modifierClass += " spinner-filled";
+    } else if (this.type === "gradient") {
+      this.modifierClass += " spinner-gradient";
+    } else {
+      this.modifierClass += " spinner-border";
+    }
+  }
+
+  getVariants() {
+    return {
+      primary: "spinner-primary",
+      secondary: "spinner-secondary",
+      info: "spinner-info",
+      success: "spinner-success",
+      warning: "spinner-warning",
+      danger: "spinner-danger",
+      light: "spinner-light",
+      dark: "spinner-dark",
+    };
+  }
+
+  render() {
+    return (
+      <span
+        role={"status"}
+        title={"Loading"}
+        className={`${this.baseClass} ${this.modifierClass}`}
+      >
+        {this.props.children}
+      </span>
+    );
   }
 }
 

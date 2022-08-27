@@ -1,16 +1,16 @@
 import urls from "../../../urls";
 import { View, colors, sizes } from ".";
 import { Flex } from "../../../components/utils";
-import { Button } from "../../../components/view";
+import { Button, Spinner } from "../../../components/view";
 
 export default function Buttons() {
   return (
-    <View prevPage={urls["breadcrumbs"]} nextPage={urls["cards"]}>
+    <View prevPage={urls["breadcrumb"]} nextPage={urls["card"]}>
       <article title="Buttons">
         <h1 className="text-gradient gradient-primary">Buttons</h1>
         <p className="text-xl font-light">
-          Use our buttons for actions in forms, dialogs, and more
-          with support for multiple sizes, states, and more.
+          Use our buttons for actions in forms, dialogs, and more with support
+          for multiple sizes, states, and more.
         </p>
 
         <h2>Basic</h2>
@@ -30,7 +30,7 @@ export default function Buttons() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Button key={item} color={item} outline>
+              <Button key={item} color={item} enableOutline>
                 {item}
               </Button>
             );
@@ -42,7 +42,7 @@ export default function Buttons() {
         <Flex>
           {sizes.map((item) => {
             return (
-              <Button key={item} color={"info"} sizingEnabled size={item}>
+              <Button key={item} color={"info"} enableSizing size={item}>
                 btn-{item}
               </Button>
             );
@@ -54,7 +54,7 @@ export default function Buttons() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Button key={item} bgGradinetEnabled color={item}>
+              <Button key={item} enableBgGradient color={item}>
                 {item}
               </Button>
             );

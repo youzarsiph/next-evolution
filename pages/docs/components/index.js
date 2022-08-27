@@ -13,6 +13,7 @@ import {
   Pagination,
   PaginationItem,
 } from "../../../components/navigation";
+import { Badge } from "../../../components/view";
 
 export class View extends Component {
   constructor(props) {
@@ -60,31 +61,43 @@ export class View extends Component {
 
                   <MenuItem heading>Components</MenuItem>
                   <MenuItem>
-                    <Link href={urls["accordions"]}>Accordions</Link>
+                    <Link href={urls["accordion"]}>Accordions</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["alerts"]}>Alerts</Link>
+                    <Link href={urls["alert"]}>Alerts</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["avatars"]}>Avatars</Link>
+                    <Link href={urls["avatar"]}>Avatars</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["badges"]}>Badges</Link>
+                    <Link href={urls["badge"]}>Badges</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["breadcrumbs"]}>Breadcrumbs</Link>
+                    <Link href={urls["breadcrumb"]}>Breadcrumbs</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["buttons"]}>Buttons</Link>
+                    <Link href={urls["button"]}>Buttons</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["cards"]}>Cards</Link>
+                    <Link href={urls["card"]}>Cards</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["navbars"]}>Navbars</Link>
+                    <Link href={urls["navbar"]}>Navbars</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href={urls["paginations"]}>Paginations</Link>
+                    <Link href={urls["pagination"]}>Paginations</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link href={urls["skeleton"]}>Skeletons</Link>
+                    <span className="ml-4">
+                      <Badge color="info" pill>New</Badge>
+                    </span>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link href={urls["spinner"]}>Spinners</Link>
+                    <span className="ml-4">
+                      <Badge color="info" pill>New</Badge>
+                    </span>
                   </MenuItem>
                 </NavbarMenu>
               </Navbar>
@@ -128,7 +141,7 @@ export let sizes = ["lg", "md", "sm"];
 
 export default function Components() {
   return (
-    <View prevPage={urls["flushed"]} nextPage={urls["alerts"]}>
+    <View prevPage={urls["flushed"]} nextPage={urls["accordion"]}>
       <section title="Components">
         <h1 className="text-gradient gradient-primary">
           Compone

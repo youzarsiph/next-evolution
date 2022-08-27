@@ -9,7 +9,7 @@ import {
 
 export default function Accordions() {
   return (
-    <View prevPage={urls["tables"]} nextPage={urls["alerts"]}>
+    <View prevPage={urls["tables"]} nextPage={urls["alert"]}>
       <article title="Accordions">
         <h1 className="text-gradient gradient-primary">Accordions</h1>
         <p className="text-xl font-light"></p>

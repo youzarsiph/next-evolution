@@ -48,8 +48,8 @@
   h6 {
     @apply text-xl;
   }
-  /* End Headings */
 
+  /* End Headings */
   p {
     @apply mb-4;
   }
@@ -198,8 +198,8 @@
   .accordion-content {
     @apply px-8 py-4 border rounded-lg shadow-sm mb-0;
   }
-  /* End accordions */
 
+  /* End accordions */
   /* Alerts */
   .alert {
     @apply p-4 border border-l-4 rounded-lg;
@@ -244,8 +244,8 @@
   .alert-dark {
     @apply border-gray-700 bg-gray-100 text-gray-700;
   }
-  /* End alerts */
 
+  /* End alerts */
   /* Avatars */
   .avatar {
     @apply relative inline-flex items-center justify-center w-14 h-14 text-white rounded-full shadow-sm;
@@ -296,7 +296,6 @@
   }
 
   /* End avatars */
-
   /* Badges */
   .badge {
     @apply inline-block text-sm px-2 py-1 border rounded-lg text-white font-medium;
@@ -365,14 +364,14 @@
   .badge-outline-dark {
     @apply bg-gray-100 border-gray-800 text-gray-700;
   }
-  /* End badges */
 
+  /* End badges */
   /* Breadcrumbs */
   .breadcrumb {
     @apply flex flex-wrap items-center gap-4 p-0;
   }
-  /* End breadcrumbs */
 
+  /* End breadcrumbs */
   /* Buttons */
   .btn {
     @apply inline-block bg-white text-slate-600 font-semibold py-2 px-4 border rounded-lg shadow-sm outline-none hover:shadow-lg focus:ring active:ring;
@@ -449,15 +448,14 @@
   .btn-outline-dark {
     @apply text-gray-700 border-gray-700 hover:bg-gray-100 hover:shadow-gray-300 focus:ring-gray-600 focus:border-gray-700 active:bg-gray-200;
   }
-  /* End buttons */
 
+  /* End buttons */
   /* Containers */
   .container {
     @apply w-auto 2xl:max-w-6xl mx-2 px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-auto;
   }
 
   /* End containers */
-
   /* Cards */
   .card {
     @apply relative border rounded-lg shadow-lg;
@@ -474,8 +472,8 @@
   .card-footer {
     @apply px-8 py-6 border-t;
   }
-  /* End cards */
 
+  /* End cards */
   /* Forms */
   .form-control {
     @apply block bg-white px-4 py-3 w-full shadow-sm border rounded-lg outline-none focus:border-pink-400 focus:ring focus:ring-pink-300 invalid:border-red-400 invalid:ring invalid:ring-red-300 invalid:text-red-400 file:bg-slate-50 file:border-0 file:mr-4 file:rounded-lg file:px-4 file:py-2 file:shadow-sm file:hover:bg-slate-100 file:transition-all;
@@ -534,52 +532,8 @@
   .form-switch:checked:focus {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
   }
+
   /* End forms */
-
-  /* Gradients */
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r;
-  }
-
-  .bg-gradient {
-    @apply text-white bg-gradient-to-r;
-  }
-
-  .btn.bg-gradient {
-    @apply ring-0 border-0 active:translate-y-1;
-  }
-
-  .gradient-primary {
-    @apply from-pink-500 to-blue-600;
-  }
-
-  .gradient-secondary {
-    @apply from-slate-400 to-slate-900;
-  }
-
-  .gradient-info {
-    @apply from-sky-500 to-lime-500;
-  }
-
-  .gradient-success {
-    @apply from-green-500 to-violet-700;
-  }
-
-  .gradient-warning {
-    @apply from-orange-500 to-teal-500;
-  }
-
-  .gradient-danger {
-    @apply from-red-500 to-purple-600;
-  }
-
-  .gradient-light {
-    @apply from-gray-100 to-gray-400;
-  }
-
-  .gradient-dark {
-    @apply from-slate-500 to-black;
-  }
 
   /* Navbar */
   .navbar {
@@ -647,17 +601,17 @@
     @apply text-slate-800 hover:text-sky-500 hover:no-underline;
   }
 
-  .navbar-toggler-icon {
+  .navbar-toggle-icon {
     @apply bg-center bg-no-repeat bg-cover inline-block h-8 w-8;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 
-  .navbar-toggler-icon.show {
+  .navbar-toggle-icon.show {
     @apply w-6 h-6 m-1;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
   }
 
-  /* Paginations */
+  /* Pagination */
   .pagination {
     @apply flex flex-wrap items-center gap-4 pl-0;
   }
@@ -665,11 +619,129 @@
   .pagination-item {
     @apply inline-flex items-center justify-center px-4 py-2 border rounded-lg shadow-sm transition-all hover:shadow-lg active:translate-y-1;
   }
-  /* End paginations */
+
+  /* End pagination */
+
+  /* Skeleton */
+  .skeleton {
+    @apply block h-96 w-full max-w-full bg-slate-400 rounded-lg animate-pulse;
+  }
+
+  .skeleton-text {
+    @apply inline-block h-6 rounded;
+  }
+
+  .skeleton-circle {
+    @apply inline-block h-16 w-16 rounded-full;
+  }
+
+  /* End skeleton */
+
+  /* Spinners */
+  .spinner {
+    @apply inline-block w-8 h-8 border-2 rounded-full shadow-xl animate-spin;
+    /* border-width: 3px; */
+  }
+
+  .spinner-primary {
+    @apply border-pink-500 bg-pink-400 shadow-pink-500 gradient-primary;
+  }
+
+  .spinner-secondary {
+    @apply border-slate-500 bg-slate-400 shadow-slate-500 gradient-secondary;
+  }
+
+  .spinner-info {
+    @apply border-sky-500 bg-sky-400 shadow-sky-500 gradient-info;
+  }
+
+  .spinner-success {
+    @apply border-green-500 bg-green-400 shadow-green-500 gradient-success;
+  }
+
+  .spinner-warning {
+    @apply border-orange-500 bg-orange-400 shadow-orange-500 gradient-warning;
+  }
+
+  .spinner-danger {
+    @apply border-red-500 bg-red-400 shadow-red-500 gradient-danger;
+  }
+
+  .spinner-light {
+    @apply border-gray-300 bg-gray-50 shadow-gray-500 gradient-light;
+  }
+
+  .spinner-dark {
+    @apply border-gray-800 bg-gray-700 shadow-gray-500 gradient-dark;
+  }
+
+  .spinner-filled {
+    @apply w-6 h-6 shadow-none animate-ping;
+  }
+
+  .spinner-circle {
+    @apply spinner-filled bg-white;
+  }
+
+  .spinner-border {
+    @apply bg-white border-y-transparent;
+  }
+
+  .spinner-gradient {
+    @apply spinner border-none shadow-none p-1 bg-gradient;
+  }
+
+  /* End spinners */
 }
 
 @layer utilities {
   .h-screen-4rem {
     height: calc(100vh - 4rem);
   }
+
+  /* Gradients */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  .bg-gradient {
+    @apply text-white bg-gradient-to-r;
+  }
+
+  .btn.bg-gradient {
+    @apply ring-0 border-0 active:translate-y-1;
+  }
+
+  .gradient-primary {
+    @apply from-pink-500 to-blue-600;
+  }
+
+  .gradient-secondary {
+    @apply from-slate-400 to-slate-900;
+  }
+
+  .gradient-info {
+    @apply from-sky-500 to-lime-500;
+  }
+
+  .gradient-success {
+    @apply from-green-500 to-violet-700;
+  }
+
+  .gradient-warning {
+    @apply from-orange-500 to-teal-500;
+  }
+
+  .gradient-danger {
+    @apply from-red-500 to-purple-600;
+  }
+
+  .gradient-light {
+    @apply from-gray-100 to-gray-400;
+  }
+
+  .gradient-dark {
+    @apply from-slate-500 to-black;
+  }
+  /* End gradients */
 }

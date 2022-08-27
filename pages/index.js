@@ -34,7 +34,7 @@ export function BaseNavbar(props) {
           <Link href={urls["docs"]}>Docs</Link>
         </MenuItem>
         <MenuItem>
-          <Link href={urls["components"]}>Components</Link>
+          <Link href={urls["component"]}>Components</Link>
         </MenuItem>
         <MenuItem>
           <a href={urls["github"]}>Github</a>

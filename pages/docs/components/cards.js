@@ -11,7 +11,7 @@ import urls from "../../../urls";
 
 export default function Cards() {
   return (
-    <View prevPage={urls["buttons"]} nextPage={urls["navbars"]}>
+    <View prevPage={urls["button"]} nextPage={urls["navbar"]}>
       <article title="Cards">
         <h1 className="text-gradient gradient-primary">Cards</h1>
         <p className="text-xl font-light">
@@ -163,7 +163,7 @@ export default function Cards() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <Avatar color="info" sizingEnabled size="sm">
+                  <Avatar color="info" enableSizing size="sm">
                     YAS
                   </Avatar>
                   <div className="grid">
@@ -182,7 +182,7 @@ export default function Cards() {
               <div className="flex items-center justify-between mb-4 text-sm">
                 <div>
                   <span className="text-red-500 mr-4">Loved</span>
-                  Commnent
+                  Comment
                 </div>
                 Bookmark
               </div>

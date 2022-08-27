@@ -5,7 +5,7 @@ import { Breadcrumb, BreadcrumbItem } from "../../../components/navigation";
 
 export default function Breadcrumbs() {
   return (
-    <View prevPage={urls["badges"]} nextPage={urls["buttons"]}>
+    <View prevPage={urls["badge"]} nextPage={urls["button"]}>
       <article title="Breadcrumbs">
         <h1 className="text-gradient gradient-primary">Breadcrumbs</h1>
         <p className="text-xl font-light">
@@ -18,7 +18,7 @@ export default function Breadcrumbs() {
             <Link href={urls["docs"]}>Docs</Link>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <Link href={urls["components"]}>Components</Link>
+            <Link href={urls["component"]}>Components</Link>
           </BreadcrumbItem>
           <BreadcrumbItem>Breadcrumbs</BreadcrumbItem>
         </Breadcrumb>

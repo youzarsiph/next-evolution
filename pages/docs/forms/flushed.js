@@ -4,7 +4,7 @@ import { Input, Textarea, Select } from "../../../components/forms";
 
 export default function Flushed() {
   return (
-    <View prevPage={urls["floating"]} nextPage={urls["components"]}>
+    <View prevPage={urls["floating"]} nextPage={urls["component"]}>
       <article title="Flushed inputs">
         <h1 className="text-gradient gradient-primary">Flushed</h1>
 

@@ -11,7 +11,7 @@ import {
 
 export default function Navbars() {
   return (
-    <View prevPage={urls["cards"]} nextPage={urls["paginations"]}>
+    <View prevPage={urls["card"]} nextPage={urls["pagination"]}>
       <article className="mb-8" title="Navbars">
         <h1 className="text-gradient gradient-primary">Navbars</h1>
         <p className="text-xl font-light">

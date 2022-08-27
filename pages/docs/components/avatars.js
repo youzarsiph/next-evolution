@@ -5,7 +5,7 @@ import { Avatar } from "../../../components/view";
 
 export default function Avatars() {
   return (
-    <View prevPage={urls["alerts"]} nextPage={urls["badges"]}>
+    <View prevPage={urls["alert"]} nextPage={urls["badge"]}>
       <article title="Avatars">
         <h1 className="text-gradient gradient-primary">Avatars</h1>
         <p className="text-xl font-light">
@@ -35,7 +35,7 @@ export default function Avatars() {
         <Flex>
           {sizes.map((item) => {
             return (
-              <Avatar key={item} sizingEnabled size={item} color="info">
+              <Avatar key={item} enableSizing size={item} color="info">
                 YAS
               </Avatar>
             );
@@ -47,7 +47,7 @@ export default function Avatars() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Avatar key={item} bgGradinetEnabled color={item}>
+              <Avatar key={item} enableBgGradient color={item}>
                 YAS
               </Avatar>
             );
@@ -59,7 +59,7 @@ export default function Avatars() {
         <Flex>
           {sizes.map((item) => {
             return (
-              <Avatar key={item} sizingEnabled size={item} color="info">
+              <Avatar key={item} enableSizing size={item} color="info">
                 <figure className="absolute inset-0 mb-0 object-cover">
                   <svg
                     className="w-full h-full rounded-full"

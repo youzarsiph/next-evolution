@@ -1,7 +1,7 @@
 let urls = {
   home: "/",
 
-  // Documentaion
+  // Documentation
   docs: "/docs/",
   contents: '/docs/contents/',
   typography: "/docs/contents/typography/",
@@ -15,16 +15,18 @@ let urls = {
   flushed: '/docs/forms/flushed/',
 
   // Components
-  components: "/docs/components/",
-  accordions: "/docs/components/accordions/",
-  alerts: "/docs/components/alerts/",
-  avatars: "/docs/components/avatars/",
-  badges: "/docs/components/badges/",
-  breadcrumbs: "/docs/components/breadcrumbs/",
-  buttons: "/docs/components/buttons/",
-  cards: "/docs/components/cards/",
-  navbars: "/docs/components/navbars/",
-  paginations: "/docs/components/paginations/",
+  component: "/docs/components/",
+  accordion: "/docs/components/accordions/",
+  alert: "/docs/components/alerts/",
+  avatar: "/docs/components/avatars/",
+  badge: "/docs/components/badges/",
+  breadcrumb: "/docs/components/breadcrumbs/",
+  button: "/docs/components/buttons/",
+  card: "/docs/components/cards/",
+  navbar: "/docs/components/navbars/",
+  pagination: "/docs/components/paginations/",
+  skeleton: "/docs/components/skeletons/",
+  spinner: "/docs/components/spinners/",
 
   // Github
   github: "https://github.com/youzarsiph/next-evolution/",

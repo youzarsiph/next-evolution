@@ -4,7 +4,7 @@ import { Pagination, PaginationItem } from "../../../components/navigation";
 
 export default function Paginations() {
   return (
-    <View prevPage={urls["navbars"]} nextPage={urls["components"]}>
+    <View prevPage={urls["navbar"]} nextPage={urls["skeleton"]}>
       <article className="mb-8" title="Pagination">
         <h1 className="text-gradient gradient-primary">Pagination</h1>
         <p className="text-xl font-light">

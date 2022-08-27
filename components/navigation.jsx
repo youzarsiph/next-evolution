@@ -119,7 +119,7 @@ export class MenuToggler extends MianNav {
           document.getElementById(this.menuID).classList.toggle("hidden");
         }}
       >
-        <span id={this.id} className="navbar-toggler-icon"></span>
+        <span id={this.id} className="navbar-toggle-icon"></span>
       </button>
     );
   }

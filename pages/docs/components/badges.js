@@ -5,7 +5,7 @@ import { Flex } from "../../../components/utils";
 
 export default function Badges() {
   return (
-    <View prevPage={urls["avatars"]} nextPage={urls["breadcrumbs"]}>
+    <View prevPage={urls["avatar"]} nextPage={urls["breadcrumb"]}>
       <article title="Badges">
         <h1 className="text-gradient gradient-primary">Badges</h1>
         <p className="text-xl font-light">
@@ -40,7 +40,7 @@ export default function Badges() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Badge key={item} color={item} outline>
+              <Badge key={item} color={item} enableOutline>
                 {item}
               </Badge>
             );
