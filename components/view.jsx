@@ -335,6 +335,36 @@ export class Card extends Component {
   }
 }
 
+export class Carousel extends Component {
+  render() {
+    return (
+      <div className="flex items-center w-full relative">
+        <button
+          className="flex items-center justify-center absolute left-0"
+          onClick={() => {
+            document
+              .querySelector(".carousel-content > div.hidden")
+              .classList.toggle("hidden");
+            document
+              .querySelector(".carousel-content > div:not(hidden)")
+              .classList.toggle("hidden");
+          }}
+        >
+          <span className="carousel-prev-btn"></span>
+        </button>
+        <div className="flex items-center w-full carousel-content">
+          <div className="w-full h-80 rounded-lg bg-gradient gradient-info hidden"></div>
+          <div className="w-full h-80 rounded-lg bg-gradient gradient-primary"></div>
+          <div className="w-full h-80 rounded-lg bg-gradient gradient-success hidden"></div>
+        </div>
+        <button className="flex items-center justify-center absolute right-0">
+          <span className="carousel-next-btn"></span>
+        </button>
+      </div>
+    );
+  }
+}
+
 export class CardHeader extends Component {
   render() {
     return <header className="card-header">{this.props.children}</header>;
@@ -439,12 +469,14 @@ export class Spinner extends Main {
 
   render() {
     return (
-      <span
-        role={"status"}
-        title={"Loading"}
-        className={`${this.baseClass} ${this.modifierClass}`}
-      >
-        {this.props.children}
+      <span className="spinner-container">
+        <span
+          role={"status"}
+          title={"Loading"}
+          className={`${this.baseClass} ${this.modifierClass}`}
+        >
+          {this.props.children}
+        </span>
       </span>
     );
   }

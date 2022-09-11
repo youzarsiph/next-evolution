@@ -1,10 +1,6 @@
 import urls from "../../../urls";
 import { View } from "../components";
-import {
-  Input,
-  Textarea,
-  Select,
-} from "../../../components/forms";
+import { Input, Textarea, Select } from "../../../components/forms";
 
 export default function Floating() {
   return (

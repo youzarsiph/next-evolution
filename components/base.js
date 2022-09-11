@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 class Base extends Component {
   /**
@@ -8,7 +8,8 @@ class Base extends Component {
   constructor(props) {
     super(props);
 
-    // Creation fof the element
+    // Creation of the element
+    this.attributes = this.getAttributes();
     this.element = this.createElement();
   }
 
@@ -19,23 +20,30 @@ class Base extends Component {
     return <div>{this.props.children}</div>;
   }
 
-  getClassName() {
-    /**
-     * A method to define the classNames of the element
-     */
-    return "";
+  getAttributes() {
+    // A method to define the attributes of an element
+    return {};
   }
 
   createElement() {
     /**
      * A method to create the element
      */
-    let element = this.getElement();
-    element.classList.add(this.getClassName());
-    return element;
+    return React.createElement("div", this.attributes);
   }
 
   render() {
     return this.element;
+  }
+}
+
+export class Test extends Base {
+  getAttributes() {
+    return {
+      id: "myID",
+      className:
+        "flex items-center justify-center h-96 mx-40 rounded-xl bg-gradient gradient-success",
+      children: "NextEvolution",
+    };
   }
 }

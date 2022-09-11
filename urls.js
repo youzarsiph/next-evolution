@@ -3,16 +3,16 @@ let urls = {
 
   // Documentation
   docs: "/docs/",
-  contents: '/docs/contents/',
+  contents: "/docs/contents/",
   typography: "/docs/contents/typography/",
   images: "/docs/contents/images/",
   tables: "/docs/contents/tables/",
 
   // Forms
-  forms: '/docs/forms/',
-  overview: '/docs/forms/overview/',
-  floating: '/docs/forms/floating/',
-  flushed: '/docs/forms/flushed/',
+  forms: "/docs/forms/",
+  overview: "/docs/forms/overview/",
+  floating: "/docs/forms/floating/",
+  flushed: "/docs/forms/flushed/",
 
   // Components
   component: "/docs/components/",
@@ -23,6 +23,7 @@ let urls = {
   breadcrumb: "/docs/components/breadcrumbs/",
   button: "/docs/components/buttons/",
   card: "/docs/components/cards/",
+  carousel: "/docs/components/carousels/",
   navbar: "/docs/components/navbars/",
   pagination: "/docs/components/paginations/",
   skeleton: "/docs/components/skeletons/",

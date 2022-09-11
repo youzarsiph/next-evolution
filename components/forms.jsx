@@ -7,7 +7,11 @@ export class Form extends Component {
    */
   render() {
     return (
-      <form method={this.props.method} action={this.props.action} encType={this.props.encType}>
+      <form
+        method={this.props.method}
+        action={this.props.action}
+        encType={this.props.encType}
+      >
         {this.props.children}
       </form>
     );
@@ -60,6 +64,7 @@ class BaseInput extends Component {
       </label>
     );
   }
+
   // Creating the input
   getInput() {
     /**

@@ -6,7 +6,7 @@ export default function Images() {
     <View prevPage={urls["typography"]} nextPage={urls["tables"]}>
       <article title="Images">
         <h1 className="text-gradient gradient-primary">Images &amp; Figures</h1>
-        <div className="grid lg:grid-cols-2 gap-4">
+        <div className="grid gap-4 lg:grid-cols-2">
           <figure>
             <svg
               className="w-full rounded-lg"

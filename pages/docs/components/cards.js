@@ -11,7 +11,7 @@ import urls from "../../../urls";
 
 export default function Cards() {
   return (
-    <View prevPage={urls["button"]} nextPage={urls["navbar"]}>
+    <View prevPage={urls["button"]} nextPage={urls["carousel"]}>
       <article title="Cards">
         <h1 className="text-gradient gradient-primary">Cards</h1>
         <p className="text-xl font-light">
@@ -20,9 +20,9 @@ export default function Cards() {
         </p>
 
         <h2>Basic</h2>
-        <div className="max-w-md mb-8">
+        <div className="mb-8 max-w-md">
           <Card>
-            <div className="flex items-center justify-center h-72 bg-gradient gradient-primary text-white text-5xl rounded-t-lg">
+            <div className="bg-gradient gradient-primary flex h-72 items-center justify-center rounded-t-lg text-5xl text-white">
               Next Evolution
             </div>
             <CardBody>
@@ -34,11 +34,11 @@ export default function Cards() {
         </div>
 
         <h2>Metadata</h2>
-        <div className="grid lg:grid-cols-2 gap-4 mb-8">
+        <div className="mb-8 grid gap-4 lg:grid-cols-2">
           <Card>
             <CardBody>
               <h5>Special treatment</h5>
-              <p className="font-bold text-slate-400 mb-6">2hrs ago</p>
+              <p className="mb-6 font-bold text-slate-400">2hrs ago</p>
               <p>
                 With supporting text below as a natural lead-in to additional
                 content.
@@ -50,7 +50,7 @@ export default function Cards() {
           <Card>
             <CardBody>
               <h5>Special treatment</h5>
-              <div className="flex items-center gap-4 mb-6 font-bold">
+              <div className="mb-6 flex items-center gap-4 font-bold">
                 <span className="text-pink-400">50 Likes</span>
                 750 Views
               </div>
@@ -107,7 +107,7 @@ export default function Cards() {
         </div>
 
         <h2>Actions</h2>
-        <div className="grid lg:grid-cols-2 gap-4 mb-8">
+        <div className="mb-8 grid gap-4 lg:grid-cols-2">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -158,7 +158,7 @@ export default function Cards() {
           </Card>
         </div>
 
-        <div className="max-w-lg mb-8">
+        <div className="mb-8 max-w-lg">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -174,14 +174,14 @@ export default function Cards() {
               </div>
             </CardHeader>
             <figure>
-              <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-info text-white text-4xl lg:text-5xl">
+              <div className="bg-gradient gradient-info flex h-80 items-center justify-center text-4xl text-white lg:h-96 lg:text-5xl">
                 Next Evolution
               </div>
             </figure>
             <CardBody>
-              <div className="flex items-center justify-between mb-4 text-sm">
+              <div className="mb-4 flex items-center justify-between text-sm">
                 <div>
-                  <span className="text-red-500 mr-4">Loved</span>
+                  <span className="mr-4 text-red-500">Loved</span>
                   Comment
                 </div>
                 Bookmark
@@ -194,7 +194,7 @@ export default function Cards() {
             <CardFooter>
               <input
                 type="text"
-                className="form-control form-control-flushed py-0 border-b-0"
+                className="form-control form-control-flushed border-b-0 py-0"
                 placeholder="Add comment"
               />
             </CardFooter>
@@ -202,7 +202,7 @@ export default function Cards() {
         </div>
 
         <h2>Gradients</h2>
-        <div className="grid lg:grid-cols-2 gap-4">
+        <div className="grid gap-4 lg:grid-cols-2">
           <Card>
             <CardBody>
               <h5 className="text-gradient gradient-primary">Next Evolution</h5>
@@ -231,7 +231,7 @@ export default function Cards() {
 
           <Card>
             <figure>
-              <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-success rounded-lg text-white text-4xl lg:text-5xl">
+              <div className="bg-gradient gradient-success flex h-80 items-center justify-center rounded-lg text-4xl text-white lg:h-96 lg:text-5xl">
                 Evolution UI
               </div>
             </figure>
@@ -251,7 +251,7 @@ export default function Cards() {
           <Card>
             <CardBody>
               <figure>
-                <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-danger rounded-xl text-white text-4xl lg:text-5xl">
+                <div className="bg-gradient gradient-danger flex h-80 items-center justify-center rounded-xl text-4xl text-white lg:h-96 lg:text-5xl">
                   Evolution UI
                 </div>
               </figure>

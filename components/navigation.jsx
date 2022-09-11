@@ -20,7 +20,7 @@ export class BreadcrumbItem extends Component {
     return (
       <>
         <li>{this.props.children}</li>
-        <li role={"presentation"} className="last:hidden">
+        <li role={"presentation"} className="breadcrumb-item">
           »
         </li>
       </>
@@ -44,6 +44,9 @@ class MianNav extends Component {
 
     if (props.fixed && !props.sidebar) {
       this.modifierClass = " navbar-fixed";
+      if (props.overlay) {
+        this.modifierClass += " navbar-overlay";
+      }
     }
 
     if (props.bordered) {
@@ -74,11 +77,7 @@ export class Navbar extends MianNav {
 
 export class NavbarContainer extends Component {
   render() {
-    return (
-      <div className="navbar-container">
-        {this.props.children}
-      </div>
-    );
+    return <div className="navbar-container">{this.props.children}</div>;
   }
 }
 
@@ -92,7 +91,11 @@ export class NavbarBrand extends Component {
   }
 }
 
-export class NavbarMenu extends MianNav {
+export class NavbarMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.id = props.id;
+  }
   render() {
     return (
       <ul id={this.id} className={`navbar-menu lg:flex hidden`}>
@@ -102,9 +105,10 @@ export class NavbarMenu extends MianNav {
   }
 }
 
-export class MenuToggler extends MianNav {
+export class MenuToggler extends Component {
   constructor(props) {
     super(props);
+    this.id = props.id;
 
     // Target element
     this.menuID = props.menuID;
@@ -136,6 +140,7 @@ export class MenuItem extends Component {
       this.modifierClass = "navbar-menu-heading px-0";
     }
   }
+
   render() {
     return (
       <li className={`navbar-menu-item ${this.modifierClass}`}>
@@ -162,14 +167,11 @@ export class Pagination extends Component {
       ? this.justifications[props.justify]
       : this.justifications["start"];
   }
+
   render() {
     return (
       <nav aria-label={this.props.ariaLabel} className="my-4">
-        <ol
-          className={`pagination ${this.justify}`}
-        >
-          {this.props.children}
-        </ol>
+        <ol className={`pagination ${this.justify}`}>{this.props.children}</ol>
       </nav>
     );
   }
@@ -177,10 +179,6 @@ export class Pagination extends Component {
 
 export class PaginationItem extends Component {
   render() {
-    return (
-      <li className="pagination-item">
-        {this.props.children}
-      </li>
-    );
+    return <li className="pagination-item">{this.props.children}</li>;
   }
 }

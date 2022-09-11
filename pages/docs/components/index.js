@@ -24,7 +24,7 @@ export class View extends Component {
 
   render() {
     return (
-      <div className="lg:overflow-hidden lg:h-screen">
+      <div className="lg:h-screen lg:overflow-hidden">
         <BaseNavbar bordered />
 
         <Grid>
@@ -77,26 +77,35 @@ export class View extends Component {
                   </MenuItem>
                   <MenuItem>
                     <Link href={urls["button"]}>Buttons</Link>
+                    <span className="ml-4">
+                      <Badge color="secondary">Updated</Badge>
+                    </span>
                   </MenuItem>
                   <MenuItem>
                     <Link href={urls["card"]}>Cards</Link>
                   </MenuItem>
+                  {/* <MenuItem>
+                    <Link href={urls["carousel"]}>Carousels</Link>
+                    <span className="ml-4">
+                      <Badge color="success">New</Badge>
+                    </span>
+                  </MenuItem> */}
                   <MenuItem>
                     <Link href={urls["navbar"]}>Navbars</Link>
                   </MenuItem>
                   <MenuItem>
                     <Link href={urls["pagination"]}>Paginations</Link>
+                    <span className="ml-4">
+                      <Badge color="secondary">Updated</Badge>
+                    </span>
                   </MenuItem>
                   <MenuItem>
                     <Link href={urls["skeleton"]}>Skeletons</Link>
-                    <span className="ml-4">
-                      <Badge color="info" pill>New</Badge>
-                    </span>
                   </MenuItem>
                   <MenuItem>
                     <Link href={urls["spinner"]}>Spinners</Link>
                     <span className="ml-4">
-                      <Badge color="info" pill>New</Badge>
+                      <Badge color="secondary">Updated</Badge>
                     </span>
                   </MenuItem>
                 </NavbarMenu>
@@ -110,12 +119,12 @@ export class View extends Component {
 
               <Pagination justify="end">
                 <PaginationItem>
-                  <span className="inline-block mr-4">«</span>
+                  <span className="mr-4 inline-block">«</span>
                   <Link href={this.prevPage}>Prev</Link>
                 </PaginationItem>
                 <PaginationItem>
                   <Link href={this.nextPage}>Next</Link>
-                  <span className="inline-block ml-4"> »</span>
+                  <span className="ml-4 inline-block"> »</span>
                 </PaginationItem>
               </Pagination>
             </div>

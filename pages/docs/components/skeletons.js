@@ -16,7 +16,8 @@ export default function Skeletons() {
       <article title="Spinners">
         <h1 className="text-gradient gradient-primary">Skeletons</h1>
         <p className="text-xl font-light">
-          Display a placeholder preview of the content to reduce load-time frustration.
+          Display a placeholder preview of the content to reduce load-time
+          frustration.
         </p>
 
         <h2>Basic</h2>
@@ -53,16 +54,16 @@ export default function Skeletons() {
                 <Skeleton type="square" />
               </figure>
               <CardBody>
-                <div className="flex items-center justify-between mb-4 text-sm">
+                <div className="mb-4 flex items-center justify-between text-sm">
                   <div>
                     <Skeleton enableSizing size="word" type="text" />
-                    <span className="inline-block ml-4">
+                    <span className="ml-4 inline-block">
                       <Skeleton enableSizing size="2word" type="text" />
                     </span>
                   </div>
                   <Skeleton enableSizing size="word" type="text" />
                 </div>
-                <p className="flex flex-col gap-2 mb-0">
+                <p className="mb-0 flex flex-col gap-2">
                   <Skeleton type="text" />
                   <Skeleton enableSizing size="5word" type="text" />
                 </p>
@@ -90,14 +91,14 @@ export default function Skeletons() {
                 </div>
               </CardHeader>
               <figure>
-                <div className="flex items-center justify-center h-80 lg:h-96 bg-gradient gradient-info text-white text-4xl lg:text-5xl">
+                <div className="bg-gradient gradient-info flex h-80 items-center justify-center text-4xl text-white lg:h-96 lg:text-5xl">
                   Next Evolution
                 </div>
               </figure>
               <CardBody>
-                <div className="flex items-center justify-between mb-4 text-sm">
+                <div className="mb-4 flex items-center justify-between text-sm">
                   <div>
-                    <span className="text-red-500 mr-4">Loved</span>
+                    <span className="mr-4 text-red-500">Loved</span>
                     Comment
                   </div>
                   Bookmark
@@ -110,7 +111,7 @@ export default function Skeletons() {
               <CardFooter>
                 <input
                   type="text"
-                  className="form-control form-control-flushed py-0 border-b-0"
+                  className="form-control form-control-flushed border-b-0 py-0"
                   placeholder="Add comment"
                 />
               </CardFooter>

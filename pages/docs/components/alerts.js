@@ -13,7 +13,7 @@ export default function Alerts() {
         </p>
 
         <h2>Basic</h2>
-        <div className="grid gap-4 mb-4">
+        <div className="mb-4 grid gap-4">
           {colors.map((item) => {
             return (
               <Alert key={item} color={item}>

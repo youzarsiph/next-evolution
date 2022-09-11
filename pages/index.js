@@ -18,8 +18,9 @@ export function BaseNavbar(props) {
     <Navbar
       id="navbar"
       fixed={props.fixed}
-      bordered={props.bordered}
+      overlay={props.overlay}
       rounded={props.rounded}
+      bordered={props.bordered}
     >
       <NavbarContainer>
         <NavbarBrand href={urls["home"]}>EvolutionUI</NavbarBrand>
@@ -56,9 +57,11 @@ export default class Home extends Component {
 
         <BaseNavbar />
 
-        <header className="text-white bg-gradient gradient-info shadow-lg">
-          <div className="container py-24 mb-16">
-            <h1 className="lg:text-9xl text-white">Next Evolution</h1>
+        <header className="bg-gradient gradient-info text-white shadow-lg">
+          <div className="container mb-16 py-24">
+            <h1 className="font-extrabold tracking-tight text-white lg:text-9xl">
+              Next Evolution
+            </h1>
 
             <h3 className="text-white">Evolution of the UI</h3>
 
@@ -70,11 +73,15 @@ export default class Home extends Component {
         </header>
 
         <Container>
-          <h1 className="text-gradient gradient-primary">Features</h1>
-          <div className="grid lg:grid-cols-2 gap-4">
+          <h1 className="text-gradient gradient-primary font-extrabold tracking-tight">
+            Features
+          </h1>
+          <div className="grid gap-4 lg:grid-cols-2">
             <Card>
               <CardBody>
-                <h3 className="font-light">Open Source & Free</h3>
+                <h3 className="font-extrabold tracking-tight">
+                  Open Source & Free
+                </h3>
                 <p className="mb-4">
                   Next Evolution is an open source project hosted on Github
                 </p>
@@ -89,7 +96,9 @@ export default class Home extends Component {
 
             <Card>
               <CardBody>
-                <h3 className="font-light">Beautiful & Elegant</h3>
+                <h3 className="font-extrabold tracking-tight">
+                  Beautiful & Elegant
+                </h3>
                 <p>
                   Beautiful by default and Responsive. Do more with less code
                 </p>
@@ -98,12 +107,14 @@ export default class Home extends Component {
           </div>
         </Container>
 
-        <footer className="text-white bg-gradient gradient-success shadow-2xl">
-          <div className="container py-24 mt-16">
-            <h1 className="text-white">Next Evolution</h1>
+        <footer className="bg-gradient gradient-success text-white shadow-2xl">
+          <div className="container mt-16 py-24">
+            <h1 className="font-bold tracking-tight text-white">
+              Next Evolution
+            </h1>
             <h3 className="text-white">Open Source React Component Library</h3>
 
-            <p className="text-white text-xl">
+            <p className="text-xl text-white">
               Made with love by{" "}
               <a
                 href="https://github.com/youzarsiph"

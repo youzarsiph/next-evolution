@@ -62,7 +62,7 @@ export default function Avatars() {
               <Avatar key={item} enableSizing size={item} color="info">
                 <figure className="absolute inset-0 mb-0 object-cover">
                   <svg
-                    className="w-full h-full rounded-full"
+                    className="h-full w-full rounded-full"
                     width="800"
                     height="400"
                     xmlns="http://www.w3.org/2000/svg"

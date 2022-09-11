@@ -38,7 +38,7 @@ export default function Spinners() {
           {colors.map((item) => {
             return (
               <Spinner key={item} color={item} type="gradient">
-                <span className="inline-block w-full h-full rounded-full bg-white" />
+                <span className="inline-block h-full w-full rounded-full bg-white" />
               </Spinner>
             );
           })}
