@@ -6,7 +6,7 @@ export class Breadcrumb extends Component {
     return (
       <nav
         role={"navigation"}
-        className="p-4 border-y my-4"
+        className="my-4 border-y p-4"
         aria-label={this.props.ariaLabel}
       >
         <ol className="breadcrumb">{this.props.children}</ol>
@@ -98,7 +98,7 @@ export class NavbarMenu extends Component {
   }
   render() {
     return (
-      <ul id={this.id} className={`navbar-menu lg:flex hidden`}>
+      <ul id={this.id} className={`navbar-menu hidden lg:flex`}>
         {this.props.children}
       </ul>
     );

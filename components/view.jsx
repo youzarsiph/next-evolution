@@ -338,9 +338,9 @@ export class Card extends Component {
 export class Carousel extends Component {
   render() {
     return (
-      <div className="flex items-center w-full relative">
+      <div className="relative flex w-full items-center">
         <button
-          className="flex items-center justify-center absolute left-0"
+          className="absolute left-0 flex items-center justify-center"
           onClick={() => {
             document
               .querySelector(".carousel-content > div.hidden")
@@ -352,12 +352,12 @@ export class Carousel extends Component {
         >
           <span className="carousel-prev-btn"></span>
         </button>
-        <div className="flex items-center w-full carousel-content">
-          <div className="w-full h-80 rounded-lg bg-gradient gradient-info hidden"></div>
-          <div className="w-full h-80 rounded-lg bg-gradient gradient-primary"></div>
-          <div className="w-full h-80 rounded-lg bg-gradient gradient-success hidden"></div>
+        <div className="carousel-content flex w-full items-center">
+          <div className="bg-gradient gradient-info hidden h-80 w-full rounded-lg"></div>
+          <div className="bg-gradient gradient-primary h-80 w-full rounded-lg"></div>
+          <div className="bg-gradient gradient-success hidden h-80 w-full rounded-lg"></div>
         </div>
-        <button className="flex items-center justify-center absolute right-0">
+        <button className="absolute right-0 flex items-center justify-center">
           <span className="carousel-next-btn"></span>
         </button>
       </div>
@@ -485,7 +485,7 @@ export class Spinner extends Main {
 export class Table extends Component {
   render() {
     return (
-      <div className="overflow-auto border rounded-lg mb-4">
+      <div className="mb-4 overflow-auto rounded-lg border">
         <table>{this.props.children}</table>
       </div>
     );

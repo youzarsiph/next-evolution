@@ -86,7 +86,7 @@ class BaseInput extends Component {
       <div className="relative mb-4">
         {this.labelBefore ? this.getLabel() : this.getInput()}
         {!this.labelBefore ? this.getLabel() : this.getInput()}
-        <small className="block mt-1 text-slate-400">{this.helpText}</small>
+        <small className="mt-1 block text-slate-400">{this.helpText}</small>
       </div>
     );
   }

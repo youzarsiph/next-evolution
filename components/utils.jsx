@@ -13,7 +13,7 @@ export class Container extends Component {
 export class Flex extends Component {
   render() {
     return (
-      <div className="flex flex-wrap items-center gap-4 mb-8">
+      <div className="mb-8 flex flex-wrap items-center gap-4">
         {this.props.children}
       </div>
     );
@@ -59,7 +59,7 @@ export class Grid extends Component {
 
   render() {
     return (
-      <div className={`grid ${this.colClass} ${this.rowClass} gap-4 mb-8`}>
+      <div className={`grid ${this.colClass} ${this.rowClass} mb-8 gap-4`}>
         {this.props.children}
       </div>
     );
@@ -104,7 +104,7 @@ export class Column extends Component {
 export class Code extends Component {
   render() {
     return (
-      <code className="block p-4 border rounded-lg shadow-sm bg-slate-900">
+      <code className="block rounded-lg border bg-slate-900 p-4 shadow-sm">
         <pre>{this.props.children}</pre>
       </code>
     );
