@@ -98,9 +98,12 @@ export class NavbarMenu extends Component {
   }
   render() {
     return (
-      <ul id={this.id} className={`navbar-menu hidden lg:flex`}>
-        {this.props.children}
-      </ul>
+      <>
+        <input type="checkbox" id={this.id} className={`peer sr-only`} />
+        <ul className={`navbar-menu hidden peer-checked:flex lg:flex`}>
+          {this.props.children}
+        </ul>
+      </>
     );
   }
 }
@@ -116,14 +119,12 @@ export class MenuToggler extends Component {
 
   render() {
     return (
-      <button
-        className="navbar-toggler"
-        onClick={() => {
-          document.getElementById(this.id).classList.toggle("show");
-          document.getElementById(this.menuID).classList.toggle("hidden");
-        }}
-      >
-        <span id={this.id} className="navbar-toggle-icon"></span>
+      <button className="navbar-toggler group">
+        <label
+          id={this.id}
+          htmlFor={this.menuID}
+          className="navbar-toggle-icon group-active:show"
+        ></label>
       </button>
     );
   }
