@@ -23,6 +23,164 @@ export class View extends Component {
   }
 
   render() {
+    const links = [
+      // Contents
+      {
+        label: "Contents",
+        link: urls["contents"],
+        heading: true,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Typography",
+        link: urls["typography"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Images",
+        link: urls["images"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Tables",
+        link: urls["tables"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      // Forms
+      {
+        label: "Forms",
+        link: urls["forms"],
+        heading: true,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Overview",
+        link: urls["overview"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Floating",
+        link: urls["floating"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Flushed",
+        link: urls["flushed"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      // Components
+      {
+        label: "Components",
+        link: urls["component"],
+        heading: true,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Accordions",
+        link: urls["accordion"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Alerts",
+        link: urls["alert"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Avatars",
+        link: urls["avatar"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Badges",
+        link: urls["badge"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Breadcrumbs",
+        link: urls["breadcrumb"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Buttons",
+        link: urls["button"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Cards",
+        link: urls["card"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Navbars",
+        link: urls["navbar"],
+        heading: false,
+        new: false,
+        updated: true,
+      },
+      {
+        label: "Paginations",
+        link: urls["pagination"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Skeletons",
+        link: urls["skeleton"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+      {
+        label: "Spinners",
+        link: urls["spinner"],
+        heading: false,
+        new: false,
+        updated: false,
+      },
+    ];
+
+    const newState = (
+      <span className="ml-4">
+        <Badge color="success">New</Badge>
+      </span>
+    );
+
+    const updatedState = (
+      <span className="ml-4">
+        <Badge color="secondary">Updated</Badge>
+      </span>
+    );
+
     return (
       <div className="lg:h-screen lg:overflow-hidden">
         <BaseNavbar bordered />
@@ -37,77 +195,28 @@ export class View extends Component {
                 </NavbarContainer>
 
                 <NavbarMenu id="sidebarMenu">
-                  <MenuItem heading>Contents</MenuItem>
-                  <MenuItem>
-                    <Link href={urls["typography"]}>Typography</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["images"]}>Images</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["tables"]}>Tables</Link>
-                  </MenuItem>
-
-                  <MenuItem heading>Forms</MenuItem>
-                  <MenuItem>
-                    <Link href={urls["overview"]}>Overview</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["floating"]}>Floating</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["flushed"]}>Flushed</Link>
-                  </MenuItem>
-
-                  <MenuItem heading>Components</MenuItem>
-                  <MenuItem>
-                    <Link href={urls["accordion"]}>Accordions</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["alert"]}>Alerts</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["avatar"]}>Avatars</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["badge"]}>Badges</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["breadcrumb"]}>Breadcrumbs</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["button"]}>Buttons</Link>
-                    <span className="ml-4">
-                      <Badge color="secondary">Updated</Badge>
+                  <li
+                    className={`navbar-menu-item navbar-menu-heading lg:hidden`}
+                  >
+                    <span className="navbar-brand flex items-center justify-between">
+                      <Link href={"/"}>Docs</Link>
+                      <button type="button" className="inline-block h-8 w-8">
+                        <label
+                          htmlFor="sidebarMenu"
+                          className="navbar-toggle-icon show"
+                        ></label>
+                      </button>
                     </span>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["card"]}>Cards</Link>
-                  </MenuItem>
-                  {/* <MenuItem>
-                    <Link href={urls["carousel"]}>Carousels</Link>
-                    <span className="ml-4">
-                      <Badge color="success">New</Badge>
-                    </span>
-                  </MenuItem> */}
-                  <MenuItem>
-                    <Link href={urls["navbar"]}>Navbars</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["pagination"]}>Paginations</Link>
-                    <span className="ml-4">
-                      <Badge color="secondary">Updated</Badge>
-                    </span>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["skeleton"]}>Skeletons</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href={urls["spinner"]}>Spinners</Link>
-                    <span className="ml-4">
-                      <Badge color="secondary">Updated</Badge>
-                    </span>
-                  </MenuItem>
+                  </li>
+                  {links.map((item) => {
+                    return (
+                      <MenuItem key={item["label"]} heading={item["heading"]}>
+                        <Link href={item["link"]}>{item["label"]}</Link>
+                        {item["updated"] ? updatedState : ""}
+                        {item["new"] ? newState : ""}
+                      </MenuItem>
+                    );
+                  })}
                 </NavbarMenu>
               </Navbar>
             </div>

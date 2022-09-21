@@ -28,6 +28,17 @@ export function BaseNavbar(props) {
       </NavbarContainer>
 
       <NavbarMenu id="navMenu">
+        <li className={`navbar-menu-item navbar-menu-heading lg:hidden`}>
+          <span className="navbar-brand flex items-center justify-between">
+            <Link href={"/"}>EvolutionUI</Link>
+            <button type="button" className="inline-block h-8 w-8">
+              <label
+                htmlFor="navMenu"
+                className="navbar-toggle-icon show"
+              ></label>
+            </button>
+          </span>
+        </li>
         <MenuItem>
           <Link href={urls["home"]}>Home</Link>
         </MenuItem>

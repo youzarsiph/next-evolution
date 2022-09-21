@@ -100,9 +100,11 @@ export class NavbarMenu extends Component {
     return (
       <>
         <input type="checkbox" id={this.id} className={`peer sr-only`} />
-        <ul className={`navbar-menu hidden peer-checked:flex lg:flex`}>
-          {this.props.children}
-        </ul>
+        <label
+          htmlFor={this.id}
+          className={"fixed inset-0 hidden peer-checked:block lg:hidden"}
+        ></label>
+        <ul className={`navbar-menu`}>{this.props.children}</ul>
       </>
     );
   }

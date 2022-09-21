@@ -562,7 +562,7 @@
   /* End forms */
   /* Navbar */
   .navbar {
-    @apply flex flex-col items-center justify-between gap-4 bg-white px-8 py-4 lg:flex-row lg:justify-start;
+    @apply relative flex flex-col items-center justify-between gap-4 bg-white px-6 py-4 lg:flex-row lg:justify-start;
   }
 
   .navbar-vertical {
@@ -582,28 +582,23 @@
   }
 
   .navbar-brand {
-    @apply text-gradient gradient-info hover:text-gradient hover:gradient-success text-2xl font-semibold hover:no-underline;
+    @apply text-2xl font-semibold;
   }
 
   .navbar-brand a {
-    @apply text-inherit;
+    @apply text-inherit hover:no-underline;
   }
 
   .navbar-toggler {
-    @apply m-0 flex items-center justify-center outline-none hover:cursor-pointer lg:hidden;
-  }
-
-  .toggling {
-    @apply relative h-0 overflow-hidden;
-    transition: height 0.2s ease;
+    @apply flex items-center justify-center outline-none lg:hidden;
   }
 
   .navbar-menu {
-    @apply flex w-full flex-col gap-4 bg-white pl-0 font-semibold lg:w-auto lg:flex-row;
+    @apply fixed inset-y-0 -left-full z-50 flex w-4/5 flex-col gap-4 overflow-y-auto bg-white p-8 shadow-lg duration-500 peer-checked:left-0 lg:static lg:w-auto lg:flex-row lg:p-0 lg:pl-0 lg:shadow-none;
   }
 
   .navbar-vertical .navbar-menu {
-    @apply w-full flex-col gap-2;
+    @apply lg:w-full flex-col gap-2;
   }
 
   .navbar-menu-item {
@@ -627,7 +622,7 @@
   }
 
   .navbar-toggle-icon {
-    @apply inline-block h-8 w-8 bg-cover bg-center bg-no-repeat m-0;
+    @apply m-0 inline-block h-8 w-8 bg-cover bg-center bg-no-repeat;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 

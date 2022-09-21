@@ -23,11 +23,22 @@ export default function Navbars() {
         <div className="mb-4">
           <Navbar id="x0">
             <NavbarContainer>
-              <NavbarBrand href={urls["home"]}>Evolution UI</NavbarBrand>
+              <NavbarBrand href={urls["home"]}>EvolutionUI</NavbarBrand>
               <MenuToggler id="xToggler0" menuID="xMenu0" />
             </NavbarContainer>
 
             <NavbarMenu id="xMenu0">
+              <li className={`navbar-menu-item navbar-menu-heading lg:hidden`}>
+                <span className="navbar-brand flex items-center justify-between">
+                  Evolution
+                  <button type="button" className="inline-block h-8 w-8">
+                    <label
+                      htmlFor="xMenu0"
+                      className="navbar-toggle-icon show"
+                    ></label>
+                  </button>
+                </span>
+              </li>
               <MenuItem>Home</MenuItem>
               <MenuItem>Docs</MenuItem>
               <MenuItem>About</MenuItem>
@@ -36,14 +47,25 @@ export default function Navbars() {
           </Navbar>
         </div>
 
-        <h2>Bordered & Rounded</h2>
+        <h2>Borders</h2>
         <Navbar id="x" bordered rounded>
           <NavbarContainer>
-            <NavbarBrand href={urls["home"]}>Evolution UI</NavbarBrand>
+            <NavbarBrand href={urls["home"]}>EvolutionUI</NavbarBrand>
             <MenuToggler id="xToggler" menuID="xMenu" />
           </NavbarContainer>
 
           <NavbarMenu id="xMenu">
+            <li className={`navbar-menu-item navbar-menu-heading lg:hidden`}>
+              <span className="navbar-brand flex items-center justify-between">
+                Evolution
+                <button type="button" className="inline-block h-8 w-8">
+                  <label
+                    htmlFor="xMenu"
+                    className="navbar-toggle-icon show"
+                  ></label>
+                </button>
+              </span>
+            </li>
             <MenuItem>Home</MenuItem>
             <MenuItem>Docs</MenuItem>
             <MenuItem>About</MenuItem>
