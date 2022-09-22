@@ -502,7 +502,7 @@
   /* End carousel */
   /* Forms */
   .form-control {
-    @apply block w-full rounded-lg border bg-white px-4 py-3 shadow-sm outline-none file:mr-4 file:rounded-lg file:border-0 file:bg-slate-50 file:px-4 file:py-2 file:shadow-sm file:transition-all invalid:border-red-400 invalid:text-red-400 invalid:ring invalid:ring-red-300 file:hover:bg-slate-100 focus:border-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:ring active:ring-offset-2;
+    @apply block w-full rounded-lg border bg-white px-4 py-3 shadow-sm outline-none file:mr-4 file:rounded-lg file:border-0 file:bg-slate-50 file:px-4 file:py-2 file:shadow-sm file:transition-all invalid:border-red-400 invalid:text-red-400 invalid:ring invalid:ring-red-300 file:hover:bg-slate-100 focus:border-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:border-pink-400 active:ring active:ring-pink-300 active:ring-offset-2;
   }
 
   .form-control-flushed {
@@ -598,7 +598,7 @@
   }
 
   .navbar-vertical .navbar-menu {
-    @apply lg:w-full flex-col gap-2;
+    @apply flex-col gap-2 lg:w-full;
   }
 
   .navbar-menu-item {
@@ -622,7 +622,7 @@
   }
 
   .navbar-toggle-icon {
-    @apply m-0 inline-block h-8 w-8 bg-cover bg-center bg-no-repeat;
+    @apply m-0 inline-block h-8 w-8 cursor-pointer bg-cover bg-center bg-no-repeat;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 
@@ -637,7 +637,7 @@
   }
 
   .pagination-item {
-    @apply inline-flex items-center justify-center rounded-lg border px-4 py-2 shadow-sm transition-all hover:shadow-lg active:scale-95;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-lg border px-4 py-2 shadow-sm transition-all hover:shadow-lg active:scale-95;
   }
 
   /* End pagination */

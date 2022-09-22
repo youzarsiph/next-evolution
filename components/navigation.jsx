@@ -102,7 +102,7 @@ export class NavbarMenu extends Component {
         <input type="checkbox" id={this.id} className={`peer sr-only`} />
         <label
           htmlFor={this.id}
-          className={"fixed inset-0 hidden peer-checked:block lg:hidden"}
+          className={"fixed inset-0 hidden peer-checked:block lg:hidden z-40"}
         ></label>
         <ul className={`navbar-menu`}>{this.props.children}</ul>
       </>
