@@ -17,10 +17,8 @@ export default function Accordions() {
         <h2>Basic</h2>
         <Accordion>
           <AccordionItem>
-            <AccordionButton target="x">
-              What is the service we offer?
-            </AccordionButton>
-            <AccordionContent id="x">
+            <AccordionButton id="x">What we offer?</AccordionButton>
+            <AccordionContent>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Consequuntur ut nemo porro officia necessitatibus modi autem
               repellendus quod debitis adipisci labore, fugit explicabo harum
@@ -29,10 +27,8 @@ export default function Accordions() {
           </AccordionItem>
 
           <AccordionItem>
-            <AccordionButton target="y">
-              What happens when using EUI?
-            </AccordionButton>
-            <AccordionContent id="y">
+            <AccordionButton id="y">Who we are?</AccordionButton>
+            <AccordionContent>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
               perferendis ut molestiae velit sed consequuntur praesentium, quo
               temporibus molestias suscipit, sapiente labore quod vel fugit

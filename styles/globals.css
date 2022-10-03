@@ -183,20 +183,20 @@
   }
 
   .accordion-item {
-    @apply grid gap-4;
+    @apply relative grid rounded-lg border shadow-sm;
   }
 
   .accordion-btn {
-    @apply flex w-full items-center justify-between rounded-lg border bg-white px-8 py-4 text-left outline-none hover:bg-pink-50 focus:border-pink-400 focus:bg-pink-50 focus:text-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2;
+    @apply relative w-full rounded-lg border-transparent bg-white px-6 py-4 text-left outline-none hover:bg-pink-50 focus:border focus:border-pink-400 focus:bg-pink-50 focus:text-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 peer-checked:border peer-checked:border-pink-400 peer-checked:bg-pink-50 peer-checked:text-pink-400 peer-checked:ring peer-checked:ring-pink-300 peer-checked:ring-offset-2;
   }
 
   .accordion-btn-icon {
-    @apply h-4 w-4 bg-cover bg-center bg-no-repeat;
+    @apply absolute right-6 top-5 h-4 w-4 bg-cover bg-center bg-no-repeat duration-300 peer-checked:-rotate-180;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='var%28--bs-body-color%29'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   }
 
   .accordion-content {
-    @apply mb-0 rounded-lg border px-8 py-4 shadow-sm;
+    @apply mb-0 hidden px-6 py-4 peer-checked:block;
   }
 
   /* End accordions */

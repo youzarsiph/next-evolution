@@ -99,23 +99,19 @@ export class AccordionItem extends Component {
 }
 
 export class AccordionButton extends Component {
-  constructor(props) {
-    super(props);
-    this.target = this.props.target;
-  }
-
   render() {
     return (
-      <button
-        type="button"
-        className="accordion-btn group"
-        onClick={() => {
-          document.getElementById(this.target).classList.toggle("hidden");
-        }}
-      >
-        {this.props.children}
-        <span className="accordion-btn-icon group-focus:-rotate-180 group-active:-rotate-180" />
-      </button>
+      <>
+        <input type="checkbox" id={this.props.id} className="peer sr-only" />
+        <button type="button" className="accordion-btn">
+          <label
+            htmlFor={this.props.id}
+            className="absolute inset-0 m-0"
+          ></label>
+          {this.props.children}
+        </button>
+        <span className="accordion-btn-icon" />
+      </>
     );
   }
 }
@@ -123,9 +119,9 @@ export class AccordionButton extends Component {
 export class AccordionContent extends Component {
   render() {
     return (
-      <p id={this.props.id} className="accordion-content hidden">
+      <div className="accordion-content">
         {this.props.children}
-      </p>
+      </div>
     );
   }
 }
