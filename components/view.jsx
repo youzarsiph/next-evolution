@@ -87,8 +87,24 @@ class Main extends Component {
 }
 
 export class Accordion extends Component {
+  constructor(props) {
+    super(props);
+
+    // Attrs
+    this.baseClass = "accordion";
+
+    // Handling modifier class
+    if (props.flushed) {
+      this.modifierClass += " accordion-flushed";
+    }
+  }
+
   render() {
-    return <ul className="accordion">{this.props.children}</ul>;
+    return (
+      <ul className={`accordion ${this.modifierClass}`}>
+        {this.props.children}
+      </ul>
+    );
   }
 }
 
@@ -118,11 +134,7 @@ export class AccordionButton extends Component {
 
 export class AccordionContent extends Component {
   render() {
-    return (
-      <div className="accordion-content">
-        {this.props.children}
-      </div>
-    );
+    return <div className="accordion-content">{this.props.children}</div>;
   }
 }
 

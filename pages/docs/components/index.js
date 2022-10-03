@@ -95,7 +95,7 @@ export class View extends Component {
         link: urls["accordion"],
         heading: false,
         new: false,
-        updated: false,
+        updated: true,
       },
       {
         label: "Alerts",
@@ -144,7 +144,7 @@ export class View extends Component {
         link: urls["navbar"],
         heading: false,
         new: false,
-        updated: true,
+        updated: false,
       },
       {
         label: "Paginations",

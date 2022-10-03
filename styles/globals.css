@@ -182,12 +182,32 @@
     @apply mb-4 grid gap-4 pl-0;
   }
 
+  .accordion-flushed {
+    @apply gap-0;
+  }
+
   .accordion-item {
     @apply relative grid rounded-lg border shadow-sm;
   }
 
+  .accordion-flushed .accordion-item {
+    @apply rounded-none border-b-0 first:rounded-t-lg last:rounded-b-lg last:border-b;
+  }
+
   .accordion-btn {
-    @apply relative w-full rounded-lg border-transparent bg-white px-6 py-4 text-left outline-none hover:bg-pink-50 focus:border focus:border-pink-400 focus:bg-pink-50 focus:text-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 peer-checked:border peer-checked:border-pink-400 peer-checked:bg-pink-50 peer-checked:text-pink-400 peer-checked:ring peer-checked:ring-pink-300 peer-checked:ring-offset-2;
+    @apply relative w-full rounded-lg border-transparent bg-white px-6 py-4 text-left font-semibold outline-none hover:bg-pink-50 focus:border focus:border-pink-400 focus:bg-pink-50 focus:text-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 peer-checked:border peer-checked:border-pink-400 peer-checked:bg-pink-50 peer-checked:text-pink-400 peer-checked:ring peer-checked:ring-pink-300 peer-checked:ring-offset-2;
+  }
+
+  .accordion-flushed .accordion-item .accordion-btn {
+    @apply rounded-none;
+  }
+
+  .accordion-flushed .accordion-item:first-child .accordion-btn {
+    @apply rounded-t-lg;
+  }
+
+  .accordion-flushed .accordion-item:last-child .accordion-btn {
+    @apply rounded-b-lg;
   }
 
   .accordion-btn-icon {
