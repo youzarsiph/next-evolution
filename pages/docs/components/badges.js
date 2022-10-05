@@ -40,7 +40,7 @@ export default function Badges() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Badge key={item} color={item} enableOutline>
+              <Badge key={item} color={item} outline>
                 {item}
               </Badge>
             );

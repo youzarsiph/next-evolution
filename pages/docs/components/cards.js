@@ -163,7 +163,7 @@ export default function Cards() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <Avatar color="info" enableSizing size="sm">
+                  <Avatar color="info" size size="sm">
                     YAS
                   </Avatar>
                   <div className="grid">

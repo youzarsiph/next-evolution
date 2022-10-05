@@ -35,7 +35,7 @@ export default function Avatars() {
         <Flex>
           {sizes.map((item) => {
             return (
-              <Avatar key={item} enableSizing size={item} color="info">
+              <Avatar key={item} size={item} color="info">
                 YAS
               </Avatar>
             );
@@ -47,7 +47,7 @@ export default function Avatars() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Avatar key={item} enableBgGradient color={item}>
+              <Avatar key={item} gradient color={item}>
                 YAS
               </Avatar>
             );
@@ -59,7 +59,7 @@ export default function Avatars() {
         <Flex>
           {sizes.map((item) => {
             return (
-              <Avatar key={item} enableSizing size={item} color="info">
+              <Avatar key={item} size={item} color="info">
                 <figure className="absolute inset-0 mb-0 object-cover">
                   <svg
                     className="h-full w-full rounded-full"

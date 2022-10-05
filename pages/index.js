@@ -97,7 +97,7 @@ export default class Home extends Component {
                   Next Evolution is an open source project hosted on Github
                 </p>
                 <a
-                  className="btn bg-gradient gradient-info hover:text-white"
+                  className="btn bg-gradient gradient-info hover:text-white active:text-white"
                   href={urls["github"]}
                 >
                   Learn more

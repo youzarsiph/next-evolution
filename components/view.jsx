@@ -13,15 +13,15 @@ class Main extends Component {
     this.modifierClass = "";
 
     // Options
-    this.enableSizing = props.enableSizing;
-    this.enableOutline = props.enableOutline;
-    this.enableBgGradient = props.enableBgGradient;
+    this.size = props.size;
+    this.outline = props.outline;
+    this.gradient = props.gradient;
 
     // Handling variants
-    if (this.enableOutline) {
+    if (this.outline) {
       // Outline
       this.variants = this.getOutlineVariants();
-    } else if (this.enableBgGradient) {
+    } else if (this.gradient) {
       // Gradient
       this.variants = this.getGradientVariants();
     } else {
@@ -29,7 +29,7 @@ class Main extends Component {
       this.variants = this.getVariants();
     }
 
-    if (this.enableSizing) {
+    if (this.size) {
       // Sizing
       let key = props.size === "" ? "md" : props.size;
       this.sizinOptions = this.getSizes();
@@ -40,18 +40,6 @@ class Main extends Component {
 
     // Modifier class
     this.modifierClass = this.variants[props.color];
-  }
-
-  getBaseClass() {
-    /**
-     * A method to define the base css class of an element
-     */
-  }
-
-  getModifierClass() {
-    /**
-     * A method to define
-     */
   }
 
   getVariants() {
@@ -146,9 +134,9 @@ export class Alert extends Main {
     this.baseClass = "alert";
 
     // Options
-    this.enableSizing = false;
-    this.enableOutline = false;
-    this.enableBgGradient = false;
+    this.size = false;
+    this.outline = false;
+    this.gradient = false;
 
     // Handling modifier class
     if (props.flushed) {
@@ -189,7 +177,7 @@ export class Avatar extends Main {
     this.baseClass = "avatar";
 
     // Gradient
-    if (this.props.enableBgGradient) {
+    if (this.props.gradient) {
       this.modifierClass += " bg-gradient";
     }
   }
@@ -232,8 +220,8 @@ export class Badge extends Main {
     this.baseClass = "badge";
 
     // Options
-    this.enableSizing = false;
-    this.enableBgGradient = false;
+    this.size = false;
+    this.gradient = false;
 
     // Handling modifier class
     if (this.props.pill) {
@@ -286,7 +274,7 @@ export class Button extends Main {
     }
 
     // Gradient
-    if (this.props.enableBgGradient) {
+    if (this.props.gradient) {
       this.modifierClass += " bg-gradient";
     }
   }
@@ -326,7 +314,9 @@ export class Button extends Main {
   }
 
   render() {
-    return (
+    let result;
+
+    const btn = (
       <button
         type={this.props.type}
         className={`btn ${this.size} ${this.modifierClass}`}
@@ -334,6 +324,21 @@ export class Button extends Main {
         {this.props.children}
       </button>
     );
+
+    if (this.gradient) {
+      result = (
+        <div className="relative inline-block">
+          <div
+            className={`bg-gradient gradient-${this.props.color} absolute -inset-1 animate-pulse rounded-lg blur`}
+          ></div>
+          {btn}
+        </div>
+      );
+    } else {
+      result = btn;
+    }
+
+    return result;
   }
 }
 
@@ -400,8 +405,8 @@ export class Skeleton extends Main {
     this.type = this.props.type;
 
     // Options
-    this.enableOutline = false;
-    this.enableBgGradient = false;
+    this.outline = false;
+    this.gradient = false;
 
     if (this.type === "circle") {
       this.modifierClass += " skeleton-circle";
@@ -446,9 +451,9 @@ export class Spinner extends Main {
     this.type = this.props.type;
 
     // Options
-    this.enableSizing = false;
-    this.enableOutline = false;
-    this.enableBgGradient = false;
+    this.size = false;
+    this.outline = false;
+    this.gradient = false;
 
     // Spinner types
     if (this.type === "circle") {

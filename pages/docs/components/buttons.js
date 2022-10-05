@@ -1,7 +1,7 @@
 import urls from "../../../urls";
 import { View, colors, sizes } from ".";
 import { Flex } from "../../../components/utils";
-import { Button, Spinner } from "../../../components/view";
+import { Button } from "../../../components/view";
 
 export default function Buttons() {
   return (
@@ -30,7 +30,7 @@ export default function Buttons() {
         <Flex>
           {colors.map((item) => {
             return (
-              <Button key={item} color={item} enableOutline>
+              <Button key={item} color={item} outline>
                 {item}
               </Button>
             );
@@ -42,7 +42,7 @@ export default function Buttons() {
         <Flex>
           {sizes.map((item) => {
             return (
-              <Button key={item} color={"info"} enableSizing size={item}>
+              <Button key={item} color={"info"} size={item}>
                 btn-{item}
               </Button>
             );
@@ -51,15 +51,15 @@ export default function Buttons() {
 
         <h2>Gradient</h2>
 
-        <Flex>
+        <div className="flex flex-wrap items-center gap-8">
           {colors.map((item) => {
             return (
-              <Button key={item} enableBgGradient color={item}>
-                {item}
+              <Button key={item} gradient color={item}>
+                Gradient {item}
               </Button>
             );
           })}
-        </Flex>
+        </div>
       </article>
     </View>
   );
