@@ -44,8 +44,8 @@ export default function Skeletons() {
                   <div className="flex items-center gap-4">
                     <Skeleton type="circle" />
                     <div className="flex flex-col gap-2">
-                      <Skeleton size size="2word" type="text" />
-                      <Skeleton size size="word" type="text" />
+                      <Skeleton size="2word" type="text" />
+                      <Skeleton size="word" type="text" />
                     </div>
                   </div>
                 </div>
@@ -56,20 +56,20 @@ export default function Skeletons() {
               <CardBody>
                 <div className="mb-4 flex items-center justify-between text-sm">
                   <div>
-                    <Skeleton size size="word" type="text" />
+                    <Skeleton size="word" type="text" />
                     <span className="ml-4 inline-block">
-                      <Skeleton size size="2word" type="text" />
+                      <Skeleton size="2word" type="text" />
                     </span>
                   </div>
-                  <Skeleton size size="word" type="text" />
+                  <Skeleton size="word" type="text" />
                 </div>
                 <p className="mb-0 flex flex-col gap-2">
                   <Skeleton type="text" />
-                  <Skeleton size size="5word" type="text" />
+                  <Skeleton size="5word" type="text" />
                 </p>
               </CardBody>
               <CardFooter>
-                <Skeleton size size="2word" type="text" />
+                <Skeleton size="2word" type="text" />
               </CardFooter>
             </Card>
           </Column>
@@ -78,7 +78,7 @@ export default function Skeletons() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <Avatar color="info" size size="md">
+                    <Avatar color="info" size="md">
                       YAS
                     </Avatar>
                     <div className="grid">

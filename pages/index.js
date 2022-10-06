@@ -96,12 +96,15 @@ export default class Home extends Component {
                 <p className="mb-4">
                   Next Evolution is an open source project hosted on Github
                 </p>
-                <a
-                  className="btn bg-gradient gradient-info hover:text-white active:text-white"
-                  href={urls["github"]}
-                >
-                  Learn more
-                </a>
+                <div className="relative inline-block">
+                  <div className="bg-gradient gradient-info absolute -inset-1 animate-pulse rounded-lg blur"></div>
+                  <a
+                    className="btn bg-gradient gradient-info hover:text-white active:text-white"
+                    href={urls["github"]}
+                  >
+                    Learn more
+                  </a>
+                </div>
               </CardBody>
             </Card>
 
