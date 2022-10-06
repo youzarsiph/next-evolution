@@ -95,7 +95,7 @@ export class View extends Component {
         link: urls["accordion"],
         heading: false,
         new: false,
-        updated: true,
+        updated: false,
       },
       {
         label: "Alerts",
@@ -130,7 +130,7 @@ export class View extends Component {
         link: urls["button"],
         heading: false,
         new: false,
-        updated: false,
+        updated: true,
       },
       {
         label: "Cards",
@@ -171,13 +171,17 @@ export class View extends Component {
 
     const newState = (
       <span className="ml-4">
-        <Badge color="success">New</Badge>
+        <Badge color="success">
+          <abbr title="New">N</abbr>
+        </Badge>
       </span>
     );
 
     const updatedState = (
       <span className="ml-4">
-        <Badge color="secondary">Updated</Badge>
+        <Badge color="secondary">
+          <abbr title="Updated">U</abbr>
+        </Badge>
       </span>
     );
 
