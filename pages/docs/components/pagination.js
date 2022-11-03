@@ -2,7 +2,7 @@ import { View } from ".";
 import urls from "../../../urls";
 import { Pagination, PaginationItem } from "../../../components/navigation";
 
-export default function Paginations() {
+export default function PaginationPage() {
   return (
     <View prevPage={urls["navbar"]} nextPage={urls["skeleton"]}>
       <article className="mb-8" title="Pagination">
@@ -21,7 +21,7 @@ export default function Paginations() {
           <PaginationItem>Next »</PaginationItem>
         </Pagination>
 
-        <h2>Working with icons</h2>
+        <h2>Icons</h2>
         <Pagination>
           <PaginationItem>«</PaginationItem>
           <PaginationItem>1</PaginationItem>
@@ -31,7 +31,7 @@ export default function Paginations() {
         </Pagination>
 
         <h2>Alignment</h2>
-        <Pagination justify="center">
+        <Pagination className={"justify-center"}>
           <PaginationItem>Prev</PaginationItem>
           <PaginationItem>1</PaginationItem>
           <PaginationItem>2</PaginationItem>

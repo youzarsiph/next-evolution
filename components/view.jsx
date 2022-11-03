@@ -1,95 +1,40 @@
 import { Component } from "react";
 
-class Main extends Component {
-  /**
-   * Base component that contains common attributes between components
-   * @param {*} props
-   */
-  constructor(props) {
-    super(props);
-
-    // Attrs
-    this.baseClass = "";
-    this.modifierClass = "";
-
-    // Options
-    this.size = props.size;
-    this.outline = props.outline;
-    this.gradient = props.gradient;
-
-    // Handling variants
-    if (this.outline) {
-      // Outline
-      this.variants = this.getOutlineVariants();
-    } else if (this.gradient) {
-      // Gradient
-      this.variants = this.getGradientVariants();
-    } else {
-      // Default
-      this.variants = this.getVariants();
-    }
-
-    if (this.size) {
-      // Sizing
-      let key = props.size === "" ? "md" : props.size;
-      this.sizinOptions = this.getSizes();
-      this.size = this.sizinOptions[key];
-    } else {
-      this.size = "";
-    }
-
-    // Modifier class
-    this.modifierClass = this.variants[props.color];
-  }
-
-  getVariants() {
-    /**
-     * A method to define variants of a component
-     */
-  }
-
-  getOutlineVariants() {
-    /**
-     * A method to define outline variants of a component
-     */
-  }
-
-  getGradientVariants() {
-    return {
-      primary: "gradient-primary",
-      secondary: "gradient-secondary",
-      info: "gradient-info",
-      success: "gradient-success",
-      warning: "gradient-warning",
-      danger: "gradient-danger",
-      light: "gradient-light",
-      dark: "gradient-dark",
-    };
-  }
-
-  getSizes() {
-    /**
-     * A method to define the size of an element
-     */
-  }
-}
+const gradients = {
+  primary: "gradient-primary",
+  secondary: "gradient-secondary",
+  info: "gradient-info",
+  success: "gradient-success",
+  warning: "gradient-warning",
+  danger: "gradient-danger",
+  light: "gradient-light",
+  dark: "gradient-dark",
+};
 
 export class Accordion extends Component {
   constructor(props) {
     super(props);
 
-    // Attrs
-    this.baseClass = "accordion";
+    // State
+    this.state = {
+      isFlushed: props.flushed,
+      modifier: "",
+    };
+  }
 
-    // Handling modifier class
-    if (props.flushed) {
-      this.modifierClass += " accordion-flushed";
+  componentDidMount() {
+    if (this.state.isFlushed) {
+      this.setState({ modifier: "accordion-flushed" });
     }
   }
 
   render() {
     return (
-      <ul className={`accordion ${this.modifierClass}`}>
+      <ul
+        className={`accordion ${this.state.modifier} ${
+          this.props.className || ""
+        }`}
+      >
         {this.props.children}
       </ul>
     );
@@ -98,23 +43,54 @@ export class Accordion extends Component {
 
 export class AccordionItem extends Component {
   render() {
-    return <li className="accordion-item">{this.props.children}</li>;
+    return (
+      <li className={`accordion-item ${this.props.className || ""}`}>
+        {this.props.children}
+      </li>
+    );
   }
 }
 
 export class AccordionButton extends Component {
+  constructor(props) {
+    super(props);
+
+    // Binding methods
+    this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+
+    // State
+    this.state = {
+      collapsed: true,
+    };
+  }
+
+  onChange() {
+    this.setState({ collapsed: !this.state.collapsed });
+  }
+
+  onClick() {
+    this.setState({ collapsed: !this.state.collapsed });
+  }
+
   render() {
     return (
       <>
-        <input type="checkbox" id={this.props.id} className="peer sr-only" />
-        <button type="button" className="accordion-btn">
-          <label
-            htmlFor={this.props.id}
-            className="absolute inset-0 m-0"
-          ></label>
+        <input
+          type={"checkbox"}
+          id={this.props.id}
+          onChange={this.onChange}
+          className={"peer sr-only"}
+          checked={!this.state.collapsed}
+        />
+        <button
+          type={"button"}
+          onClick={this.onClick}
+          className={`accordion-btn ${this.props.className || ""}`}
+        >
           {this.props.children}
         </button>
-        <span className="accordion-btn-icon" />
+        <span className={"accordion-btn-icon"} />
       </>
     );
   }
@@ -122,33 +98,28 @@ export class AccordionButton extends Component {
 
 export class AccordionContent extends Component {
   render() {
-    return <div className="accordion-content">{this.props.children}</div>;
+    return (
+      <div className={`accordion-content ${this.props.className || ""}`}>
+        {this.props.children}
+      </div>
+    );
   }
 }
 
-export class Alert extends Main {
+export class Alert extends Component {
   constructor(props) {
     super(props);
 
-    // Attrs
-    this.baseClass = "alert";
+    // State
+    this.state = {
+      color: props.color || "primary",
+      isFlushed: props.flushed || false,
+      isModern: props.modern || false,
+      modifier: "",
+    };
 
-    // Options
-    this.size = false;
-    this.outline = false;
-    this.gradient = false;
-
-    // Handling modifier class
-    if (props.flushed) {
-      this.modifierClass += " alert-flushed";
-    }
-    if (props.modern) {
-      this.modifierClass += " alert-modern";
-    }
-  }
-
-  getVariants() {
-    return {
+    // Colors
+    this.colors = {
       primary: "alert-primary",
       secondary: "alert-secondary",
       info: "alert-info",
@@ -160,30 +131,47 @@ export class Alert extends Main {
     };
   }
 
+  componentDidMount() {
+    if (this.state.color) {
+      this.setState({ color: this.colors[this.state.color] });
+    }
+
+    if (this.state.isFlushed) {
+      this.setState({ modifier: this.state.modifier + "alert-flushed" });
+    }
+
+    if (this.state.isModern) {
+      this.setState({ modifier: this.state.modifier + "alert-modern" });
+    }
+  }
+
   render() {
     return (
-      <div className={`${this.baseClass} ${this.modifierClass}`} role={"alert"}>
+      <div
+        role={"alert"}
+        className={`alert ${this.state.color} ${this.state.modifier} ${
+          this.props.className || ""
+        }`}
+      >
         {this.props.children}
       </div>
     );
   }
 }
 
-export class Avatar extends Main {
+export class Avatar extends Component {
   constructor(props) {
     super(props);
 
-    // Attrs
-    this.baseClass = "avatar";
+    // State
+    this.state = {
+      color: props.color || "primary",
+      size: props.size || "md",
+      isGradient: props.gradient || false,
+      modifier: "",
+    };
 
-    // Gradient
-    if (this.props.gradient) {
-      this.modifierClass += " bg-gradient";
-    }
-  }
-
-  getVariants() {
-    return {
+    this.colors = {
       primary: "avatar-primary",
       secondary: "avatar-secondary",
       info: "avatar-info",
@@ -193,44 +181,54 @@ export class Avatar extends Main {
       light: "avatar-light",
       dark: "avatar-dark",
     };
-  }
 
-  getSizes() {
-    return {
+    this.sizes = {
       sm: "avatar-sm",
       md: "",
       lg: "avatar-lg",
     };
   }
 
+  componentDidMount() {
+    if (this.state.color) {
+      this.setState({ color: this.colors[this.state.color] });
+    }
+
+    if (this.state.size) {
+      this.setState({ size: this.sizes[this.state.size] });
+    }
+
+    if (this.state.isGradient) {
+      this.setState({ modifier: `bg-gradient ${gradients[this.state.color]}` });
+    }
+  }
+
   render() {
     return (
-      <span className={`${this.baseClass} ${this.size} ${this.modifierClass}`}>
+      <span
+        className={`avatar ${this.state.color} ${this.state.size} ${
+          this.state.modifier
+        } ${this.props.className || ""}`}
+      >
         {this.props.children}
       </span>
     );
   }
 }
 
-export class Badge extends Main {
+export class Badge extends Component {
   constructor(props) {
     super(props);
 
-    // Attrs
-    this.baseClass = "badge";
+    // State
+    this.state = {
+      color: props.color || "primary",
+      isPill: props.pill || false,
+      isOutline: props.outline || false,
+      modifier: "",
+    };
 
-    // Options
-    this.size = false;
-    this.gradient = false;
-
-    // Handling modifier class
-    if (this.props.pill) {
-      this.modifierClass += " rounded-full px-4";
-    }
-  }
-
-  getVariants() {
-    return {
+    this.colors = {
       primary: "badge-primary",
       secondary: "badge-secondary",
       info: "badge-info",
@@ -240,10 +238,8 @@ export class Badge extends Main {
       light: "badge-light",
       dark: "badge-dark",
     };
-  }
 
-  getOutlineVariants() {
-    return {
+    this.outlines = {
       primary: "badge-outline-primary",
       secondary: "badge-outline-secondary",
       info: "badge-outline-info",
@@ -255,32 +251,47 @@ export class Badge extends Main {
     };
   }
 
+  componentDidMount() {
+    if (this.state.color) {
+      this.setState({
+        color: this.state.isOutline
+          ? this.outlines[this.state.color]
+          : this.colors[this.state.color],
+      });
+    }
+
+    if (this.state.isPill) {
+      this.setState({ modifier: "rounded-full px-4" });
+    }
+  }
+
   render() {
     return (
-      <span className={`${this.baseClass} ${this.modifierClass}`}>
+      <span
+        className={`badge ${this.state.color} ${this.state.modifier} ${
+          this.props.className || ""
+        }`}
+      >
         {this.props.children}
       </span>
     );
   }
 }
 
-export class Button extends Main {
+export class Button extends Component {
   constructor(props) {
     super(props);
 
-    // Handling variants
-    if (this.props.pill) {
-      this.modifierClass += " rounded-full";
-    }
+    // State
+    this.state = {
+      color: props.color || "primary",
+      size: props.size || "md",
+      isPill: props.pill || false,
+      isOutline: props.outline || false,
+      isGradient: props.gradient || false,
+    };
 
-    // Gradient
-    if (this.props.gradient) {
-      this.modifierClass += " bg-gradient";
-    }
-  }
-
-  getVariants() {
-    return {
+    this.colors = {
       primary: "btn-primary",
       secondary: "btn-secondary",
       info: "btn-info",
@@ -290,10 +301,8 @@ export class Button extends Main {
       light: "btn-light",
       dark: "btn-dark",
     };
-  }
 
-  getOutlineVariants() {
-    return {
+    this.outlines = {
       primary: "btn-outline-primary",
       secondary: "btn-outline-secondary",
       info: "btn-outline-info",
@@ -303,14 +312,34 @@ export class Button extends Main {
       light: "btn-outline-light",
       dark: "btn-outline-dark",
     };
-  }
 
-  getSizes() {
-    return {
+    this.sizes = {
       sm: "btn-sm",
       md: "",
       lg: "btn-lg",
     };
+  }
+
+  componentDidMount() {
+    if (this.state.color) {
+      this.setState({
+        color: this.state.isOutline
+          ? this.outlines[this.state.color]
+          : this.colors[this.state.color],
+      });
+    }
+
+    if (this.state.size) {
+      this.setState({ size: this.sizes[this.state.size] });
+    }
+
+    if (this.state.isPill) {
+      this.setState({ modifier: "rounded-full px-4" });
+    }
+
+    if (this.state.isGradient) {
+      this.setState({ modifier: `bg-gradient ${gradients[this.state.color]}` });
+    }
   }
 
   render() {
@@ -319,15 +348,17 @@ export class Button extends Main {
     const btn = (
       <button
         type={this.props.type}
-        className={`btn ${this.size} ${this.modifierClass}`}
+        className={`btn ${this.state.color} ${this.state.size} ${
+          this.state.modifier
+        } ${this.props.className || ""}`}
       >
         {this.props.children}
       </button>
     );
 
-    if (this.gradient) {
+    if (this.state.isGradient) {
       result = (
-        <div className="relative inline-block">
+        <div className={"relative inline-block"}>
           <div
             className={`bg-gradient gradient-${this.props.color} absolute -inset-1 animate-pulse rounded-lg blur`}
           ></div>
@@ -344,16 +375,50 @@ export class Button extends Main {
 
 export class Card extends Component {
   render() {
-    return <div className="card">{this.props.children}</div>;
+    return (
+      <div className={`card ${this.props.className || ""}`}>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export class CardHeader extends Component {
+  render() {
+    return (
+      <header className={`card-header ${this.props.className || ""}`}>
+        {this.props.children}
+      </header>
+    );
+  }
+}
+
+export class CardBody extends Component {
+  render() {
+    return (
+      <div className={`card-body ${this.props.className || ""}`}>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export class CardFooter extends Component {
+  render() {
+    return (
+      <footer className={`card-footer ${this.props.className || ""}`}>
+        {this.props.children}
+      </footer>
+    );
   }
 }
 
 export class Carousel extends Component {
   render() {
     return (
-      <div className="relative flex w-full items-center">
+      <div className={"relative flex w-full items-center"}>
         <button
-          className="absolute left-0 flex items-center justify-center"
+          className={"absolute left-0 flex items-center justify-center"}
           onClick={() => {
             document
               .querySelector(".carousel-content > div.hidden")
@@ -363,72 +428,51 @@ export class Carousel extends Component {
               .classList.toggle("hidden");
           }}
         >
-          <span className="carousel-prev-btn"></span>
+          <span className={"carousel-prev-btn"}></span>
         </button>
-        <div className="carousel-content flex w-full items-center">
-          <div className="bg-gradient gradient-info hidden h-80 w-full rounded-lg"></div>
-          <div className="bg-gradient gradient-primary h-80 w-full rounded-lg"></div>
-          <div className="bg-gradient gradient-success hidden h-80 w-full rounded-lg"></div>
+        <div className={"carousel-content flex w-full items-center"}>
+          <div
+            className={
+              "bg-gradient gradient-info hidden h-80 w-full rounded-lg"
+            }
+          ></div>
+          <div
+            className={"bg-gradient gradient-primary h-80 w-full rounded-lg"}
+          ></div>
+          <div
+            className={
+              "bg-gradient gradient-success hidden h-80 w-full rounded-lg"
+            }
+          ></div>
         </div>
-        <button className="absolute right-0 flex items-center justify-center">
-          <span className="carousel-next-btn"></span>
+        <button className={"absolute right-0 flex items-center justify-center"}>
+          <span className={"carousel-next-btn"}></span>
         </button>
       </div>
     );
   }
 }
 
-export class CardHeader extends Component {
-  render() {
-    return <header className="card-header">{this.props.children}</header>;
-  }
-}
-
-export class CardBody extends Component {
-  render() {
-    return <div className="card-body">{this.props.children}</div>;
-  }
-}
-
-export class CardFooter extends Component {
-  render() {
-    return <footer className="card-footer">{this.props.children}</footer>;
-  }
-}
-
-export class Skeleton extends Main {
+export class Skeleton extends Component {
   constructor(props) {
     super(props);
 
-    // Attrs
-    this.baseClass = "skeleton";
-    this.type = this.props.type;
-
-    // Options
-    this.outline = false;
-    this.gradient = false;
-
-    if (this.type === "circle") {
-      this.modifierClass += " skeleton-circle";
-    } else if (this.type === "text") {
-      this.modifierClass += " skeleton-text " + this.size;
-    } else {
-      this.modifierClass += " skeleton-square";
-    }
-  }
-
-  getVariants() {
-    return {};
-  }
-
-  getSizes() {
-    return {
-      word: "w-16",
-      "2word": "w-32",
-      "3word": "w-48",
-      "4word": "w-64",
-      "5word": "w-80",
+    // State
+    this.state = {
+      type: props.type || "square",
     };
+
+    this.types = {
+      text: "skeleton-text",
+      circle: "skeleton-circle",
+      square: "skeleton-square",
+    };
+  }
+
+  componentDidMount() {
+    if (this.state.type) {
+      this.setState({ type: this.types[this.state.type] });
+    }
   }
 
   render() {
@@ -436,39 +480,23 @@ export class Skeleton extends Main {
       <span
         role={"status"}
         title={"Loading"}
-        className={`${this.baseClass} ${this.modifierClass}`}
+        className={`skeleton ${this.state.type} ${this.props.className || ""}`}
       />
     );
   }
 }
 
-export class Spinner extends Main {
+export class Spinner extends Component {
   constructor(props) {
     super(props);
 
-    // Attrs
-    this.baseClass = "spinner";
-    this.type = this.props.type;
+    // State
+    this.state = {
+      color: props.color || "primary",
+      type: props.type || "border",
+    };
 
-    // Options
-    this.size = false;
-    this.outline = false;
-    this.gradient = false;
-
-    // Spinner types
-    if (this.type === "circle") {
-      this.modifierClass += " spinner-circle";
-    } else if (this.type === "filled") {
-      this.modifierClass += " spinner-filled";
-    } else if (this.type === "gradient") {
-      this.modifierClass += " spinner-gradient";
-    } else {
-      this.modifierClass += " spinner-border";
-    }
-  }
-
-  getVariants() {
-    return {
+    this.colors = {
       primary: "spinner-primary",
       secondary: "spinner-secondary",
       info: "spinner-info",
@@ -478,15 +506,34 @@ export class Spinner extends Main {
       light: "spinner-light",
       dark: "spinner-dark",
     };
+
+    this.types = {
+      border: "spinner-border",
+      circle: "spinner-circle",
+      filled: "spinner-filled",
+      gradient: "spinner-gradient",
+    };
+  }
+
+  componentDidMount() {
+    if (this.state.color) {
+      this.setState({ color: this.colors[this.state.color] });
+    }
+
+    if (this.state.type) {
+      this.setState({ type: this.types[this.state.type] });
+    }
   }
 
   render() {
     return (
-      <span className="spinner-container">
+      <span className={"spinner-container"}>
         <span
           role={"status"}
           title={"Loading"}
-          className={`${this.baseClass} ${this.modifierClass}`}
+          className={`spinner ${this.state.color} ${this.state.type} ${
+            this.props.className || ""
+          }`}
         >
           {this.props.children}
         </span>
@@ -498,7 +545,11 @@ export class Spinner extends Main {
 export class Table extends Component {
   render() {
     return (
-      <div className="mb-4 overflow-auto rounded-lg border">
+      <div
+        className={`mb-4 overflow-auto rounded-lg border ${
+          this.props.className || ""
+        }`}
+      >
         <table>{this.props.children}</table>
       </div>
     );
@@ -508,6 +559,16 @@ export class Table extends Component {
 export class TableHeader extends Component {
   render() {
     return <thead>{this.props.children}</thead>;
+  }
+}
+
+export class TableHeaderCell extends Component {
+  render() {
+    return (
+      <th scope={this.props.scope} colSpan={this.props.colSpan}>
+        {this.props.children}
+      </th>
+    );
   }
 }
 
@@ -524,26 +585,12 @@ export class TableRow extends Component {
 }
 
 export class TableCell extends Component {
-  constructor(props) {
-    super(props);
-
-    if (this.props.headerCell) {
-      this.element = (
-        <th scope={this.props.scope} colSpan={this.props.colSpan}>
-          {this.props.children}
-        </th>
-      );
-    } else {
-      this.element = (
-        <td scope={this.props.scope} colSpan={this.props.colSpan}>
-          {this.props.children}
-        </td>
-      );
-    }
-  }
-
   render() {
-    return this.element;
+    return (
+      <td scope={this.props.scope} colSpan={this.props.colSpan}>
+        {this.props.children}
+      </td>
+    );
   }
 }
 

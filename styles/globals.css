@@ -268,7 +268,7 @@
   /* End alerts */
   /* Avatars */
   .avatar {
-    @apply relative inline-flex h-14 w-14 items-center justify-center rounded-full text-white shadow-sm;
+    @apply relative inline-flex h-14 w-14 items-center justify-center rounded-full font-semibold tracking-wide text-white shadow-sm;
   }
 
   .avatar img {
@@ -398,7 +398,7 @@
   /* End breadcrumbs */
   /* Buttons */
   .btn {
-    @apply relative inline-block rounded-lg border bg-white py-3 px-6 font-semibold text-slate-600 shadow-sm outline-none hover:shadow-lg focus:ring focus:ring-offset-2 active:scale-95 active:ring active:ring-offset-2;
+    @apply relative inline-block rounded-lg border bg-white py-3 px-6 font-bold tracking-tight text-slate-600 shadow-sm outline-none hover:shadow-lg focus:ring focus:ring-offset-2 active:scale-95 active:ring active:ring-offset-2;
   }
 
   .btn-sm {
@@ -522,43 +522,23 @@
   /* End carousel */
   /* Forms */
   .form-control {
-    @apply block w-full rounded-lg border bg-white px-4 py-3 shadow-sm outline-none file:mr-4 file:rounded-lg file:border-0 file:bg-slate-50 file:px-4 file:py-2 file:shadow-sm file:transition-all invalid:border-red-400 invalid:text-red-400 invalid:ring invalid:ring-red-300 file:hover:bg-slate-100 focus:border-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:border-pink-400 active:ring active:ring-pink-300 active:ring-offset-2;
+    @apply block w-full rounded-lg border bg-white px-4 py-3 shadow-sm outline-none file:mr-4 file:rounded-lg file:border-0 file:bg-slate-50 file:px-4 file:py-2 file:shadow-sm file:transition-all invalid:border-red-400 invalid:text-red-400 invalid:ring invalid:ring-red-300 invalid:ring-offset-2 file:hover:bg-slate-100 focus:border-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 focus:invalid:border-red-400 focus:invalid:ring-red-300 active:border-pink-400 active:ring active:ring-pink-300 active:ring-offset-2;
   }
 
   .form-control-flushed {
-    @apply rounded-none border-x-0 border-t-0 border-b-2 px-0 shadow-none invalid:border-red-400 invalid:text-red-400 invalid:ring-0 invalid:ring-red-300 focus:ring-0 active:ring-0;
+    @apply border-b-4 shadow-none ring-0 invalid:border-red-400 invalid:text-red-400 invalid:ring-0 invalid:ring-red-300 focus:ring-0 active:ring-0;
   }
 
   .form-control-floating {
-    @apply placeholder-transparent;
+    @apply pt-6 pb-2 placeholder-transparent duration-500 file:mt-2;
   }
 
   .floating-label {
-    @apply absolute -top-3 bg-white text-sm text-slate-600 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-invalid:text-red-400 peer-focus:-top-3 peer-focus:text-sm peer-focus:text-slate-600 peer-focus:peer-invalid:text-red-400;
-  }
-
-  .form-secondary {
-    @apply focus:border-slate-400 focus:ring-slate-300;
-  }
-
-  .form-info {
-    @apply focus:border-sky-400 focus:ring-sky-300;
-  }
-
-  .form-success {
-    @apply focus:border-green-400 focus:ring-green-300;
-  }
-
-  .form-warning {
-    @apply focus:border-orange-400 focus:ring-orange-300;
-  }
-
-  .form-danger {
-    @apply focus:border-red-400 focus:ring-red-300;
+    @apply absolute top-2 left-4 text-sm text-slate-600 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-invalid:text-red-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-slate-600 peer-focus:peer-invalid:text-red-400;
   }
 
   .form-check {
-    @apply mt-1 inline-block h-4 w-4 appearance-none rounded border bg-white bg-contain bg-center bg-no-repeat align-top shadow-sm outline-none checked:border-pink-500 checked:bg-pink-400 focus:border-pink-500 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:scale-95 active:ring active:ring-offset-2;
+    @apply mt-1 inline-block h-4 w-4 appearance-none rounded border bg-white bg-contain bg-center bg-no-repeat align-top shadow-sm outline-none checked:border-pink-500 checked:bg-pink-400 focus:border-pink-500 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:scale-95 active:ring active:ring-pink-300 active:ring-offset-2;
   }
 
   .form-check:checked {
@@ -582,7 +562,7 @@
   /* End forms */
   /* Navbar */
   .navbar {
-    @apply relative flex flex-col items-center justify-between gap-4 bg-white px-6 py-4 lg:flex-row lg:justify-start;
+    @apply relative flex flex-col items-center justify-between gap-4 bg-white p-6 lg:flex-row lg:justify-start;
   }
 
   .navbar-vertical {
@@ -622,7 +602,7 @@
   }
 
   .navbar-menu-item {
-    @apply text-lg font-light;
+    @apply flex items-center justify-between text-lg font-light;
   }
 
   .navbar-vertical .navbar-menu-item {
@@ -667,7 +647,7 @@
   }
 
   .skeleton-text {
-    @apply inline-block h-6 rounded;
+    @apply inline-block h-4 w-10 rounded;
   }
 
   .skeleton-circle {
@@ -736,8 +716,8 @@
 }
 
 @layer utilities {
-  .h-screen-4rem {
-    height: calc(100vh - 4rem);
+  .h-screen--5rem {
+    height: calc(100vh - 5rem);
   }
 
   /* Gradients */

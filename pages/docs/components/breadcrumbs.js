@@ -9,7 +9,7 @@ export default function Breadcrumbs() {
       <article title="Breadcrumbs">
         <h1 className="text-gradient gradient-primary">Breadcrumbs</h1>
         <p className="text-xl font-light">
-          Indicate the current page&apos; location within a navigational
+          Indicate the current page&apos;s location within a navigational
           hierarchy that automatically adds separators.
         </p>
 

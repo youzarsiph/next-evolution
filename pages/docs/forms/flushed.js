@@ -9,7 +9,7 @@ export default function Flushed() {
         <h1 className="text-gradient gradient-primary">Flushed</h1>
 
         <Input
-          id="email2"
+          id="email"
           label="Email"
           type="email"
           name="email"
@@ -18,7 +18,7 @@ export default function Flushed() {
           helpText="We'll never share your email with anyone else."
         />
         <Input
-          id="password2"
+          id="password"
           label="Password"
           type="password"
           name="password"
@@ -26,64 +26,49 @@ export default function Flushed() {
           flushed
         />
         <Textarea
-          id="message2"
-          name="message2"
+          id="message"
+          name="message"
           label="Message"
           placeholder="What do you want to tell us?"
           flushed
         ></Textarea>
 
-        <Select
-          id="number1"
-          label="Flushed select input"
-          placeholder="number1"
-          flushed
-        >
-          <option value="0">Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <Select id="number1" label="Issue" placeholder="number1" flushed>
+          <option value="0">Select your issue</option>
+          <option value="1">1st Issue</option>
+          <option value="2">2nd Issue</option>
+          <option value="3">3rd Issue</option>
         </Select>
 
-        <h1 className="text-gradient gradient-primary">Flushed & Floating</h1>
+        <h1 className="text-gradient gradient-primary">Combination</h1>
 
         <Input
-          id="email3"
+          id="Email"
           label="Email"
           type="email"
           name="email"
-          placeholder="Email Address"
+          placeholder={"Email"}
           flushed
           floating
           helpText="We'll never share your email with anyone else."
         />
         <Input
-          id="password3"
+          id="Password"
           label="Password"
           type="password"
           name="password"
+          placeholder={"Password"}
           flushed
           floating
         />
         <Textarea
-          id="message3"
-          name="message3"
+          id="Message"
+          name="message"
           label="Message"
+          placeholder={"Message"}
           flushed
           floating
         ></Textarea>
-
-        <Select
-          id="number2"
-          label="Flushed & floating select input"
-          flushed
-          floating
-        >
-          <option value="0">Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </Select>
       </article>
     </View>
   );

@@ -20,36 +20,33 @@ export class Form extends Component {
 
 class BaseInput extends Component {
   /**
-   * Base classs to create input elemnts
+   * Base class to create input elements
    * @param {*} props
    */
   constructor(props) {
     super(props);
 
-    // Input attributes
-    this.id = props.id;
-    this.type = props.type;
-    this.name = props.name;
+    // State
+    this.state = {
+      type: props.type || "text",
+      disabled: props.disabled || false,
+    };
+
     this.inputStyles = "form-control";
-    this.helpText = props.helpText;
-    this.placeholder = props.placeholder;
 
     // Label attributes
-    this.labelBefore = true;
-    this.label = props.label;
     this.labelStyles = "";
+    this.labelBefore = true;
 
     // Handling variants
     if (props.floating) {
       this.labelBefore = false;
-      this.placeholder = this.label;
-      this.labelStyles = "floating-label left-4";
+      this.labelStyles = "floating-label";
       this.inputStyles += " form-control-floating peer";
     }
 
     if (props.flushed) {
       this.inputStyles += " form-control-flushed";
-      this.labelStyles = this.labelStyles.replace("left-4", "");
     }
   }
 
@@ -59,8 +56,8 @@ class BaseInput extends Component {
      * A method to render the label for the input field.
      */
     return (
-      <label htmlFor={this.id} className={this.labelStyles}>
-        {this.label}
+      <label htmlFor={this.props.id} className={this.labelStyles}>
+        {this.props.label}
       </label>
     );
   }
@@ -72,21 +69,24 @@ class BaseInput extends Component {
      */
     return (
       <input
-        id={this.id}
-        type={this.type}
-        name={this.name}
-        className={this.inputStyles}
-        placeholder={this.placeholder}
+        id={this.props.id}
+        type={this.state.type}
+        name={this.props.name}
+        disabled={this.state.disabled}
+        className={this.inputStyles + " " + this.props.className}
+        placeholder={this.props.placeholder}
       />
     );
   }
 
   render() {
     return (
-      <div className="relative mb-4">
+      <div className="relative mb-6">
         {this.labelBefore ? this.getLabel() : this.getInput()}
         {!this.labelBefore ? this.getLabel() : this.getInput()}
-        <small className="mt-1 block text-slate-400">{this.helpText}</small>
+        <small className="mt-1 block text-slate-600">
+          {this.props.helpText}
+        </small>
       </div>
     );
   }
@@ -98,10 +98,11 @@ export class Select extends BaseInput {
   getInput() {
     return (
       <select
-        id={this.id}
-        name={this.name}
+        id={this.props.id}
+        name={this.props.name}
         className={this.inputStyles}
-        placeholder={this.placeholder}
+        disabled={this.state.disabled}
+        placeholder={this.props.placeholder}
       >
         {this.props.children}
       </select>
@@ -120,11 +121,12 @@ export class Textarea extends BaseInput {
   getInput() {
     return (
       <textarea
-        id={this.id}
-        name={this.name}
-        rows={this.rows}
+        id={this.props.id}
+        name={this.props.name}
+        rows={this.props.rows}
         className={this.inputStyles}
-        placeholder={this.placeholder}
+        disabled={this.state.disabled}
+        placeholder={this.props.placeholder}
       ></textarea>
     );
   }
@@ -139,7 +141,7 @@ export class InlineInput extends BaseInput {
     super(props);
 
     // Input attributes
-    this.type = props.type === "checkbox" ? "checkbox" : "radio";
+    this.state.type = props.type === "checkbox" ? "checkbox" : "radio";
     this.inputStyles = "form-check";
 
     if (props.type === "radio") {
@@ -157,7 +159,7 @@ export class Switch extends InlineInput {
     super(props);
 
     // Input attributes
-    this.type = "checkbox";
+    this.state.type = "checkbox";
     this.inputStyles = "form-switch";
   }
 }

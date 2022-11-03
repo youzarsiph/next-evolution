@@ -22,12 +22,14 @@ export default function Skeletons() {
 
         <h2>Basic</h2>
         <div className="mb-8">
-          <Skeleton />
+          <Skeleton className={"w-full"} />
         </div>
 
         <h2>Text</h2>
         <div className="mb-8">
-          <Skeleton type="text" />
+          <Skeleton type={"text"} className={"w-full"} />
+          <Skeleton type={"text"} className={"w-3/4"} />
+          <Skeleton type={"text"} className={"w-2/4"} />
         </div>
 
         <h2>Circle</h2>
@@ -44,32 +46,32 @@ export default function Skeletons() {
                   <div className="flex items-center gap-4">
                     <Skeleton type="circle" />
                     <div className="flex flex-col gap-2">
-                      <Skeleton size="2word" type="text" />
-                      <Skeleton size="word" type="text" />
+                      <Skeleton type="text" className={"w-24"} />
+                      <Skeleton type="text" className="h-2 w-12" />
                     </div>
                   </div>
                 </div>
               </CardHeader>
               <figure>
-                <Skeleton type="square" />
+                <Skeleton />
               </figure>
               <CardBody>
                 <div className="mb-4 flex items-center justify-between text-sm">
                   <div>
-                    <Skeleton size="word" type="text" />
+                    <Skeleton type="text" />
                     <span className="ml-4 inline-block">
-                      <Skeleton size="2word" type="text" />
+                      <Skeleton type="text" />
                     </span>
                   </div>
-                  <Skeleton size="word" type="text" />
+                  <Skeleton type="text" />
                 </div>
                 <p className="mb-0 flex flex-col gap-2">
-                  <Skeleton type="text" />
-                  <Skeleton size="5word" type="text" />
+                  <Skeleton type="text" className={"w-full"} />
+                  <Skeleton type="text" className={"w-3/4"} />
                 </p>
               </CardBody>
               <CardFooter>
-                <Skeleton size="2word" type="text" />
+                <Skeleton type="text" className={"w-32"} />
               </CardFooter>
             </Card>
           </Column>
@@ -111,7 +113,7 @@ export default function Skeletons() {
               <CardFooter>
                 <input
                   type="text"
-                  className="form-control form-control-flushed border-b-0 py-0"
+                  className="form-control form-control-flushed border-none rounded-none p-0"
                   placeholder="Add comment"
                 />
               </CardFooter>

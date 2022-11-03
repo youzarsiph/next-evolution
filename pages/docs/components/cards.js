@@ -11,7 +11,7 @@ import urls from "../../../urls";
 
 export default function Cards() {
   return (
-    <View prevPage={urls["button"]} nextPage={urls["carousel"]}>
+    <View prevPage={urls["button"]} nextPage={urls["navbar"]}>
       <article title="Cards">
         <h1 className="text-gradient gradient-primary">Cards</h1>
         <p className="text-xl font-light">
@@ -194,75 +194,10 @@ export default function Cards() {
             <CardFooter>
               <input
                 type="text"
-                className="form-control form-control-flushed border-b-0 py-0"
+                className="form-control form-control-flushed rounded-none border-none p-0"
                 placeholder="Add comment"
               />
             </CardFooter>
-          </Card>
-        </div>
-
-        <h2>Gradients</h2>
-        <div className="grid gap-4 lg:grid-cols-2">
-          <Card>
-            <CardBody>
-              <h5 className="text-gradient gradient-primary">Next Evolution</h5>
-              <p className="mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-                veniam suscipit sed autem animi culpa dolores voluptatibus
-                dolore, fuga beatae eaque. Laudantium expedita earum itaque
-                animi voluptatibus enim quasi explicabo.
-              </p>
-            </CardBody>
-          </Card>
-
-          <Card>
-            <CardBody>
-              <h5 className="text-gradient gradient-info">
-                The Evolution of the UI
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Obcaecati quos, minima, earum error culpa eius repudiandae
-                aspernatur tempore id quis voluptates inventore ullam. Laborum
-                voluptates nihil saepe.
-              </p>
-            </CardBody>
-          </Card>
-
-          <Card>
-            <figure>
-              <div className="bg-gradient gradient-success flex h-80 items-center justify-center rounded-lg text-4xl text-white lg:h-96 lg:text-5xl">
-                Evolution UI
-              </div>
-            </figure>
-            <CardBody>
-              <h5 className="text-gradient gradient-info">
-                Evolution in the UI
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit
-                culpa ea, aliquid ad excepturi fugit asperiores a impedit
-                debitis, obcaecati error eligendi amet fuga sed veritatis
-                recusandae suscipit iure nisi.
-              </p>
-            </CardBody>
-          </Card>
-
-          <Card>
-            <CardBody>
-              <figure>
-                <div className="bg-gradient gradient-danger flex h-80 items-center justify-center rounded-xl text-4xl text-white lg:h-96 lg:text-5xl">
-                  Evolution UI
-                </div>
-              </figure>
-              <h5 className="text-gradient gradient-warning">UI Evolved</h5>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Necessitatibus rem eligendi provident dolores, ad quis
-                blanditiis ex vel consectetur est beatae? In porro error optio
-                id pariatur voluptas cumque iure?
-              </p>
-            </CardBody>
           </Card>
         </div>
       </article>

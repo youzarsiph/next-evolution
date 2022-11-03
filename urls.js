@@ -24,8 +24,8 @@ let urls = {
   button: "/docs/components/buttons/",
   card: "/docs/components/cards/",
   carousel: "/docs/components/carousels/",
-  navbar: "/docs/components/navbars/",
-  pagination: "/docs/components/paginations/",
+  navbar: "/docs/components/navbar/",
+  pagination: "/docs/components/pagination/",
   skeleton: "/docs/components/skeletons/",
   spinner: "/docs/components/spinners/",
 

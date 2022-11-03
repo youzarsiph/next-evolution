@@ -9,11 +9,11 @@ import {
   MenuItem,
 } from "../../../components/navigation";
 
-export default function Navbars() {
+export default function NavbarPage() {
   return (
     <View prevPage={urls["card"]} nextPage={urls["pagination"]}>
-      <article className="mb-8" title="Navbars">
-        <h1 className="text-gradient gradient-primary">Navbars</h1>
+      <article className="mb-8" title="Navbar">
+        <h1 className="text-gradient gradient-primary">Navbar</h1>
         <p className="text-xl font-light">
           Documentation and examples for responsive navigation header. Includes
           support for branding, navigation, and more.
@@ -29,7 +29,7 @@ export default function Navbars() {
 
             <NavbarMenu id="xMenu0">
               <li className={`navbar-menu-item navbar-menu-heading lg:hidden`}>
-                <span className="navbar-brand flex items-center justify-between">
+                <span className="navbar-brand flex w-full items-center justify-between">
                   Evolution
                   <button type="button" className="inline-block h-8 w-8">
                     <label
@@ -47,8 +47,8 @@ export default function Navbars() {
           </Navbar>
         </div>
 
-        <h2>Borders</h2>
-        <Navbar id="x" bordered rounded>
+        <h2>Custom style</h2>
+        <Navbar id="x" className={"rounded-lg border shadow-lg"}>
           <NavbarContainer>
             <NavbarBrand href={urls["home"]}>EvolutionUI</NavbarBrand>
             <MenuToggler id="xToggler" menuID="xMenu" />
@@ -56,7 +56,7 @@ export default function Navbars() {
 
           <NavbarMenu id="xMenu">
             <li className={`navbar-menu-item navbar-menu-heading lg:hidden`}>
-              <span className="navbar-brand flex items-center justify-between">
+              <span className="navbar-brand flex w-full items-center justify-between">
                 Evolution
                 <button type="button" className="inline-block h-8 w-8">
                   <label

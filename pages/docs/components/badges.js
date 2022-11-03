@@ -46,6 +46,13 @@ export default function Badges() {
             );
           })}
         </Flex>
+
+        <h2>Shapes</h2>
+
+        <Flex>
+          <Badge>Default</Badge>
+          <Badge pill>Pill</Badge>
+        </Flex>
       </article>
     </View>
   );

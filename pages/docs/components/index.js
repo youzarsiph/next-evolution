@@ -18,8 +18,12 @@ import { Badge } from "../../../components/view";
 export class View extends Component {
   constructor(props) {
     super(props);
-    this.prevPage = props.prevPage ? props.prevPage : "#";
-    this.nextPage = props.nextPage ? props.nextPage : "#";
+
+    // State
+    this.state = {
+      prevPage: props.prevPage ? props.prevPage : "#",
+      nextPage: props.nextPage ? props.nextPage : "#",
+    };
   }
 
   render() {
@@ -130,7 +134,7 @@ export class View extends Component {
         link: urls["button"],
         heading: false,
         new: false,
-        updated: true,
+        updated: false,
       },
       {
         label: "Cards",
@@ -140,14 +144,14 @@ export class View extends Component {
         updated: false,
       },
       {
-        label: "Navbars",
+        label: "Navbar",
         link: urls["navbar"],
         heading: false,
         new: false,
         updated: false,
       },
       {
-        label: "Paginations",
+        label: "Pagination",
         link: urls["pagination"],
         heading: false,
         new: false,
@@ -170,31 +174,29 @@ export class View extends Component {
     ];
 
     const newState = (
-      <span className="ml-4">
-        <Badge color="success">
-          <abbr title="New">N</abbr>
-        </Badge>
+      <span className={"ml-4"}>
+        <Badge color="success">New</Badge>
       </span>
     );
 
     const updatedState = (
-      <span className="ml-4">
-        <Badge color="secondary">
-          <abbr title="Updated">U</abbr>
-        </Badge>
+      <span className={"ml-4"}>
+        <Badge color="secondary">Updated</Badge>
       </span>
     );
 
     return (
-      <div className="lg:h-screen lg:overflow-hidden">
-        <BaseNavbar bordered />
+      <div className={"lg:h-screen lg:overflow-hidden"}>
+        <BaseNavbar className={"border-b"} />
 
         <Grid>
           <Column span="3">
-            <div className="lg:h-screen-4rem lg:overflow-y-auto lg:border-r">
-              <Navbar id="sidebar" vertical>
+            <div className={"lg:h-screen--5rem lg:overflow-y-auto lg:border-r"}>
+              <Navbar id="sidebar" className={"navbar-vertical"}>
                 <NavbarContainer>
-                  <NavbarBrand href={urls["docs"]}>Docs</NavbarBrand>
+                  <NavbarBrand href={urls["docs"]} className={"lg:hidden"}>
+                    Docs
+                  </NavbarBrand>
                   <MenuToggler id="sidebarToggler" menuID="sidebarMenu" />
                 </NavbarContainer>
 
@@ -202,12 +204,16 @@ export class View extends Component {
                   <li
                     className={`navbar-menu-item navbar-menu-heading lg:hidden`}
                   >
-                    <span className="navbar-brand flex items-center justify-between">
+                    <span
+                      className={
+                        "navbar-brand flex w-full items-center justify-between"
+                      }
+                    >
                       <Link href={"/"}>Docs</Link>
-                      <button type="button" className="inline-block h-8 w-8">
+                      <button type="button" className={"inline-block h-8 w-8"}>
                         <label
                           htmlFor="sidebarMenu"
-                          className="navbar-toggle-icon show"
+                          className={"navbar-toggle-icon show"}
                         ></label>
                       </button>
                     </span>
@@ -227,17 +233,21 @@ export class View extends Component {
           </Column>
 
           <Column span="9">
-            <div className="lg:h-screen-4rem overflow-y-auto p-4 lg:px-8 lg:pr-12">
+            <div
+              className={
+                "lg:h-screen--5rem overflow-y-auto p-4 lg:px-8 lg:pr-12"
+              }
+            >
               {this.props.children}
 
-              <Pagination justify="end">
+              <Pagination className={"justify-end"}>
                 <PaginationItem>
-                  <span className="mr-4 inline-block">«</span>
-                  <Link href={this.prevPage}>Prev</Link>
+                  <span className={"mr-4 inline-block"}>«</span>
+                  <Link href={this.state.prevPage}>Prev</Link>
                 </PaginationItem>
                 <PaginationItem>
-                  <Link href={this.nextPage}>Next</Link>
-                  <span className="ml-4 inline-block"> »</span>
+                  <Link href={this.state.nextPage}>Next</Link>
+                  <span className={"ml-4 inline-block"}> »</span>
                 </PaginationItem>
               </Pagination>
             </div>
@@ -259,18 +269,18 @@ export let colors = [
   "dark",
 ];
 
-export let sizes = ["lg", "md", "sm"];
+export const sizes = ["lg", "md", "sm"];
 
 export default function Components() {
   return (
     <View prevPage={urls["flushed"]} nextPage={urls["accordion"]}>
       <section title="Components">
-        <h1 className="text-gradient gradient-primary">
+        <h1 className={"text-gradient gradient-primary"}>
           Compone
           <wbr />
           nts
         </h1>
-        <p className="text-xl font-light">
+        <p className={"text-xl font-light"}>
           Components are the building blocks of a react application. In this
           section and the following sections we are going to learn about
           components in Evolution UI

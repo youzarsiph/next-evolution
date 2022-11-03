@@ -1,19 +1,23 @@
 import { Component } from "react";
 
 export class Container extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    return <section className="container">{this.props.children}</section>;
+    return (
+      <section className={`container  ${this.props.className || ""}`}>
+        {this.props.children}
+      </section>
+    );
   }
 }
 
 export class Flex extends Component {
   render() {
     return (
-      <div className="mb-8 flex flex-wrap items-center gap-4">
+      <div
+        className={`mb-8 flex flex-wrap items-center gap-4 ${
+          this.props.className || ""
+        }`}
+      >
         {this.props.children}
       </div>
     );
@@ -50,16 +54,22 @@ export class Grid extends Component {
       "grid-rows-6",
     ];
 
-    // Attributes
-    this.colClass = props.cols
-      ? this.columns[parseInt(props.cols) - 1]
-      : this.columns[11];
-    this.rowClass = props.rows ? this.rows[parseInt(props.rows) - 1] : "";
+    // State
+    this.state = {
+      rows: props.rows ? this.rows[parseInt(props.rows) - 1] : "",
+      cols: props.cols
+        ? this.columns[parseInt(props.cols) - 1]
+        : this.columns[11],
+    };
   }
 
   render() {
     return (
-      <div className={`grid ${this.colClass} ${this.rowClass} mb-8 gap-4`}>
+      <div
+        className={`grid ${this.state.rows} ${this.state.cols} mb-8 gap-4 ${
+          this.props.className || ""
+        }`}
+      >
         {this.props.children}
       </div>
     );
@@ -86,15 +96,21 @@ export class Column extends Component {
       "lg:col-span-12",
     ];
 
-    // Column span
-    this.colSpanClass = props.span
-      ? this.colSpans[parseInt(props.span - 1)]
-      : this.colSpans[0];
+    // State
+    this.state = {
+      span: props.span
+        ? this.colSpans[parseInt(props.span - 1)]
+        : this.colSpans[0],
+    };
   }
 
   render() {
     return (
-      <div className={`${this.colSpanClass} col-span-12`}>
+      <div
+        className={`${this.state.span} col-span-12 ${
+          this.props.className || ""
+        }`}
+      >
         {this.props.children}
       </div>
     );
@@ -104,7 +120,11 @@ export class Column extends Component {
 export class Code extends Component {
   render() {
     return (
-      <code className="block rounded-lg border bg-slate-900 p-4 shadow-sm">
+      <code
+        className={`block whitespace-pre rounded-lg border bg-slate-900 p-4 shadow-sm ${
+          this.props.className || ""
+        }`}
+      >
         <pre>{this.props.children}</pre>
       </code>
     );

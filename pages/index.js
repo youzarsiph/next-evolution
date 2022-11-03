@@ -15,21 +15,15 @@ import { Card, CardBody } from "../components/view";
 
 export function BaseNavbar(props) {
   return (
-    <Navbar
-      id="navbar"
-      fixed={props.fixed}
-      overlay={props.overlay}
-      rounded={props.rounded}
-      bordered={props.bordered}
-    >
+    <Navbar id="navbar" className={props.className}>
       <NavbarContainer>
-        <NavbarBrand href={urls["home"]}>EvolutionUI</NavbarBrand>
+        <NavbarBrand href={urls["home"]}>Evolution UI</NavbarBrand>
         <MenuToggler id="toggler" menuID="navMenu" />
       </NavbarContainer>
 
       <NavbarMenu id="navMenu">
         <li className={`navbar-menu-item navbar-menu-heading lg:hidden`}>
-          <span className="navbar-brand flex items-center justify-between">
+          <span className="navbar-brand flex w-full items-center justify-between">
             <Link href={"/"}>EvolutionUI</Link>
             <button type="button" className="inline-block h-8 w-8">
               <label
