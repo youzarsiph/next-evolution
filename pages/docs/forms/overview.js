@@ -7,6 +7,7 @@ import {
   Textarea,
   Select,
   Switch,
+  Range,
 } from "../../../components/forms";
 
 export default function Overview() {
@@ -59,6 +60,8 @@ export default function Overview() {
         <Input id="upload" type="file" name="upload" label="Upload" />
 
         <Switch id="x" label="Switch checkbox input" name="x" />
+
+        <Range label={"Range"} id={"range"} helpText={"Elegant range input"} />
 
         <Button type="submit" color="primary">
           Submit

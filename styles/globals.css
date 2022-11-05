@@ -559,6 +559,22 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
   }
 
+  .form-range {
+    @apply flex h-4 w-full cursor-pointer appearance-none items-center rounded border shadow-sm outline-none focus:border-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    /* @apply appearance-none rounded-full bg-slate-100; */
+  }
+
+  .form-range::-webkit-slider-thumb {
+    @apply h-6 w-6 appearance-none rounded-full border bg-pink-400 shadow-lg hover:bg-pink-500 hover:shadow-pink-400 active:bg-pink-600;
+  }
+
+  .form-range-text {
+    @apply inline-flex h-4 items-center justify-center rounded border px-1 text-xs leading-3 text-slate-500 shadow-sm;
+  }
+
   /* End forms */
   /* Navbar */
   .navbar {
