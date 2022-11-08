@@ -33,14 +33,14 @@ export default function Flushed() {
           flushed
         ></Textarea>
 
-        <Select id="number1" label="Issue" placeholder="number1" flushed>
+        <Select id="Issue" label="Issue" placeholder="Issue" flushed>
           <option value="0">Select your issue</option>
           <option value="1">1st Issue</option>
           <option value="2">2nd Issue</option>
           <option value="3">3rd Issue</option>
         </Select>
 
-        <h1 className="text-gradient gradient-primary">Combination</h1>
+        <h1 className="text-gradient gradient-primary">Combine the styles</h1>
 
         <Input
           id="Email"

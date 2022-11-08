@@ -8,6 +8,7 @@ import {
   Select,
   Switch,
   Range,
+  Color,
 } from "../../../components/forms";
 
 export default function Overview() {
@@ -62,6 +63,8 @@ export default function Overview() {
         <Switch id="x" label="Switch checkbox input" name="x" />
 
         <Range label={"Range"} id={"range"} helpText={"Elegant range input"} />
+
+        <Color label={"Color"} id={"color"} helpText={"Elegant color input"} />
 
         <Button type="submit" color="primary">
           Submit

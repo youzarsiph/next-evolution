@@ -95,6 +95,13 @@ class BaseInput extends Component {
 export class Input extends BaseInput {}
 
 export class Select extends BaseInput {
+  constructor(props) {
+    super(props);
+
+    // Update styles
+    this.inputStyles += " form-select";
+  }
+
   input() {
     return (
       <select
@@ -168,7 +175,7 @@ export class Range extends BaseInput {
   constructor(props) {
     super(props);
 
-    // Input ref
+    // Range ref
     this.rangeRef = createRef();
 
     // Binding methods
@@ -182,6 +189,7 @@ export class Range extends BaseInput {
       disabled: props.disabled || false,
     };
 
+    this.labelStyles = "mb-0";
     this.inputStyles = "form-range";
   }
 
@@ -209,14 +217,98 @@ export class Range extends BaseInput {
   render() {
     return (
       <div className="relative mb-6">
-        {this.label()}
+        <div
+          className={
+            "mb-4 flex items-center justify-between gap-2 leading-none"
+          }
+        >
+          {this.label()}
+          <span className="form-range-text h-auto px-2 text-sm">
+            {this.state.value}
+          </span>
+        </div>
         <div className="flex items-center gap-2">
           <span className="form-range-text">{this.state.min}</span>
           {this.input()}
           <span className="form-range-text">{this.state.max}</span>
         </div>
-        <small className="mt-1 flex items-center gap-2 text-slate-600">
-          <span className="form-range-text">{this.state.value}</span>
+        <small className="mt-1 text-slate-600">{this.props.helpText}</small>
+      </div>
+    );
+  }
+}
+
+export class Color extends BaseInput {
+  constructor(props) {
+    super(props);
+
+    // Refs
+    this.colorRef = createRef();
+    this.inputRef = createRef();
+
+    // Binding methods
+    this.onChange = this.onChange.bind(this);
+    this.onChangeInput = this.onChangeInput.bind(this);
+
+    // State
+    this.state = {
+      value: props.value || "#0f172a",
+      disabled: props.disabled || false,
+    };
+
+    this.inputStyles = "form-color";
+  }
+
+  onChange() {
+    this.setState({ value: this.colorRef.current.value });
+    this.inputRef.current.value = this.state.value;
+  }
+
+  onChangeInput() {
+    this.setState({ value: this.inputRef.current.value });
+  }
+
+  input() {
+    return (
+      <input
+        type={"color"}
+        id={this.props.id}
+        ref={this.colorRef}
+        name={this.props.name}
+        value={this.state.value}
+        onChange={this.onChange}
+        disabled={this.state.disabled}
+        className={"sr-only"}
+      />
+    );
+  }
+
+  render() {
+    return (
+      <div className="relative mb-6">
+        {this.label()}
+        <label
+          htmlFor={this.props.id + "-input"}
+          className={`${
+            this.inputStyles + " " + (this.props.className || "")
+          } gap-4 `}
+        >
+          <label
+            htmlFor={this.props.id}
+            className={"mb-0 block h-8 w-10 cursor-pointer rounded shadow-sm"}
+            style={{ backgroundColor: this.state.value }}
+          ></label>
+          {this.input()}
+          <input
+            type={"text"}
+            ref={this.inputRef}
+            value={this.state.value}
+            id={this.props.id + "-input"}
+            onChange={this.onChangeInput}
+            className={"w-full outline-none"}
+          />
+        </label>
+        <small className="mt-1 block text-slate-600">
           {this.props.helpText}
         </small>
       </div>
