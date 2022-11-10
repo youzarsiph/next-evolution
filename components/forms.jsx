@@ -295,17 +295,21 @@ export class Color extends BaseInput {
         >
           <label
             htmlFor={this.props.id}
-            className={"mb-0 block h-8 w-10 cursor-pointer rounded shadow-sm"}
+            className={
+              "mb-0 block h-8 w-10 cursor-pointer rounded border shadow-sm"
+            }
             style={{ backgroundColor: this.state.value }}
           ></label>
           {this.input()}
           <input
             type={"text"}
+            maxLength={7}
             ref={this.inputRef}
             value={this.state.value}
             id={this.props.id + "-input"}
             onChange={this.onChangeInput}
             className={"w-full outline-none"}
+            pattern={"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"}
           />
         </label>
         <small className="mt-1 block text-slate-600">

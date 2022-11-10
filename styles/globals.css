@@ -526,7 +526,7 @@
   }
 
   .form-control-flushed {
-    @apply border-b-4 ring-0 invalid:border-red-400 invalid:text-red-400 invalid:ring-0 invalid:ring-red-300 focus:ring-0 active:ring-0;
+    @apply border-b-4 ring-0 ring-offset-0 invalid:border-red-400 invalid:ring-0 invalid:ring-offset-0 focus:ring-0 focus:ring-offset-0 active:ring-0 active:ring-offset-0;
   }
 
   .form-control-floating {
@@ -539,7 +539,7 @@
 
   .form-select {
     @apply appearance-none bg-no-repeat;
-    background-size: 1rem .75rem;
+    background-size: 1rem 0.75rem;
     background-position: right 0.75rem center;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   }
