@@ -410,7 +410,7 @@
   }
 
   .btn.bg-gradient {
-    @apply border-0 shadow-none ring-0;
+    @apply shadow-none ring-0;
   }
 
   .btn-primary {
