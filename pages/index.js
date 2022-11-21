@@ -11,7 +11,7 @@ import {
   MenuToggler,
 } from "../components/navigation";
 import { Container } from "../components/utils";
-import { Card, CardBody } from "../components/view";
+import { Button, Card, CardBody } from "../components/view";
 
 export function BaseNavbar(props) {
   return (
@@ -110,21 +110,15 @@ export default class Home extends Component {
                 <p>
                   Beautiful by default and Responsive. Do more with less code
                 </p>
-                <div className="relative inline-block">
-                  <div className="bg-gradient gradient-danger absolute -inset-1 animate-pulse rounded-lg blur"></div>
-                  <a
-                    href={urls["component"]}
-                    className="btn btn-danger bg-gradient gradient-danger hover:text-white hover:no-underline active:text-white"
-                  >
-                    Components
-                  </a>
-                </div>
+                <Button color="danger" gradient>
+                  <Link href={urls["component"]}>Components</Link>
+                </Button>
               </CardBody>
             </Card>
           </div>
         </Container>
 
-        <footer className="bg-gradient gradient-success text-white shadow-2xl">
+        <footer className="bg-gradient gradient-danger text-white shadow-2xl">
           <div className="container mt-16 py-24">
             <h1 className="font-bold tracking-tight text-white">
               Next Evolution
