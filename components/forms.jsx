@@ -157,7 +157,7 @@ export class InlineInput extends BaseInput {
 
     // Label attributes
     this.labelBefore = false;
-    this.labelStyles = "ml-4";
+    this.labelStyles = "ml-4 mb-0";
   }
 }
 
