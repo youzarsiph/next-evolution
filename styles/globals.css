@@ -549,7 +549,7 @@
   }
 
   .form-check {
-    @apply mt-1 inline-block h-4 w-4 appearance-none rounded border bg-white bg-contain bg-center bg-no-repeat align-top shadow-sm outline-none checked:border-pink-500 checked:bg-pink-400 focus:border-pink-500 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:scale-95 active:ring active:ring-pink-300 active:ring-offset-2;
+    @apply mt-1 inline-block h-4 w-4 appearance-none rounded border bg-white bg-contain bg-center bg-no-repeat align-top shadow-sm outline-none checked:border-pink-500 checked:bg-pink-400 focus:border-pink-500 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:scale-95 active:border-pink-500 active:bg-pink-400 active:ring active:ring-pink-300 active:ring-offset-2;
   }
 
   .form-check:checked {

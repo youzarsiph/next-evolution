@@ -1,4 +1,4 @@
-import { Component, createRef, useRef } from "react";
+import { Component } from "react";
 
 export class Form extends Component {
   /**
@@ -30,6 +30,7 @@ class BaseInput extends Component {
     this.state = {
       type: props.type || "text",
       disabled: props.disabled || false,
+      value: props.value || "",
     };
 
     this.inputStyles = "form-control";
@@ -48,6 +49,9 @@ class BaseInput extends Component {
     if (props.flushed) {
       this.inputStyles += " form-control-flushed";
     }
+
+    // Bind onChange
+    this.onChange = this.onChange.bind(this);
   }
 
   // Creating the label
@@ -62,6 +66,11 @@ class BaseInput extends Component {
     );
   }
 
+  // Handle the change
+  onChange(event) {
+    this.setState({ ...this.state, value: event.target.value });
+  }
+
   // Creating the input
   input() {
     /**
@@ -72,6 +81,8 @@ class BaseInput extends Component {
         id={this.props.id}
         type={this.state.type}
         name={this.props.name}
+        value={this.state.value}
+        onChange={this.onChange}
         disabled={this.state.disabled}
         className={this.inputStyles + " " + (this.props.className || "")}
         placeholder={this.props.placeholder}
@@ -84,9 +95,11 @@ class BaseInput extends Component {
       <div className="relative mb-6">
         {this.labelBefore ? this.label() : this.input()}
         {!this.labelBefore ? this.label() : this.input()}
-        <small className="mt-1 block text-slate-600">
-          {this.props.helpText}
-        </small>
+        {this.props.helpText && (
+          <small className="mt-1 block text-slate-600">
+            {this.props.helpText}
+          </small>
+        )}
       </div>
     );
   }
@@ -131,6 +144,8 @@ export class Textarea extends BaseInput {
         id={this.props.id}
         name={this.props.name}
         rows={this.props.rows}
+        value={this.state.value}
+        onChange={this.onChange}
         className={this.inputStyles}
         disabled={this.state.disabled}
         placeholder={this.props.placeholder}
@@ -148,7 +163,6 @@ export class InlineInput extends BaseInput {
     super(props);
 
     // Input attributes
-    this.state.type = props.type === "checkbox" ? "checkbox" : "radio";
     this.inputStyles = "form-check";
 
     if (props.type === "radio") {
@@ -175,9 +189,6 @@ export class Range extends BaseInput {
   constructor(props) {
     super(props);
 
-    // Range ref
-    this.rangeRef = createRef();
-
     // Binding methods
     this.onChange = this.onChange.bind(this);
 
@@ -193,8 +204,8 @@ export class Range extends BaseInput {
     this.inputStyles = "form-range";
   }
 
-  onChange() {
-    this.setState({ value: this.rangeRef.current.value });
+  onChange(event) {
+    this.setState({ ...this.state, value: event.target.value });
   }
 
   input() {
@@ -202,7 +213,6 @@ export class Range extends BaseInput {
       <input
         type={"range"}
         id={this.props.id}
-        ref={this.rangeRef}
         min={this.state.min}
         max={this.state.max}
         name={this.props.name}
@@ -242,10 +252,6 @@ export class Color extends BaseInput {
   constructor(props) {
     super(props);
 
-    // Refs
-    this.colorRef = createRef();
-    this.inputRef = createRef();
-
     // Binding methods
     this.onChange = this.onChange.bind(this);
     this.onChangeInput = this.onChangeInput.bind(this);
@@ -259,13 +265,12 @@ export class Color extends BaseInput {
     this.inputStyles = "form-color";
   }
 
-  onChange() {
-    this.setState({ value: this.colorRef.current.value });
-    this.inputRef.current.value = this.state.value;
+  onChange(event) {
+    this.setState({ ...this.state, value: event.target.value });
   }
 
-  onChangeInput() {
-    this.setState({ value: this.inputRef.current.value });
+  onChangeInput(event) {
+    this.setState({ ...this.state, value: event.target.value });
   }
 
   input() {
@@ -295,16 +300,13 @@ export class Color extends BaseInput {
         >
           <label
             htmlFor={this.props.id}
-            className={
-              "mb-0 block h-8 w-10 cursor-pointer rounded border shadow-sm"
-            }
+            className={"mb-0 block h-8 w-10 cursor-pointer rounded shadow-lg"}
             style={{ backgroundColor: this.state.value }}
           ></label>
           {this.input()}
           <input
             type={"text"}
             maxLength={7}
-            ref={this.inputRef}
             value={this.state.value}
             id={this.props.id + "-input"}
             onChange={this.onChangeInput}
@@ -312,9 +314,11 @@ export class Color extends BaseInput {
             pattern={"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"}
           />
         </label>
-        <small className="mt-1 block text-slate-600">
-          {this.props.helpText}
-        </small>
+        {this.props.helpText && (
+          <small className="mt-1 block text-slate-600">
+            {this.props.helpText}
+          </small>
+        )}
       </div>
     );
   }
