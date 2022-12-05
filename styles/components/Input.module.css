@@ -1,0 +1,64 @@
+.input {
+  @apply block w-full rounded-lg border bg-white px-4 py-3 shadow-sm outline-none file:mr-4 file:rounded-lg file:border-0 file:bg-slate-50 file:px-4 file:py-2 file:shadow-sm file:transition-all invalid:border-red-400 invalid:text-red-400 invalid:ring invalid:ring-red-300 invalid:ring-offset-2 file:hover:bg-slate-100 focus:border-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2 focus:invalid:border-red-400 focus:invalid:ring-red-300 active:border-pink-400 active:ring active:ring-pink-300 active:ring-offset-2;
+}
+
+.flushed {
+  @apply border-b-4 ring-0 ring-offset-0 invalid:border-red-400 invalid:ring-0 invalid:ring-offset-0 focus:ring-0 focus:ring-offset-0 active:ring-0 active:ring-offset-0;
+}
+
+.floating {
+  @apply pt-6 pb-2 placeholder-transparent duration-500 file:mt-2;
+}
+
+.label {
+  @apply absolute top-2 left-4 text-sm text-slate-600 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-invalid:text-red-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-slate-600 peer-focus:peer-invalid:text-red-400;
+}
+
+.select {
+  @apply appearance-none bg-no-repeat;
+  background-size: 1rem 0.75rem;
+  background-position: right 0.75rem center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.checkbox {
+  @apply mt-1 inline-block h-4 w-4 appearance-none rounded border bg-white bg-contain bg-center bg-no-repeat align-top shadow-sm outline-none checked:border-pink-500 checked:bg-pink-400 focus:border-pink-500 focus:ring focus:ring-pink-300 focus:ring-offset-2 active:scale-95 active:border-pink-500 active:bg-pink-400 active:ring active:ring-pink-300 active:ring-offset-2;
+}
+
+.checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.switch {
+  @apply checkbox mt-0 h-6 w-12 rounded-full bg-left checked:bg-right;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+}
+
+.switch:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28236 72 153 / 1%29'/%3e%3c/svg%3e");
+}
+
+.switch:checked,
+.switch:checked:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.range {
+  @apply form-control flex h-4 w-full cursor-pointer appearance-none items-center rounded p-0;
+}
+
+.range::-webkit-slider-runnable-track {
+  @apply appearance-none;
+}
+
+.range::-webkit-slider-thumb {
+  @apply h-6 w-6 appearance-none rounded-full border bg-pink-400 shadow-lg hover:bg-pink-500 hover:shadow-pink-400 active:bg-pink-600;
+}
+
+.rangeText {
+  @apply inline-flex h-4 items-center justify-center rounded border px-1 text-xs leading-3 text-slate-500 shadow-sm;
+}
+
+.form-color {
+  @apply form-control flex appearance-none items-center;
+}

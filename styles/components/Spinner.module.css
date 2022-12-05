@@ -1,0 +1,55 @@
+.spinner-container {
+  @apply inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg;
+}
+
+.spinner {
+  @apply inline-block h-8 w-8 animate-spin rounded-full border-2;
+}
+
+.spinner-primary {
+  @apply gradient-primary border-pink-500 bg-pink-500;
+}
+
+.spinner-secondary {
+  @apply gradient-secondary border-slate-500 bg-slate-500;
+}
+
+.spinner-info {
+  @apply gradient-info border-sky-500 bg-sky-500;
+}
+
+.spinner-success {
+  @apply gradient-success border-green-500 bg-green-500;
+}
+
+.spinner-warning {
+  @apply gradient-warning border-orange-500 bg-orange-500;
+}
+
+.spinner-danger {
+  @apply gradient-danger border-red-500 bg-red-500;
+}
+
+.spinner-light {
+  @apply gradient-light border-gray-300 bg-gray-300;
+}
+
+.spinner-dark {
+  @apply gradient-dark border-gray-800 bg-gray-800;
+}
+
+.spinner-filled {
+  @apply h-6 w-6 animate-ping shadow-none;
+}
+
+.spinner-circle {
+  @apply spinner-filled bg-white;
+}
+
+.spinner-border {
+  @apply border-y-transparent bg-white;
+}
+
+.spinner-gradient {
+  @apply spinner bg-gradient border-none p-1 shadow-none;
+}

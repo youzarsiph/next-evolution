@@ -1,0 +1,11 @@
+.skeleton {
+  @apply block h-96 w-full max-w-full animate-pulse rounded-lg bg-slate-400;
+}
+
+.skeleton-text {
+  @apply inline-block h-4 w-10 rounded;
+}
+
+.skeleton-circle {
+  @apply inline-block h-16 w-16 rounded-full;
+}

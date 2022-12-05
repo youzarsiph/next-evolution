@@ -1,0 +1,61 @@
+.navbar {
+  @apply relative flex flex-col items-center justify-between gap-4 bg-white p-6 lg:flex-row lg:justify-start;
+}
+
+.navbar-vertical {
+  @apply flex-col items-start;
+}
+
+.navbar-container {
+  @apply flex w-full items-center justify-between lg:w-auto;
+}
+
+.navbar-brand {
+  @apply text-2xl font-semibold;
+}
+
+.navbar-brand a {
+  @apply text-inherit hover:no-underline;
+}
+
+.navbar-toggler {
+  @apply flex items-center justify-center outline-none lg:hidden;
+}
+
+.navbar-menu {
+  @apply fixed inset-y-0 -left-full z-50 flex w-4/5 flex-col gap-4 overflow-y-auto bg-white p-8 shadow-lg duration-500 peer-checked:left-0 lg:static lg:w-auto lg:flex-row lg:p-0 lg:pl-0 lg:shadow-none;
+}
+
+.navbar-vertical .navbar-menu {
+  @apply flex-col gap-2 lg:w-full;
+}
+
+.navbar-menu-item {
+  @apply flex items-center justify-between text-lg font-light;
+}
+
+.navbar-vertical .navbar-menu-item {
+  @apply px-4;
+}
+
+.navbar-menu-heading {
+  @apply text-xl font-semibold;
+}
+
+.navbar-vertical .navbar-menu-heading {
+  @apply px-0;
+}
+
+.navbar-menu-item a {
+  @apply text-slate-800 hover:text-sky-500 hover:no-underline;
+}
+
+.navbar-toggle-icon {
+  @apply m-0 inline-block h-8 w-8 cursor-pointer bg-cover bg-center bg-no-repeat;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggle-icon.show {
+  @apply m-1 h-6 w-6;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}

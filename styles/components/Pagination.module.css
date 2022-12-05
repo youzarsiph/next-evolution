@@ -1,0 +1,7 @@
+.pagination {
+  @apply flex flex-wrap items-center gap-4 pl-0;
+}
+
+.pagination-item {
+  @apply inline-flex cursor-pointer items-center justify-center rounded-lg border px-4 py-2 shadow-sm transition-all hover:shadow-lg active:scale-95;
+}
