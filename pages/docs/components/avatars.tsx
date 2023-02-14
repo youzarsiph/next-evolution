@@ -19,11 +19,6 @@ export default function Avatars() {
     >
       <article title="Avatars">
         <h2>Basic</h2>
-        <p>
-          Avatars can be custom photos, uploaded by users, or custom
-          placeholders with a background and the user's name initials upper
-          cased.
-        </p>
 
         <Flex>
           {colors.map((item) => {

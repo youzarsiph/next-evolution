@@ -5,7 +5,7 @@ import { Breadcrumb, BreadcrumbItem } from "../../../components/breadcrumb";
 
 export default function Breadcrumbs() {
   const description = `
-    Indicate the current page's location within a navigational
+    Indicate the current location within a navigational
     hierarchy that automatically adds separators.
   `;
 

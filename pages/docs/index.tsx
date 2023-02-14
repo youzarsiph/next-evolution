@@ -3,9 +3,9 @@ import { View } from "./components/index";
 
 export default function Docs() {
   const description = `
-    Hey there! You are looking at the UI's official documentation.
+    Hey there! You are looking at the official documentation of the UI.
     Flexible, ready to use UI components which will bring you so much
-    closer to your end goals. Let's dive in.
+    closer to your end goals. Lets dive in.
   `;
 
   return (
