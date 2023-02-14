@@ -1,59 +1,84 @@
-import { Component } from "react";
-import { gradients } from "./constants";
+import Props from "./index";
+import React from "react";
+import styles from "../styles/components/Avatar.module.css";
 
-export class Avatar extends Component {
-  constructor(props) {
+interface AvatarProps extends Props {
+  color:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "success"
+    | "warning"
+    | "danger"
+    | "light"
+    | "dark";
+  size?: "sm" | "lg";
+  gradient?: boolean;
+}
+
+export class Avatar extends React.Component<AvatarProps> {
+  private style: string = styles.avatar;
+
+  constructor(props: AvatarProps) {
     super(props);
 
-    // State
-    this.state = {
-      color: props.color || "primary",
-      size: props.size || "md",
-      isGradient: props.gradient || false,
-      modifier: "",
-    };
+    if (props.gradient) {
+      this.style += ` ${styles.gradient}`;
+    }
 
-    this.colors = {
-      primary: "avatar-primary",
-      secondary: "avatar-secondary",
-      info: "avatar-info",
-      success: "avatar-success",
-      warning: "avatar-warning",
-      danger: "avatar-danger",
-      light: "avatar-light",
-      dark: "avatar-dark",
-    };
+    switch (props.size) {
+      case "sm":
+        this.style += ` ${styles.sm}`;
+        break;
 
-    this.sizes = {
-      sm: "avatar-sm",
-      md: "",
-      lg: "avatar-lg",
-    };
+      case "lg":
+        this.style += ` ${styles.lg}`;
+        break;
+
+      default:
+        break;
+    }
+
+    switch (props.color) {
+      case "primary":
+        this.style += ` ${styles.primary}`;
+        break;
+
+      case "secondary":
+        this.style += ` ${styles.secondary}`;
+        break;
+
+      case "info":
+        this.style += ` ${styles.info}`;
+        break;
+
+      case "success":
+        this.style += ` ${styles.success}`;
+        break;
+
+      case "warning":
+        this.style += ` ${styles.warning}`;
+        break;
+
+      case "danger":
+        this.style += ` ${styles.danger}`;
+        break;
+
+      case "light":
+        this.style += ` ${styles.light}`;
+        break;
+
+      case "dark":
+        this.style += ` ${styles.dark}`;
+        break;
+
+      default:
+        this.style += ` ${styles.primary}`;
+        break;
+    }
   }
 
-  componentDidMount() {
-    if (this.state.color) {
-      this.setState({ color: this.colors[this.state.color] });
-    }
-
-    if (this.state.size) {
-      this.setState({ size: this.sizes[this.state.size] });
-    }
-
-    if (this.state.isGradient) {
-      this.setState({ modifier: `bg-gradient ${gradients[this.state.color]}` });
-    }
-  }
-
-  render() {
-    return (
-      <span
-        className={`avatar ${this.state.color} ${this.state.size} ${
-          this.state.modifier
-        } ${this.props.className || ""}`}
-      >
-        {this.props.children}
-      </span>
-    );
+  render(): React.ReactNode {
+    return <span className={this.style}>{this.props.children}</span>;
   }
 }

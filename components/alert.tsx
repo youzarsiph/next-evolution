@@ -1,52 +1,77 @@
-import { Component } from "react";
+import React from "react";
+import Props from "./index";
+import styles from "../styles/components/Alert.module.css";
 
-export class Alert extends Component {
-  constructor(props) {
+interface AlertProps extends Props {
+  color:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "success"
+    | "warning"
+    | "danger"
+    | "light"
+    | "dark";
+  modern?: boolean;
+  flushed?: boolean;
+}
+
+export class Alert extends React.Component<AlertProps> {
+  private style: string = styles.alert;
+
+  constructor(props: AlertProps) {
     super(props);
 
-    // State
-    this.state = {
-      color: props.color || "primary",
-      isFlushed: props.flushed || false,
-      isModern: props.modern || false,
-      modifier: "",
-    };
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
+    }
 
-    // Colors
-    this.colors = {
-      primary: "alert-primary",
-      secondary: "alert-secondary",
-      info: "alert-info",
-      success: "alert-success",
-      warning: "alert-warning",
-      danger: "alert-danger",
-      light: "alert-light",
-      dark: "alert-dark",
-    };
+    if (props.modern) {
+      this.style += ` ${styles.modern}`;
+    }
+
+    switch (props.color) {
+      case "primary":
+        this.style += ` ${styles.primary}`;
+        break;
+
+      case "secondary":
+        this.style += ` ${styles.secondary}`;
+        break;
+
+      case "info":
+        this.style += ` ${styles.info}`;
+        break;
+
+      case "success":
+        this.style += ` ${styles.success}`;
+        break;
+
+      case "warning":
+        this.style += ` ${styles.warning}`;
+        break;
+
+      case "danger":
+        this.style += ` ${styles.danger}`;
+        break;
+
+      case "light":
+        this.style += ` ${styles.light}`;
+        break;
+
+      case "dark":
+        this.style += ` ${styles.dark}`;
+        break;
+
+      default:
+        this.style += ` ${styles.primary}`;
+        break;
+    }
   }
 
-  componentDidMount() {
-    if (this.state.color) {
-      this.setState({ color: this.colors[this.state.color] });
-    }
-
-    if (this.state.isFlushed) {
-      this.setState({ modifier: this.state.modifier + "alert-flushed" });
-    }
-
-    if (this.state.isModern) {
-      this.setState({ modifier: this.state.modifier + "alert-modern" });
-    }
-  }
-
-  render() {
+  render(): React.ReactNode {
     return (
-      <div
-        role={"alert"}
-        className={`alert ${this.state.color} ${this.state.modifier} ${
-          this.props.className || ""
-        }`}
-      >
+      <div role={"alert"} className={this.style}>
         {this.props.children}
       </div>
     );

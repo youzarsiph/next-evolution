@@ -1,47 +1,41 @@
-import { Component } from "react";
+import React from "react";
+import Props from "./index";
+import styles from "../styles/components/Accordion.module.css";
 
-export class Accordion extends Component {
-  constructor(props) {
+interface AccordionProps extends Props {
+  flushed?: boolean;
+}
+
+export class Accordion extends React.Component<AccordionProps> {
+  private style: string = styles.accordion;
+
+  constructor(props: AccordionProps) {
     super(props);
 
-    // State
-    this.state = {
-      isFlushed: props.flushed,
-      modifier: "",
-    };
-  }
-
-  componentDidMount() {
-    if (this.state.isFlushed) {
-      this.setState({ modifier: "accordion-flushed" });
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
     }
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
-      <ul
-        className={`accordion ${this.state.modifier} ${
-          this.props.className || ""
-        }`}
-      >
-        {this.props.children}
-      </ul>
+      <section>
+        <ol className={this.style}>{this.props.children}</ol>
+      </section>
     );
   }
 }
 
-export class AccordionItem extends Component {
-  render() {
-    return (
-      <li className={`accordion-item ${this.props.className || ""}`}>
-        {this.props.children}
-      </li>
-    );
-  }
+interface ItemProps extends Props {
+  label: string;
 }
 
-export class AccordionButton extends Component {
-  constructor(props) {
+interface ItemState {
+  collapsed: boolean;
+}
+
+export class AccordionItem extends React.Component<ItemProps, ItemState> {
+  constructor(props: ItemProps) {
     super(props);
 
     // Binding methods
@@ -62,35 +56,55 @@ export class AccordionButton extends Component {
     this.setState({ collapsed: !this.state.collapsed });
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
-      <>
-        <input
-          type={"checkbox"}
-          id={this.props.id}
-          onChange={this.onChange}
-          className={"peer sr-only"}
-          checked={!this.state.collapsed}
-        />
-        <button
-          type={"button"}
-          onClick={this.onClick}
-          className={`accordion-btn ${this.props.className || ""}`}
+      <li className={styles.item}>
+        <div className={styles.container}>
+          <button type={"button"} onClick={this.onClick} className={styles.btn}>
+            {this.props.label}
+            <span>
+              {this.state.collapsed ? (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
+                </svg>
+              )}
+            </span>
+          </button>
+        </div>
+        <div
+          className={`${styles.content} ${
+            this.state.collapsed ? "" : styles.opened
+          }`}
         >
           {this.props.children}
-        </button>
-        <span className={"accordion-btn-icon"} />
-      </>
-    );
-  }
-}
-
-export class AccordionContent extends Component {
-  render() {
-    return (
-      <div className={`accordion-content ${this.props.className || ""}`}>
-        {this.props.children}
-      </div>
+        </div>
+      </li>
     );
   }
 }

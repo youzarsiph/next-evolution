@@ -3,9 +3,13 @@ import { View } from "../components/index";
 
 export default function Images() {
   return (
-    <View prevPage={urls["typography"]} nextPage={urls["tables"]}>
+    <View
+      title="Images"
+      description="Images &amp; Figures"
+      prev={urls["typography"]}
+      next={urls["tables"]}
+    >
       <article title="Images">
-        <h1 className="text-gradient gradient-primary">Images &amp; Figures</h1>
         <div className="grid gap-4 lg:grid-cols-2">
           <figure>
             <svg

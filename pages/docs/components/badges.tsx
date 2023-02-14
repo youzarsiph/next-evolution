@@ -1,18 +1,23 @@
+import { View } from "./index";
 import urls from "../../../urls";
-import { View, colors } from "./index";
-import { Badge } from "../../../components/badge";
 import { Flex } from "../../../components/utils";
+import { Badge } from "../../../components/badge";
+import { colors } from "../../../components/constants";
 
 export default function Badges() {
-  return (
-    <View prevPage={urls["avatar"]} nextPage={urls["breadcrumb"]}>
-      <article title="Badges">
-        <h1 className="text-gradient gradient-primary">Badges</h1>
-        <p className="text-xl font-light">
-          Documentation and examples for badges, our small count and labeling
-          component.
-        </p>
+  const description = `
+    Documentation and examples for badges, our small count and labeling
+    component.
+  `;
 
+  return (
+    <View
+      title="Badge"
+      description={description}
+      prev={urls["avatar"]}
+      next={urls["breadcrumb"]}
+    >
+      <article title="Badges">
         <h2>Basic</h2>
 
         <Flex>

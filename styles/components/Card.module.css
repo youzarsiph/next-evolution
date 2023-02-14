@@ -2,14 +2,14 @@
   @apply relative rounded-lg border shadow-lg;
 }
 
-.card-header {
+.header {
   @apply border-b px-8 py-6;
 }
 
-.card-body {
+.body {
   @apply p-8 text-lg font-light;
 }
 
-.card-footer {
+.footer {
   @apply border-t px-8 py-6;
 }

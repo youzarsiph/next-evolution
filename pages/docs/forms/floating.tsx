@@ -1,45 +1,51 @@
 import urls from "../../../urls";
 import { View } from "../components/index";
-import { Input, Textarea } from "../../../components/input";
+import { Input, Label, Textarea } from "../../../components/input";
 
 export default function Floating() {
   return (
-    <View prevPage={urls["overview"]} nextPage={urls["flushed"]}>
+    <View
+      title="Floating Labels"
+      description="Floating Label Inputs"
+      prev={urls["overview"]}
+      next={urls["flushed"]}
+    >
       <article title="Floating labels">
-        <h1 className="text-gradient gradient-primary">Floating labels</h1>
+        <Label text="Email" for="email" floating>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder={"Email"}
+            floating
+          />
+          <small className="text-slate-400">
+            We'll never share your email with anyone else.
+          </small>
+        </Label>
 
-        <Input
-          id="email1"
-          label="Email"
-          type="email"
-          name="email"
-          placeholder={"Email"}
-          floating
-          helpText="We'll never share your email with anyone else."
-        />
-        <Input
-          id="password1"
-          label="Password"
-          type="password"
-          name="password"
-          placeholder={"Password"}
-          floating
-        />
-        <Textarea
-          id="message1"
-          name="message1"
-          label="Message"
-          placeholder={"Message"}
-          floating
-        ></Textarea>
+        <Label text="Password" for="pass" floating>
+          <Input
+            id="pass"
+            name="pass"
+            type="password"
+            placeholder={"Password"}
+            floating
+          />
+        </Label>
 
-        <Input
-          id="upload1"
-          type="file"
-          name="upload1"
-          label="Upload"
-          floating
-        />
+        <Label text="Message" for="message" floating>
+          <Textarea
+            id="message"
+            name="message"
+            placeholder={"Message"}
+            floating
+          ></Textarea>
+        </Label>
+
+        <Label text="Upload" for="upload" floating>
+          <Input id="upload" type="file" name="upload" floating />
+        </Label>
       </article>
     </View>
   );

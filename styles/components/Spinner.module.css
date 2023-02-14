@@ -1,4 +1,36 @@
-.spinner-container {
+.primary {
+  @apply border-pink-500 bg-pink-500 from-pink-500 to-blue-600;
+}
+
+.secondary {
+  @apply border-slate-500 bg-slate-500 from-slate-400 to-slate-900;
+}
+
+.info {
+  @apply border-sky-500 bg-sky-500 from-sky-500 to-lime-500;
+}
+
+.success {
+  @apply border-green-500 bg-green-500 from-green-500 to-violet-700;
+}
+
+.warning {
+  @apply border-orange-500 bg-orange-500 from-orange-500 to-teal-500;
+}
+
+.danger {
+  @apply border-red-500 bg-red-500 from-red-500 to-purple-600;
+}
+
+.light {
+  @apply border-gray-300 bg-gray-300 from-gray-100 to-gray-400;
+}
+
+.dark {
+  @apply border-gray-800 bg-gray-800 from-slate-500 to-black;
+}
+
+.container {
   @apply inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg;
 }
 
@@ -6,50 +38,22 @@
   @apply inline-block h-8 w-8 animate-spin rounded-full border-2;
 }
 
-.spinner-primary {
-  @apply gradient-primary border-pink-500 bg-pink-500;
-}
-
-.spinner-secondary {
-  @apply gradient-secondary border-slate-500 bg-slate-500;
-}
-
-.spinner-info {
-  @apply gradient-info border-sky-500 bg-sky-500;
-}
-
-.spinner-success {
-  @apply gradient-success border-green-500 bg-green-500;
-}
-
-.spinner-warning {
-  @apply gradient-warning border-orange-500 bg-orange-500;
-}
-
-.spinner-danger {
-  @apply gradient-danger border-red-500 bg-red-500;
-}
-
-.spinner-light {
-  @apply gradient-light border-gray-300 bg-gray-300;
-}
-
-.spinner-dark {
-  @apply gradient-dark border-gray-800 bg-gray-800;
-}
-
-.spinner-filled {
+.filled {
   @apply h-6 w-6 animate-ping shadow-none;
 }
 
-.spinner-circle {
-  @apply spinner-filled bg-white;
+.circle {
+  @apply filled bg-white;
 }
 
-.spinner-border {
+.bordered {
   @apply border-y-transparent bg-white;
 }
 
-.spinner-gradient {
-  @apply spinner bg-gradient border-none p-1 shadow-none;
+.gradient {
+  @apply border-none bg-gradient-to-r p-1 text-white shadow-none;
+}
+
+.innerCircle {
+  @apply inline-block h-full w-full rounded-full bg-white;
 }

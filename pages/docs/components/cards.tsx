@@ -10,8 +10,18 @@ import {
 } from "../../../components/card";
 
 export default function Cards() {
+  const description = `
+    Our cards provide a flexible and extensible content container with
+    multiple variants and options
+  `;
+
   return (
-    <View prevPage={urls["button"]} nextPage={urls["navbar"]}>
+    <View
+      title="Card"
+      description={description}
+      prev={urls["button"]}
+      next={urls["navbar"]}
+    >
       <article title="Cards">
         <h1 className="text-gradient gradient-primary">Cards</h1>
         <p className="text-xl font-light">
@@ -50,21 +60,6 @@ export default function Cards() {
           <Card>
             <CardBody>
               <h5>Special treatment</h5>
-              <div className="mb-6 flex items-center gap-4 font-bold">
-                <span className="text-pink-400">50 Likes</span>
-                750 Views
-              </div>
-              <p>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <Button color="primary">Go somewhere</Button>
-            </CardBody>
-          </Card>
-
-          <Card>
-            <CardBody>
-              <h5>Special treatment</h5>
               <p>
                 With supporting text below as a natural lead-in to additional
                 content.
@@ -84,81 +79,10 @@ export default function Cards() {
               </div>
             </CardFooter>
           </Card>
-
-          <Card>
-            <CardBody>
-              <h5>Special treatment</h5>
-              <p>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <Button color="primary">Go somewhere</Button>
-            </CardBody>
-            <CardFooter>
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2 font-bold">
-                  <Avatar color="info">YAS</Avatar>
-                  Yousef Abu Shanab
-                </div>
-                <div className="font-bold">2hrs</div>
-              </div>
-            </CardFooter>
-          </Card>
         </div>
 
-        <h2>Actions</h2>
+        <h2>Example</h2>
         <div className="mb-8 grid gap-4 lg:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <h5 className="mb-0">Favorite Post</h5>
-                <span className="text-xl font-bold text-yellow-400 hover:text-yellow-500">
-                  Star
-                </span>
-              </div>
-            </CardHeader>
-            <CardBody>
-              <p>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <div className="flex items-center justify-between">
-                <Button color="primary">Action Button</Button>
-                <div className="font-bold text-slate-400">2hrs</div>
-              </div>
-            </CardFooter>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <h5 className="mb-0">Favorite Post</h5>
-                <span className="text-xl font-bold text-yellow-400 hover:text-yellow-500">
-                  Star
-                </span>
-                <span className="text-xl font-bold text-red-500 hover:text-red-600">
-                  Love
-                </span>
-              </div>
-            </CardHeader>
-            <CardBody>
-              <p>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <div className="flex items-center justify-between">
-                <Button color="primary">Action Button</Button>
-                <div className="font-bold text-slate-400">2hrs</div>
-              </div>
-            </CardFooter>
-          </Card>
-        </div>
-
-        <div className="mb-8 max-w-lg">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">

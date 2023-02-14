@@ -1,23 +1,28 @@
+import { View } from "./index";
 import urls from "../../../urls";
-import { View, colors, sizes } from "./index";
 import { Flex } from "../../../components/utils";
 import { Avatar } from "../../../components/avatar";
+import { colors, sizes } from "../../../components/constants";
 
 export default function Avatars() {
-  return (
-    <View prevPage={urls["alert"]} nextPage={urls["badge"]}>
-      <article title="Avatars">
-        <h1 className="text-gradient gradient-primary">Avatars</h1>
-        <p className="text-xl font-light">
-          Avatars can be used to represent people or objects. They come in
-          different sizes and can be used in various scenarios.
-        </p>
+  const description = `
+    Avatars can be used to represent people or objects. They come in
+    different sizes and can be used in various scenarios.
+  `;
 
+  return (
+    <View
+      title="Avatar"
+      description={description}
+      prev={urls["alert"]}
+      next={urls["badge"]}
+    >
+      <article title="Avatars">
         <h2>Basic</h2>
         <p>
           Avatars can be custom photos, uploaded by users, or custom
-          placeholders with a background and the user&apos;s name initials
-          upper cased.
+          placeholders with a background and the user's name initials upper
+          cased.
         </p>
 
         <Flex>

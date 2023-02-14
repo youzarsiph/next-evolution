@@ -1,57 +1,93 @@
-import { Component } from "react";
+import React from "react";
+import Props from "./index";
+import styles from "../styles/components/Spinner.module.css";
 
-export class Spinner extends Component {
-  constructor(props) {
+interface SpinnerProps extends Props {
+  color:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "success"
+    | "warning"
+    | "danger"
+    | "light"
+    | "dark";
+  type?: "filled" | "circle" | "border";
+  gradient?: boolean;
+}
+
+export class Spinner extends React.Component<SpinnerProps> {
+  private style: string = styles.spinner;
+
+  constructor(props: SpinnerProps) {
     super(props);
 
-    // State
-    this.state = {
-      color: props.color || "primary",
-      type: props.type || "border",
-    };
+    switch (props.color) {
+      case "primary":
+        this.style += ` ${styles.primary}`;
+        break;
 
-    this.colors = {
-      primary: "spinner-primary",
-      secondary: "spinner-secondary",
-      info: "spinner-info",
-      success: "spinner-success",
-      warning: "spinner-warning",
-      danger: "spinner-danger",
-      light: "spinner-light",
-      dark: "spinner-dark",
-    };
+      case "secondary":
+        this.style += ` ${styles.secondary}`;
+        break;
 
-    this.types = {
-      border: "spinner-border",
-      circle: "spinner-circle",
-      filled: "spinner-filled",
-      gradient: "spinner-gradient",
-    };
-  }
+      case "info":
+        this.style += ` ${styles.info}`;
+        break;
 
-  componentDidMount() {
-    if (this.state.color) {
-      this.setState({ color: this.colors[this.state.color] });
+      case "success":
+        this.style += ` ${styles.success}`;
+        break;
+
+      case "warning":
+        this.style += ` ${styles.warning}`;
+        break;
+
+      case "danger":
+        this.style += ` ${styles.danger}`;
+        break;
+
+      case "light":
+        this.style += ` ${styles.light}`;
+        break;
+
+      case "dark":
+        this.style += ` ${styles.dark}`;
+        break;
+
+      default:
+        this.style += ` ${styles.primary}`;
+        break;
     }
 
-    if (this.state.type) {
-      this.setState({ type: this.types[this.state.type] });
+    switch (props.type) {
+      case "filled":
+        this.style += ` ${styles.filled}`;
+        break;
+
+      case "circle":
+        this.style += ` ${styles.circle}`;
+        break;
+
+      default:
+        this.style += ` ${styles.bordered}`;
+        break;
+    }
+
+    if (props.gradient) {
+      this.style += ` ${styles.gradient}`;
     }
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
-      <span className={"spinner-container"}>
-        <span
-          role={"status"}
-          title={"Loading"}
-          className={`spinner ${this.state.color} ${this.state.type} ${
-            this.props.className || ""
-          }`}
-        >
-          {this.props.children}
+      <div className={styles.container}>
+        <span role={"status"} title={"Loading"} className={this.style}>
+          {this.props.gradient ? (
+            <span className={styles.innerCircle} />
+          ) : undefined}
         </span>
-      </span>
+      </div>
     );
   }
 }

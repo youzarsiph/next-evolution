@@ -1,0 +1,111 @@
+.container {
+  @apply mx-2 w-auto px-2 py-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-52 2xl:mx-auto 2xl:max-w-7xl;
+}
+
+.flexContainer {
+  @apply mb-8 flex flex-wrap items-center gap-4;
+}
+
+.gridContainer {
+  @apply mb-8 grid;
+}
+
+.cols1 {
+  @apply grid-cols-1;
+}
+
+.cols2 {
+  @apply grid-cols-2;
+}
+
+.cols2 {
+  @apply grid-cols-2;
+}
+
+.cols3 {
+  @apply grid-cols-3;
+}
+
+.cols4 {
+  @apply grid-cols-4;
+}
+
+.cols5 {
+  @apply grid-cols-5;
+}
+
+.cols6 {
+  @apply grid-cols-6;
+}
+
+.cols7 {
+  @apply grid-cols-7;
+}
+
+.cols8 {
+  @apply grid-cols-8;
+}
+
+.cols9 {
+  @apply grid-cols-9;
+}
+
+.cols10 {
+  @apply grid-cols-10;
+}
+
+.cols11 {
+  @apply grid-cols-11;
+}
+
+.cols12 {
+  @apply grid-cols-12;
+}
+
+.span1 {
+  @apply lg:col-span-1;
+}
+
+.span2 {
+  @apply lg:col-span-2;
+}
+
+.span3 {
+  @apply lg:col-span-3;
+}
+
+.span4 {
+  @apply lg:col-span-4;
+}
+
+.span5 {
+  @apply lg:col-span-5;
+}
+
+.span6 {
+  @apply lg:col-span-6;
+}
+
+.span7 {
+  @apply lg:col-span-7;
+}
+
+.span8 {
+  @apply lg:col-span-8;
+}
+
+.span9 {
+  @apply lg:col-span-9;
+}
+
+.span10 {
+  @apply lg:col-span-10;
+}
+
+.span11 {
+  @apply lg:col-span-11;
+}
+
+.span12 {
+  @apply lg:col-span-12;
+}
