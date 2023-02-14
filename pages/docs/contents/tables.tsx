@@ -3,9 +3,10 @@ import { View } from "../components/index";
 import {
   Table,
   TableBody,
+  TableRow,
   TableCell,
   TableHeader,
-  TableRow,
+  TableHeaderCell,
 } from "../../../components/table";
 
 export default function tables() {
@@ -20,44 +21,30 @@ export default function tables() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableCell scope="col" headerCell>
-                #
-              </TableCell>
-              <TableCell scope="col" headerCell>
-                First
-              </TableCell>
-              <TableCell scope="col" headerCell>
-                Last
-              </TableCell>
-              <TableCell scope="col" headerCell>
-                Handle
-              </TableCell>
+              <TableHeaderCell scope="col">#</TableHeaderCell>
+              <TableHeaderCell scope="col">First</TableHeaderCell>
+              <TableHeaderCell scope="col">Last</TableHeaderCell>
+              <TableHeaderCell scope="col">Handle</TableHeaderCell>
             </TableRow>
           </TableHeader>
 
           <TableBody>
             <TableRow>
-              <TableCell scope="row" headerCell>
-                1
-              </TableCell>
+              <TableCell scope="row">1</TableCell>
               <TableCell>Yousef</TableCell>
               <TableCell>Abu Shanab</TableCell>
               <TableCell>@youzarsiph</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell scope="row" headerCell>
-                2
-              </TableCell>
+              <TableCell scope="row">2</TableCell>
               <TableCell>Arthur</TableCell>
               <TableCell>Morgan</TableCell>
-              <TableCell>@argan</TableCell>
+              <TableCell>@arthur.morgan</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell scope="row" headerCell>
-                3
-              </TableCell>
-              <TableCell colSpan="2">John Marston</TableCell>
-              <TableCell>@marston</TableCell>
+              <TableCell scope="row">3</TableCell>
+              <TableCell span={2}>John Marion</TableCell>
+              <TableCell>@john.marion</TableCell>
             </TableRow>
           </TableBody>
         </Table>
