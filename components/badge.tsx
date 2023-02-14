@@ -1,61 +1,113 @@
-import { Component } from "react";
+import Props from "./index";
+import React from "react";
+import styles from "../styles/components/Badge.module.css";
 
-export class Badge extends Component {
-  constructor(props) {
+interface BadgeProps extends Props {
+  color?:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "success"
+    | "warning"
+    | "danger"
+    | "light"
+    | "dark";
+  pill?: boolean;
+  outline?: boolean;
+}
+
+export class Badge extends React.Component<BadgeProps> {
+  private style: string = styles.badge;
+
+  constructor(props: BadgeProps) {
     super(props);
 
-    // State
-    this.state = {
-      color: props.color || "primary",
-      isPill: props.pill || false,
-      isOutline: props.outline || false,
-      modifier: "",
-    };
-
-    this.colors = {
-      primary: "badge-primary",
-      secondary: "badge-secondary",
-      info: "badge-info",
-      success: "badge-success",
-      warning: "badge-warning",
-      danger: "badge-danger",
-      light: "badge-light",
-      dark: "badge-dark",
-    };
-
-    this.outlines = {
-      primary: "badge-outline-primary",
-      secondary: "badge-outline-secondary",
-      info: "badge-outline-info",
-      success: "badge-outline-success",
-      warning: "badge-outline-warning",
-      danger: "badge-outline-danger",
-      light: "badge-outline-light",
-      dark: "badge-outline-dark",
-    };
-  }
-
-  componentDidMount() {
-    if (this.state.color) {
-      this.setState({
-        color: this.state.isOutline
-          ? this.outlines[this.state.color]
-          : this.colors[this.state.color],
-      });
+    if (props.pill) {
+      this.style += ` ${styles.pill}`;
     }
 
-    if (this.state.isPill) {
-      this.setState({ modifier: "rounded-full px-4" });
+    if (props.outline) {
+      switch (props.color) {
+        case "primary":
+          this.style += ` ${styles.outlinePrimary}`;
+          break;
+
+        case "secondary":
+          this.style += ` ${styles.outlineSecondary}`;
+          break;
+
+        case "info":
+          this.style += ` ${styles.outlineInfo}`;
+          break;
+
+        case "success":
+          this.style += ` ${styles.outlineSuccess}`;
+          break;
+
+        case "warning":
+          this.style += ` ${styles.outlineWarning}`;
+          break;
+
+        case "danger":
+          this.style += ` ${styles.outlineDanger}`;
+          break;
+
+        case "light":
+          this.style += ` ${styles.outlineLight}`;
+          break;
+
+        case "dark":
+          this.style += ` ${styles.outlineDark}`;
+          break;
+
+        default:
+          this.style += ` ${styles.outlinePrimary}`;
+          break;
+      }
+    } else {
+      switch (props.color) {
+        case "primary":
+          this.style += ` ${styles.primary}`;
+          break;
+
+        case "secondary":
+          this.style += ` ${styles.secondary}`;
+          break;
+
+        case "info":
+          this.style += ` ${styles.info}`;
+          break;
+
+        case "success":
+          this.style += ` ${styles.success}`;
+          break;
+
+        case "warning":
+          this.style += ` ${styles.warning}`;
+          break;
+
+        case "danger":
+          this.style += ` ${styles.danger}`;
+          break;
+
+        case "light":
+          this.style += ` ${styles.light}`;
+          break;
+
+        case "dark":
+          this.style += ` ${styles.dark}`;
+          break;
+
+        default:
+          this.style += ` ${styles.primary}`;
+          break;
+      }
     }
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
-      <span
-        className={`badge ${this.state.color} ${this.state.modifier} ${
-          this.props.className || ""
-        }`}
-      >
+      <span role={"status"} className={this.style}>
         {this.props.children}
       </span>
     );

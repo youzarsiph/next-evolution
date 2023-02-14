@@ -2,42 +2,42 @@
   @apply rounded-lg border border-l-4 p-4;
 }
 
-.alert-flushed {
+.flushed {
   @apply rounded-sm border-y-0 border-r-0;
 }
 
-.alert-modern {
+.modern {
   @apply flex items-center gap-4 rounded-full border-l px-3 py-2;
 }
 
-.alert-primary {
+.primary {
   @apply border-pink-400 bg-pink-50 text-pink-500;
 }
 
-.alert-secondary {
+.secondary {
   @apply border-slate-400 bg-slate-50 text-slate-500;
 }
 
-.alert-info {
+.info {
   @apply border-sky-400 bg-sky-50 text-sky-500;
 }
 
-.alert-success {
+.success {
   @apply border-green-400 bg-green-50 text-green-500;
 }
 
-.alert-warning {
+.warning {
   @apply border-orange-400 bg-orange-50 text-orange-500;
 }
 
-.alert-danger {
+.danger {
   @apply border-red-400 bg-red-50 text-red-500;
 }
 
-.alert-light {
+.light {
   @apply border-gray-300 bg-gray-50 text-gray-400;
 }
 
-.alert-dark {
+.dark {
   @apply border-gray-700 bg-gray-100 text-gray-700;
 }

@@ -4,15 +4,19 @@ import urls from "../../../urls";
 import { Breadcrumb, BreadcrumbItem } from "../../../components/breadcrumb";
 
 export default function Breadcrumbs() {
-  return (
-    <View prevPage={urls["badge"]} nextPage={urls["button"]}>
-      <article title="Breadcrumbs">
-        <h1 className="text-gradient gradient-primary">Breadcrumbs</h1>
-        <p className="text-xl font-light">
-          Indicate the current page&apos;s location within a navigational
-          hierarchy that automatically adds separators.
-        </p>
+  const description = `
+    Indicate the current page's location within a navigational
+    hierarchy that automatically adds separators.
+  `;
 
+  return (
+    <View
+      title="Breadcrumb"
+      description={description}
+      prev={urls["badge"]}
+      next={urls["button"]}
+    >
+      <article title="Breadcrumbs">
         <Breadcrumb>
           <BreadcrumbItem>
             <Link href={urls["docs"]}>Docs</Link>

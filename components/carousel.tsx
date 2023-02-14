@@ -1,7 +1,9 @@
-import { Component } from "react";
+import Props from "./index";
+import React from "react";
+import styles from "../styles/components/Carousel.module.css";
 
-export class Carousel extends Component {
-  render() {
+export class Carousel extends React.Component<Props> {
+  render(): React.ReactNode {
     return (
       <div className={"relative flex w-full items-center"}>
         <button

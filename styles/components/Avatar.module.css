@@ -6,42 +6,46 @@
   @apply absolute inset-0 h-full w-full rounded-full object-cover;
 }
 
-.avatar-sm {
+.sm {
   @apply h-12 w-12 text-sm;
 }
 
-.avatar-lg {
+.lg {
   @apply h-16 w-16 text-lg;
 }
 
-.avatar-primary {
-  @apply border border-pink-500 bg-pink-400;
+.gradient {
+  @apply bg-gradient-to-r text-white;
 }
 
-.avatar-secondary {
-  @apply border border-slate-500 bg-slate-400;
+.primary {
+  @apply border border-pink-500 bg-pink-400 from-pink-500 to-blue-600;
 }
 
-.avatar-info {
-  @apply border border-sky-500 bg-sky-400;
+.secondary {
+  @apply border border-slate-500 bg-slate-400 from-slate-400 to-slate-900;
 }
 
-.avatar-success {
-  @apply border border-green-500 bg-green-400;
+.info {
+  @apply border border-sky-500 bg-sky-400 from-sky-500 to-lime-500;
 }
 
-.avatar-warning {
-  @apply border border-orange-500 bg-orange-400;
+.success {
+  @apply border border-green-500 bg-green-400 from-green-500 to-violet-700;
 }
 
-.avatar-danger {
-  @apply border border-red-500 bg-red-400;
+.warning {
+  @apply border border-orange-500 bg-orange-400 from-orange-500 to-teal-500;
 }
 
-.avatar-light {
-  @apply border border-gray-300 bg-gray-200 text-gray-600;
+.danger {
+  @apply border border-red-500 bg-red-400 from-red-500 to-purple-600;
 }
 
-.avatar-dark {
-  @apply border border-gray-900 bg-gray-700;
+.light {
+  @apply border border-gray-300 bg-gray-200 from-gray-100 to-gray-400 text-gray-600;
+}
+
+.dark {
+  @apply border border-gray-900 bg-gray-700 from-slate-500 to-black;
 }

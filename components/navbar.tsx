@@ -1,117 +1,93 @@
-import Link from "next/link";
-import { Component } from "react";
+import React from "react";
+import Props from "./index";
+import styles from "../styles/components/Navbar.module.css";
 
-export class Navbar extends Component {
-  render() {
+interface NavbarProps extends Props {
+  fixed?: boolean;
+  sidebar?: boolean;
+  brand?: string | React.ReactNode | React.ReactNode[];
+}
+
+interface NavbarState {
+  open?: boolean;
+}
+
+export class Navbar extends React.Component<NavbarProps, NavbarState> {
+  constructor(props: NavbarProps) {
+    super(props);
+
+    // Bind toggleMenu
+    this.toggleMenu = this.toggleMenu.bind(this);
+
+    // State
+    this.state = {
+      open: false,
+    };
+  }
+
+  toggleMenu() {
+    this.setState({ open: !this.state.open });
+  }
+
+  render(): React.ReactNode {
     return (
-      <header>
-        <nav className={`navbar ${this.props.className || ""}`}>
-          {this.props.children}
+      <header className={this.props.fixed ? styles.fixedTop : undefined}>
+        <nav className={this.props.sidebar ? styles.sidebar : styles.navbar}>
+          <div className={styles.container}>
+            <div className="flex w-full items-center justify-between lg:w-auto">
+              <span className={styles.brand}>{this.props.brand}</span>
+              <button
+                type="button"
+                className={styles.toggler}
+                onClick={this.toggleMenu}
+              >
+                {this.state.open ? (
+                  <svg
+                    className="h-8 w-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    className="h-8 w-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 8h16M4 16h16"
+                    ></path>
+                  </svg>
+                )}
+              </button>
+            </div>
+            <ul
+              className={`${styles.menu} ${this.state.open ? styles.open : ""}`}
+            >
+              {this.props.children}
+            </ul>
+          </div>
         </nav>
       </header>
     );
   }
 }
 
-export class NavbarContainer extends Component {
-  render() {
-    return (
-      <div className={`navbar-container ${this.props.className || ""}`}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-export class NavbarBrand extends Component {
-  render() {
-    return (
-      <span className={`navbar-brand ${this.props.className || ""}`}>
-        <Link href={this.props.href}>{this.props.children}</Link>
-      </span>
-    );
-  }
-}
-
-export class NavbarMenu extends Component {
-  constructor(props) {
-    super(props);
-
-    // Binding methods
-    this.onChange = this.onChange.bind(this);
-
-    // State
-    this.state = {
-      isOpen: false,
-    };
-  }
-
-  onChange() {
-    this.setState({ isOpen: !this.state.isOpen });
-  }
-
-  render() {
-    return (
-      <>
-        <input
-          type={"checkbox"}
-          id={this.props.id}
-          onChange={this.onChange}
-          className={`peer sr-only`}
-          checked={this.state.isOpen}
-        />
-        <label
-          htmlFor={this.props.id}
-          className={"fixed inset-0 z-40 hidden peer-checked:block lg:hidden"}
-        ></label>
-        <ul className={`navbar-menu ${this.props.className || ""}`}>
-          {this.props.children}
-        </ul>
-      </>
-    );
-  }
-}
-
-export class MenuToggler extends Component {
-  render() {
-    return (
-      <button className={`navbar-toggler group ${this.props.className || ""}`}>
-        <label
-          id={this.props.id}
-          htmlFor={this.props.menuID}
-          className={"navbar-toggle-icon group-active:show"}
-        ></label>
-      </button>
-    );
-  }
-}
-
-export class MenuItem extends Component {
-  constructor(props) {
-    super(props);
-
-    // State
-    this.state = {
-      isHeading: this.props.heading,
-      modifier: "",
-    };
-  }
-
-  componentDidMount() {
-    if (this.state.isHeading) {
-      this.setState({ modifier: "navbar-menu-heading px-0" });
-    }
-  }
-
-  render() {
-    return (
-      <li
-        className={`navbar-menu-item ${this.state.modifier} ${
-          this.props.className || ""
-        }`}
-      >
-        {this.props.children}
-      </li>
-    );
+export class NavItem extends React.Component<Props> {
+  render(): React.ReactNode {
+    return <li className={styles.item}>{this.props.children}</li>;
   }
 }

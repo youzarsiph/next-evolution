@@ -1,18 +1,23 @@
+import { View } from "./index";
 import urls from "../../../urls";
-import { View, colors, sizes } from "./index";
 import { Flex } from "../../../components/utils";
 import { Button } from "../../../components/button";
+import { colors, sizes } from "../../../components/constants";
 
 export default function Buttons() {
-  return (
-    <View prevPage={urls["breadcrumb"]} nextPage={urls["card"]}>
-      <article title="Buttons">
-        <h1 className="text-gradient gradient-primary">Buttons</h1>
-        <p className="text-xl font-light">
-          Use our buttons for actions in forms, dialogs, and more with support
-          for multiple sizes, states, and more.
-        </p>
+  const description = `
+    Use our buttons for actions in forms, dialogs, and more with support
+    for multiple sizes, states, and more.
+  `;
 
+  return (
+    <View
+      title="Button"
+      description={description}
+      prev={urls["breadcrumb"]}
+      next={urls["card"]}
+    >
+      <article title="Buttons">
         <h2>Basic</h2>
 
         <Flex>
@@ -51,7 +56,7 @@ export default function Buttons() {
 
         <h2>Gradient</h2>
 
-        <div className="flex flex-wrap items-center gap-8">
+        <Flex>
           {colors.map((item) => {
             return (
               <Button key={item} gradient color={item}>
@@ -59,7 +64,16 @@ export default function Buttons() {
               </Button>
             );
           })}
-        </div>
+        </Flex>
+
+        <h2>Shapes</h2>
+
+        <Flex>
+          <Button color={"primary"}>Default</Button>
+          <Button color={"primary"} pill>
+            Pill
+          </Button>
+        </Flex>
       </article>
     </View>
   );
