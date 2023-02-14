@@ -19,7 +19,7 @@
 }
 
 .btn {
-  @apply relative flex w-full items-center justify-between rounded-lg border border-transparent bg-white px-6 py-4 text-left font-semibold outline-none hover:bg-pink-50 focus:border-pink-400 focus:bg-pink-50 focus:text-pink-400 focus:ring focus:ring-pink-300 focus:ring-offset-2;
+  @apply relative flex w-full items-center justify-between rounded-lg border border-transparent bg-white px-6 py-4 text-left font-semibold outline-none hover:bg-pink-50 focus:border-pink-400 focus:bg-pink-50 focus:text-pink-400 focus:ring-8 focus:ring-pink-300 focus:ring-opacity-50 focus:ring-offset-2;
 }
 
 .flushed .item .btn {
@@ -35,8 +35,5 @@
 }
 
 .content {
-  @apply mb-0 hidden px-6 py-4;
-}
-.opened {
-  @apply block;
+  @apply mb-0 px-6 py-4;
 }

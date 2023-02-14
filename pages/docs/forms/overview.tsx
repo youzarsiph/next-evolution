@@ -33,7 +33,7 @@ export default function Overview() {
           <div className="mb-2">Email address</div>
           <Input id="email" type="email" name="email" />
           <small className="text-slate-500">
-            We'll never share your email with anyone else.
+            We will never share your email with anyone else.
           </small>
         </Label>
 

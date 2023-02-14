@@ -4,21 +4,13 @@ import styles from "../styles/components/Input.module.css";
 
 interface LabelProps extends Props {
   for?: string;
-  text?: string;
-  floating?: boolean;
 }
 
 export class Label extends React.Component<LabelProps> {
   render(): React.ReactNode {
     return (
-      <div className={this.props.floating ? styles.container : undefined}>
-        {this.props.floating ? this.props.children : undefined}
-        <label
-          htmlFor={this.props.for}
-          className={this.props.floating ? styles.label : styles.container}
-        >
-          {this.props.floating ? this.props.text : this.props.children}
-        </label>
+      <div className={styles.container}>
+        <label htmlFor={this.props.for}>{this.props.children}</label>
       </div>
     );
   }
@@ -28,7 +20,6 @@ interface InputProps {
   id?: string;
   name: string;
   flushed?: boolean;
-  floating?: boolean;
   disabled?: boolean;
   placeholder?: string;
   value?: string | number;
@@ -80,10 +71,6 @@ export class Input extends React.Component<InputProps, InputState> {
       disabled: props.disabled || false,
     };
 
-    if (props.floating) {
-      this.style += ` ${styles.floating} peer`;
-    }
-
     if (props.flushed) {
       this.style += ` ${styles.flushed}`;
     }
@@ -104,6 +91,82 @@ export class Input extends React.Component<InputProps, InputState> {
         onChange={this.onChange}
         disabled={this.state.disabled}
       />
+    );
+  }
+}
+
+// interface FloatingLabelProps extends InputProps {}
+
+interface FloatingLabelState extends InputState {
+  floating?: boolean;
+}
+
+export class FloatingLabel extends React.Component<
+  InputProps,
+  FloatingLabelState
+> {
+  protected type: string = "text";
+  protected style: string = styles.input + " " + styles.floating;
+
+  constructor(props: InputProps) {
+    super(props);
+
+    // Bind methods
+    this.onChange = this.onChange.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+
+    // State
+    this.state = {
+      value: props.value || "",
+      disabled: props.disabled || false,
+      floating: false,
+    };
+
+    this.type = props.type;
+
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
+    }
+  }
+
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
+    this.setState({ ...this.state, value: event.target.value });
+  }
+
+  onFocus() {
+    this.setState({ ...this.state, floating: true });
+  }
+
+  onBlur() {
+    this.setState({ ...this.state, floating: false });
+  }
+
+  render(): React.ReactNode {
+    return (
+      <div className={styles.container}>
+        <input
+          {...this.props}
+          type={this.type}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
+          className={this.style}
+          value={this.state.value}
+          onChange={this.onChange}
+          disabled={this.state.disabled}
+        />
+        <label
+          htmlFor={this.props.id}
+          className={`${styles.label} ${
+            this.state.floating || this.state.value !== ""
+              ? styles.floatingLabel
+              : ""
+          }`}
+        >
+          {this.props.placeholder}
+        </label>
+      </div>
     );
   }
 }
@@ -178,10 +241,6 @@ export class Textarea extends React.Component<TextareaProps, InputState> {
       value: props.value || "",
       disabled: props.disabled || false,
     };
-
-    if (props.floating) {
-      this.style += ` ${styles.floating}`;
-    }
 
     if (props.flushed) {
       this.style += ` ${styles.flushed}`;

@@ -97,13 +97,10 @@ export class AccordionItem extends React.Component<ItemProps, ItemState> {
             </span>
           </button>
         </div>
-        <div
-          className={`${styles.content} ${
-            this.state.collapsed ? "" : styles.opened
-          }`}
-        >
-          {this.props.children}
-        </div>
+
+        {!this.state.collapsed && (
+          <div className={styles.content}>{this.props.children}</div>
+        )}
       </li>
     );
   }
