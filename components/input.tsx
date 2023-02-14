@@ -1,5 +1,5 @@
 import Props from "./index";
-import React from "react";
+import React, { CSSProperties } from "react";
 import styles from "../styles/components/Input.module.css";
 
 interface LabelProps extends Props {
@@ -339,11 +339,19 @@ export class Range extends React.Component<RangeProps, InputState> {
   }
 }
 
-export class Color extends React.Component<InputProps, InputState> {
+interface ColorProps extends InputProps {
+  value: CSSProperties["backgroundColor"];
+}
+
+interface ColorState extends InputState {
+  value: CSSProperties["backgroundColor"];
+}
+
+export class Color extends React.Component<ColorProps, ColorState> {
   private type: string = "color";
   private style: string = styles.input + " " + styles.color;
 
-  constructor(props: InputProps) {
+  constructor(props: ColorProps) {
     super(props);
 
     // Binding methods

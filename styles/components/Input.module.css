@@ -95,6 +95,10 @@
   @apply flex appearance-none flex-row items-center gap-4;
 }
 
+.container .color {
+  @apply flex items-center gap-4;
+}
+
 .picker {
-  @apply mb-0 inline-block h-8 w-10 cursor-pointer rounded;
+  @apply m-0 inline-block h-8 w-10 cursor-pointer rounded;
 }
