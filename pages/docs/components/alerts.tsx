@@ -1,18 +1,23 @@
+import { View } from "./index";
 import urls from "../../../urls";
-import { View, colors } from "./index";
 import { Alert } from "../../../components/alert";
 import { Badge } from "../../../components/badge";
+import { colors } from "../../../components/constants";
 
 export default function Alerts() {
-  return (
-    <View prevPage={urls["accordion"]} nextPage={urls["avatar"]}>
-      <article title="Alerts">
-        <h1 className="text-gradient gradient-primary">Alerts</h1>
-        <p className="text-xl font-light">
-          Provide contextual feedback messages for typical user actions with the
-          handful of available and flexible alert messages.
-        </p>
+  const description = `
+    Provide contextual feedback messages for typical user actions with the
+    handful of available and flexible alert messages.
+  `;
 
+  return (
+    <View
+      title="Alert"
+      description={description}
+      prev={urls["accordion"]}
+      next={urls["avatar"]}
+    >
+      <article title="Alerts">
         <h2>Basic</h2>
         <div className="mb-4 grid gap-4">
           {colors.map((item) => {

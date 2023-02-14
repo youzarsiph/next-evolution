@@ -1,7 +1,11 @@
-.breadcrumb {
-  @apply flex flex-wrap items-center gap-4 p-0;
+.container {
+  @apply my-4 overflow-x-auto border-y p-4;
 }
 
-.breadcrumb-item {
+.breadcrumb {
+  @apply flex items-center gap-4 p-0;
+}
+
+.item {
   @apply last:hidden;
 }

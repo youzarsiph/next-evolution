@@ -1,130 +1,159 @@
-import { Component } from "react";
+import Props from ".";
+import React from "react";
+import styles from "../styles/components/Utils.module.css";
 
-export class Container extends Component {
-  render() {
+export class Container extends React.Component<Props> {
+  render(): React.ReactNode {
     return (
-      <section className={`container  ${this.props.className || ""}`}>
-        {this.props.children}
-      </section>
+      <section className={styles.container}>{this.props.children}</section>
     );
   }
 }
 
-export class Flex extends Component {
-  render() {
-    return (
-      <div
-        className={`mb-8 flex flex-wrap items-center gap-4 ${
-          this.props.className || ""
-        }`}
-      >
-        {this.props.children}
-      </div>
-    );
+export class Flex extends React.Component<Props> {
+  render(): React.ReactNode {
+    return <div className={styles.flexContainer}>{this.props.children}</div>;
   }
 }
 
-export class Grid extends Component {
-  constructor(props) {
+interface GridProps extends Props {
+  cols: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+}
+
+export class Grid extends React.Component<GridProps> {
+  private style: string = styles.gridContainer;
+
+  constructor(props: GridProps) {
     super(props);
 
-    // Columns
-    this.columns = [
-      "grid-cols-1",
-      "grid-cols-2",
-      "grid-cols-3",
-      "grid-cols-4",
-      "grid-cols-5",
-      "grid-cols-6",
-      "grid-cols-7",
-      "grid-cols-8",
-      "grid-cols-9",
-      "grid-cols-10",
-      "grid-cols-11",
-      "grid-cols-12",
-    ];
+    // Style
+    switch (props.cols) {
+      case 1:
+        this.style += ` ${styles.cols1}`;
+        break;
 
-    // Rows
-    this.rows = [
-      "grid-rows-1",
-      "grid-rows-2",
-      "grid-rows-3",
-      "grid-rows-4",
-      "grid-rows-5",
-      "grid-rows-6",
-    ];
+      case 2:
+        this.style += ` ${styles.cols2}`;
+        break;
 
-    // State
-    this.state = {
-      rows: props.rows ? this.rows[parseInt(props.rows) - 1] : "",
-      cols: props.cols
-        ? this.columns[parseInt(props.cols) - 1]
-        : this.columns[11],
-    };
+      case 3:
+        this.style += ` ${styles.cols3}`;
+        break;
+
+      case 4:
+        this.style += ` ${styles.cols4}`;
+        break;
+
+      case 5:
+        this.style += ` ${styles.cols5}`;
+        break;
+
+      case 6:
+        this.style += ` ${styles.cols6}`;
+        break;
+
+      case 7:
+        this.style += ` ${styles.cols7}`;
+        break;
+
+      case 8:
+        this.style += ` ${styles.cols8}`;
+        break;
+
+      case 9:
+        this.style += ` ${styles.cols9}`;
+        break;
+
+      case 10:
+        this.style += ` ${styles.cols10}`;
+        break;
+
+      case 11:
+        this.style += ` ${styles.cols11}`;
+        break;
+
+      default:
+        this.style += ` ${styles.cols12}`;
+        break;
+    }
   }
 
-  render() {
-    return (
-      <div
-        className={`grid ${this.state.rows} ${this.state.cols} mb-8 gap-4 ${
-          this.props.className || ""
-        }`}
-      >
-        {this.props.children}
-      </div>
-    );
+  render(): React.ReactNode {
+    return <div className={this.style}>{this.props.children}</div>;
   }
 }
 
-export class Column extends Component {
-  constructor(props) {
+interface ColumnProps extends Props {
+  span: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+}
+
+export class Column extends React.Component<ColumnProps> {
+  private style: string = "col-span-12";
+
+  constructor(props: ColumnProps) {
     super(props);
 
-    // Column spans
-    this.colSpans = [
-      "lg:col-span-1",
-      "lg:col-span-2",
-      "lg:col-span-3",
-      "lg:col-span-4",
-      "lg:col-span-5",
-      "lg:col-span-6",
-      "lg:col-span-7",
-      "lg:col-span-8",
-      "lg:col-span-9",
-      "lg:col-span-10",
-      "lg:col-span-11",
-      "lg:col-span-12",
-    ];
+    // Style
+    switch (props.span) {
+      case 1:
+        this.style += ` ${styles.span1}`;
+        break;
 
-    // State
-    this.state = {
-      span: props.span
-        ? this.colSpans[parseInt(props.span - 1)]
-        : this.colSpans[0],
-    };
+      case 2:
+        this.style += ` ${styles.span2}`;
+        break;
+
+      case 3:
+        this.style += ` ${styles.span3}`;
+        break;
+
+      case 4:
+        this.style += ` ${styles.span4}`;
+        break;
+
+      case 5:
+        this.style += ` ${styles.span5}`;
+        break;
+
+      case 6:
+        this.style += ` ${styles.span6}`;
+        break;
+
+      case 7:
+        this.style += ` ${styles.span7}`;
+        break;
+
+      case 8:
+        this.style += ` ${styles.span8}`;
+        break;
+
+      case 9:
+        this.style += ` ${styles.span9}`;
+        break;
+
+      case 10:
+        this.style += ` ${styles.span10}`;
+        break;
+
+      case 11:
+        this.style += ` ${styles.span11}`;
+        break;
+
+      default:
+        this.style += ` ${styles.span12}`;
+        break;
+    }
   }
 
-  render() {
-    return (
-      <div
-        className={`${this.state.span} col-span-12 ${
-          this.props.className || ""
-        }`}
-      >
-        {this.props.children}
-      </div>
-    );
+  render(): React.ReactNode {
+    return <section className={this.style}>{this.props.children}</section>;
   }
 }
 
-export class Code extends Component {
-  render() {
+export class Code extends React.Component<Props> {
+  render(): React.ReactNode {
     return (
-      <code
-        className={`block whitespace-pre rounded-lg border bg-slate-900 p-4 shadow-sm ${
-          this.props.className || ""
-        }`}
-      >
+      <code>
         <pre>{this.props.children}</pre>
       </code>
     );

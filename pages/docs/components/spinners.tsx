@@ -1,17 +1,22 @@
+import { View } from "./index";
 import urls from "../../../urls";
-import { View, colors } from "./index";
 import { Flex } from "../../../components/utils";
 import { Spinner } from "../../../components/spinner";
+import { colors } from "../../../components/constants";
 
 export default function Spinners() {
-  return (
-    <View prevPage={urls["skeleton"]} nextPage={urls["component"]}>
-      <article title="Spinners">
-        <h1 className="text-gradient gradient-primary">Spinners</h1>
-        <p className="text-xl font-light">
-          Indicate the loading state of a component or page with our spinners.
-        </p>
+  const description = `
+    Indicate the loading state of a component or page with our spinners.
+  `;
 
+  return (
+    <View
+      title="Spinner"
+      description={description}
+      prev={urls["skeleton"]}
+      next={urls["component"]}
+    >
+      <article title="Spinners">
         <h2>Basic</h2>
         <Flex>
           {colors.map((item) => {
@@ -36,11 +41,7 @@ export default function Spinners() {
         <h2>Gradient</h2>
         <Flex>
           {colors.map((item) => {
-            return (
-              <Spinner key={item} color={item} type="gradient">
-                <span className="inline-block h-full w-full rounded-full bg-white" />
-              </Spinner>
-            );
+            return <Spinner key={item} color={item} gradient />;
           })}
         </Flex>
       </article>

@@ -1,97 +1,164 @@
-import { gradients } from "./constants";
-import { Component } from "react";
+import React from "react";
+import Props from "./index";
+import styles from "../styles/components/Button.module.css";
 
-export class Button extends Component {
-  constructor(props) {
+interface ButtonProps extends Props {
+  color?:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "success"
+    | "warning"
+    | "danger"
+    | "light"
+    | "dark";
+  pill?: boolean;
+  outline?: boolean;
+  gradient?: boolean;
+  size?: "sm" | "lg";
+  type?: "button" | "submit" | "reset";
+}
+
+export class Button extends React.Component<ButtonProps> {
+  private style: string = styles.btn;
+  private bgStyle: string = styles.bg;
+  private type: "button" | "submit" | "reset";
+
+  constructor(props: ButtonProps) {
     super(props);
 
-    // State
-    this.state = {
-      color: props.color || "primary",
-      size: props.size || "md",
-      isPill: props.pill || false,
-      isOutline: props.outline || false,
-      isGradient: props.gradient || false,
-    };
+    if (props.outline) {
+      switch (props.color) {
+        case "primary":
+          this.style += ` ${styles.outlinePrimary}`;
+          break;
 
-    this.colors = {
-      primary: "btn-primary",
-      secondary: "btn-secondary",
-      info: "btn-info",
-      success: "btn-success",
-      warning: "btn-warning",
-      danger: "btn-danger",
-      light: "btn-light",
-      dark: "btn-dark",
-    };
+        case "secondary":
+          this.style += ` ${styles.outlineSecondary}`;
+          break;
 
-    this.outlines = {
-      primary: "btn-outline-primary",
-      secondary: "btn-outline-secondary",
-      info: "btn-outline-info",
-      success: "btn-outline-success",
-      warning: "btn-outline-warning",
-      danger: "btn-outline-danger",
-      light: "btn-outline-light",
-      dark: "btn-outline-dark",
-    };
+        case "info":
+          this.style += ` ${styles.outlineInfo}`;
+          break;
 
-    this.sizes = {
-      sm: "btn-sm",
-      md: "",
-      lg: "btn-lg",
-    };
-  }
+        case "success":
+          this.style += ` ${styles.outlineSuccess}`;
+          break;
 
-  componentDidMount() {
-    if (this.state.color) {
-      this.setState({
-        color: this.state.isOutline
-          ? this.outlines[this.state.color]
-          : this.colors[this.state.color],
-      });
-    }
+        case "warning":
+          this.style += ` ${styles.outlineWarning}`;
+          break;
 
-    if (this.state.size) {
-      this.setState({ size: this.sizes[this.state.size] });
-    }
+        case "danger":
+          this.style += ` ${styles.outlineDanger}`;
+          break;
 
-    if (this.state.isPill) {
-      this.setState({ modifier: "rounded-full px-4" });
-    }
+        case "light":
+          this.style += ` ${styles.outlineLight}`;
+          break;
 
-    if (this.state.isGradient) {
-      this.setState({ modifier: `bg-gradient ${gradients[this.state.color]}` });
-    }
-  }
+        case "dark":
+          this.style += ` ${styles.outlineDark}`;
+          break;
 
-  render() {
-    let result;
-
-    const btn = (
-      <button
-        type={this.props.type}
-        className={`btn ${this.state.color} ${this.state.size || ""} ${
-          this.state.modifier || ""
-        } ${this.props.className || ""}`}
-      >
-        {this.props.children}
-      </button>
-    );
-
-    if (this.state.isGradient) {
-      result = (
-        <div className={"relative inline-block"}>
-          <div
-            className={`bg-gradient gradient-${this.props.color} absolute -inset-1 animate-pulse rounded-lg blur`}
-          ></div>
-          {btn}
-        </div>
-      );
+        default:
+          this.style += ` ${styles.outlinePrimary}`;
+          break;
+      }
     } else {
-      result = btn;
+      switch (props.color) {
+        case "primary":
+          this.style += ` ${styles.primary}`;
+          this.bgStyle += ` ${styles.primary}`;
+          break;
+
+        case "secondary":
+          this.style += ` ${styles.secondary}`;
+          this.bgStyle += ` ${styles.secondary}`;
+          break;
+
+        case "info":
+          this.style += ` ${styles.info}`;
+          this.bgStyle += ` ${styles.info}`;
+          break;
+
+        case "success":
+          this.style += ` ${styles.success}`;
+          this.bgStyle += ` ${styles.success}`;
+          break;
+
+        case "warning":
+          this.style += ` ${styles.warning}`;
+          this.bgStyle += ` ${styles.warning}`;
+          break;
+
+        case "danger":
+          this.style += ` ${styles.danger}`;
+          this.bgStyle += ` ${styles.danger}`;
+          break;
+
+        case "light":
+          this.style += ` ${styles.light}`;
+          this.bgStyle += ` ${styles.light}`;
+          break;
+
+        case "dark":
+          this.style += ` ${styles.dark}`;
+          this.bgStyle += ` ${styles.dark}`;
+          break;
+
+        default:
+          // The default case
+          this.style += ` ${styles.primary}`;
+          this.bgStyle += ` ${styles.primary}`;
+          break;
+      }
     }
 
-    return result;
+    if (props.gradient) {
+      this.style += ` ${styles.gradient}`;
+    }
+
+    if (props.pill) {
+      this.style += ` ${styles.pill}`;
+    }
+
+    switch (props.size) {
+      case "sm":
+        this.style += ` ${styles.sm}`;
+        break;
+
+      case "lg":
+        this.style += ` ${styles.lg}`;
+        break;
+
+      default:
+        break;
+    }
+
+    switch (props.type) {
+      case "submit":
+        this.type = "submit";
+        break;
+
+      case "reset":
+        this.type = "reset";
+        break;
+
+      default:
+        this.type = "button";
+        break;
+    }
+  }
+
+  render(): React.ReactNode {
+    return (
+      <div className={styles.container}>
+        {this.props.gradient && <div className={this.bgStyle}></div>}
+        <button type={this.type} className={this.style}>
+          {this.props.children}
+        </button>
+      </div>
+    );
   }
 }

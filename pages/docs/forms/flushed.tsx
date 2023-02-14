@@ -1,74 +1,67 @@
 import urls from "../../../urls";
 import { View } from "../components/index";
-import { Input, Textarea, Select } from "../../../components/input";
+import {
+  Input,
+  FloatingLabel,
+  Textarea,
+  Select,
+  Label,
+} from "../../../components/input";
 
 export default function Flushed() {
   return (
-    <View prevPage={urls["floating"]} nextPage={urls["component"]}>
+    <View
+      title="Flushed Inputs"
+      description=""
+      prev={urls["floating"]}
+      next={urls["component"]}
+    >
       <article title="Flushed inputs">
-        <h1 className="text-gradient gradient-primary">Flushed</h1>
+        <Label>
+          <div className="mb-2">Email</div>
+          <Input type="email" name="email" placeholder="Email" flushed />
+          <small className="text-slate-400">
+            We will never share your email with anyone else.
+          </small>
+        </Label>
 
-        <Input
-          id="email"
-          label="Email"
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          flushed
-          helpText="We'll never share your email with anyone else."
-        />
-        <Input
-          id="password"
-          label="Password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          flushed
-        />
-        <Textarea
-          id="message"
-          name="message"
-          label="Message"
-          placeholder="What do you want to tell us?"
-          flushed
-        ></Textarea>
+        <Label>
+          <div className="mb-2">Password</div>
+          <Input name="pass" type="password" placeholder="Password" flushed />
+        </Label>
 
-        <Select id="Issue" label="Issue" placeholder="Issue" flushed>
-          <option value="0">Select your issue</option>
-          <option value="1">1st Issue</option>
-          <option value="2">2nd Issue</option>
-          <option value="3">3rd Issue</option>
-        </Select>
+        <Label>
+          <div className="mb-2">Message</div>
+          <Textarea name="message" placeholder="Message" flushed></Textarea>
+        </Label>
+
+        <Label>
+          <div className="mb-2">Number</div>
+          <Select name="number" flushed>
+            <option value="0">Select a number</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Select>
+        </Label>
 
         <h1 className="text-gradient gradient-primary">Combine the styles</h1>
 
-        <Input
-          id="Email"
-          label="Email"
-          type="email"
+        <FloatingLabel
+          id="email"
           name="email"
+          type="email"
           placeholder={"Email"}
           flushed
-          floating
-          helpText="We'll never share your email with anyone else."
         />
-        <Input
+
+        <FloatingLabel
           id="Password"
-          label="Password"
           type="password"
           name="password"
           placeholder={"Password"}
           flushed
-          floating
         />
-        <Textarea
-          id="Message"
-          name="message"
-          label="Message"
-          placeholder={"Message"}
-          flushed
-          floating
-        ></Textarea>
       </article>
     </View>
   );

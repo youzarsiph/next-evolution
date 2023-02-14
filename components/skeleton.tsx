@@ -1,33 +1,39 @@
-import { Component } from "react";
+import React from "react";
+import Props from "./index";
+import styles from "../styles/components/Skeleton.module.css";
 
-export class Skeleton extends Component {
-  constructor(props) {
+interface SkeletonProps extends Props {
+  width?: string;
+  type?: "text" | "circle";
+}
+
+export class Skeleton extends React.Component<SkeletonProps> {
+  private style: string = styles.container;
+
+  constructor(props: SkeletonProps) {
     super(props);
 
-    // State
-    this.state = {
-      type: props.type || "square",
-    };
+    switch (props.type) {
+      case "text":
+        this.style += ` ${styles.text}`;
+        break;
 
-    this.types = {
-      text: "skeleton-text",
-      circle: "skeleton-circle",
-      square: "skeleton-square",
-    };
-  }
+      case "circle":
+        this.style += ` ${styles.circle}`;
+        break;
 
-  componentDidMount() {
-    if (this.state.type) {
-      this.setState({ type: this.types[this.state.type] });
+      default:
+        break;
     }
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
       <span
         role={"status"}
         title={"Loading"}
-        className={`skeleton ${this.state.type} ${this.props.className || ""}`}
+        className={this.style}
+        style={{ width: this.props.width }}
       />
     );
   }

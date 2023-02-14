@@ -1,121 +1,220 @@
-import { Component } from "react";
+import Props from "./index";
+import React from "react";
 import styles from "../styles/components/Input.module.css";
 
-export class Form extends Component {
-  /**
-   * Form class to create form elements
-   * @returns a form element
-   */
-  render() {
-    return <form {...this.props}>{this.props.children}</form>;
-  }
+interface LabelProps extends Props {
+  for?: string;
 }
 
-class BaseInput extends Component {
-  /**
-   * Base class to create input elements
-   * @param {*} props
-   */
-  constructor(props) {
-    super(props);
-
-    // State
-    this.state = {
-      type: props.type || "text",
-      disabled: props.disabled || false,
-      value: props.value || "",
-    };
-
-    this.inputStyles = styles.input;
-
-    // Label attributes
-    this.labelStyles = "";
-    this.labelBefore = true;
-
-    // Handling variants
-    if (props.floating) {
-      this.labelBefore = false;
-      this.labelStyles = styles.label;
-      this.inputStyles += ` ${styles.floating} peer`;
-    }
-
-    if (props.flushed) {
-      this.inputStyles += `" ${styles.flushed}`;
-    }
-
-    // Bind onChange
-    this.onChange = this.onChange.bind(this);
-  }
-
-  // Creating the label
-  label() {
-    /**
-     * A method to render the label for the input field.
-     */
+export class Label extends React.Component<LabelProps> {
+  render(): React.ReactNode {
     return (
-      <label htmlFor={this.props.id} className={this.labelStyles}>
-        {this.props.label}
-      </label>
-    );
-  }
-
-  // Handle the change
-  onChange(event) {
-    this.setState({ ...this.state, value: event.target.value });
-  }
-
-  // Creating the input
-  input() {
-    /**
-     * A method to render the input field.
-     */
-    return (
-      <input
-        id={this.props.id}
-        type={this.state.type}
-        name={this.props.name}
-        value={this.state.value}
-        onChange={this.onChange}
-        disabled={this.state.disabled}
-        className={this.inputStyles + " " + (this.props.className || "")}
-        placeholder={this.props.placeholder}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <div className="relative mb-6">
-        {this.labelBefore ? this.label() : this.input()}
-        {!this.labelBefore ? this.label() : this.input()}
-        {this.props.helpText && (
-          <small className="mt-1 block text-slate-600">
-            {this.props.helpText}
-          </small>
-        )}
+      <div className={styles.container}>
+        <label htmlFor={this.props.for}>{this.props.children}</label>
       </div>
     );
   }
 }
 
-export class Input extends BaseInput {}
+interface InputProps {
+  id?: string;
+  name: string;
+  flushed?: boolean;
+  disabled?: boolean;
+  placeholder?: string;
+  value?: string | number;
+  type?:
+    | "button"
+    | "checkbox"
+    | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "radio"
+    | "range"
+    | "reset"
+    | "search"
+    | "submit"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+}
 
-export class Select extends BaseInput {
-  constructor(props) {
+interface InputState extends Props {
+  disabled: boolean;
+  value: string | number;
+}
+
+export class Input extends React.Component<InputProps, InputState> {
+  protected type: string = "text";
+  protected style: string = styles.input;
+
+  constructor(props: InputProps) {
     super(props);
 
-    // Update styles
-    this.inputStyles += styles.select;
+    this.type = props.type;
+
+    // Bind methods
+    this.onChange = this.onChange.bind(this);
+
+    // State
+    this.state = {
+      value: props.value || "",
+      disabled: props.disabled || false,
+    };
+
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
+    }
   }
 
-  input() {
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
+    this.setState({ ...this.state, value: event.target.value });
+  }
+
+  render(): React.ReactNode {
+    return (
+      <input
+        {...this.props}
+        type={this.type}
+        className={this.style}
+        value={this.state.value}
+        onChange={this.onChange}
+        disabled={this.state.disabled}
+      />
+    );
+  }
+}
+
+// interface FloatingLabelProps extends InputProps {}
+
+interface FloatingLabelState extends InputState {
+  floating?: boolean;
+}
+
+export class FloatingLabel extends React.Component<
+  InputProps,
+  FloatingLabelState
+> {
+  protected type: string = "text";
+  protected style: string = styles.input + " " + styles.floating;
+
+  constructor(props: InputProps) {
+    super(props);
+
+    // Bind methods
+    this.onChange = this.onChange.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+
+    // State
+    this.state = {
+      value: props.value || "",
+      disabled: props.disabled || false,
+      floating: false,
+    };
+
+    this.type = props.type;
+
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
+    }
+  }
+
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
+    this.setState({ ...this.state, value: event.target.value });
+  }
+
+  onFocus() {
+    this.setState({ ...this.state, floating: true });
+  }
+
+  onBlur() {
+    this.setState({ ...this.state, floating: false });
+  }
+
+  render(): React.ReactNode {
+    return (
+      <div className={styles.container}>
+        <input
+          {...this.props}
+          type={this.type}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
+          className={this.style}
+          value={this.state.value}
+          onChange={this.onChange}
+          disabled={this.state.disabled}
+        />
+        <label
+          htmlFor={this.props.id}
+          className={`${styles.label} ${
+            this.state.floating || this.state.value !== ""
+              ? styles.floatingLabel
+              : ""
+          }`}
+        >
+          {this.props.placeholder}
+        </label>
+      </div>
+    );
+  }
+}
+
+interface SelectProps extends Props {
+  id?: string;
+  name: string;
+  flushed?: boolean;
+  floating?: boolean;
+  disabled?: boolean;
+  value?: string | number;
+}
+
+export class Select extends React.Component<SelectProps, InputState> {
+  private style: string = styles.input + " " + styles.select;
+
+  constructor(props: SelectProps) {
+    super(props);
+
+    // Bind methods
+    this.onChange = this.onChange.bind(this);
+
+    // State
+    this.state = {
+      value: props.value || "",
+      disabled: props.disabled || false,
+    };
+
+    if (props.floating) {
+      this.style += ` ${styles.floating}`;
+    }
+
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
+    }
+  }
+
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
+    this.setState({ ...this.state, value: event.target.value });
+  }
+
+  render(): React.ReactNode {
     return (
       <select
-        id={this.props.id}
-        name={this.props.name}
-        className={this.inputStyles}
+        {...this.props}
+        className={this.style}
         disabled={this.state.disabled}
-        placeholder={this.props.placeholder}
       >
         {this.props.children}
       </select>
@@ -123,119 +222,128 @@ export class Select extends BaseInput {
   }
 }
 
-export class Textarea extends BaseInput {
-  input() {
+interface TextareaProps extends InputProps {
+  rows?: number;
+  cols?: number;
+}
+
+export class Textarea extends React.Component<TextareaProps, InputState> {
+  private style: string = styles.input;
+
+  constructor(props: TextareaProps) {
+    super(props);
+
+    // Bind methods
+    this.onChange = this.onChange.bind(this);
+
+    // State
+    this.state = {
+      value: props.value || "",
+      disabled: props.disabled || false,
+    };
+
+    if (props.flushed) {
+      this.style += ` ${styles.flushed}`;
+    }
+  }
+
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
+    this.setState({ ...this.state, value: event.target.value });
+  }
+
+  render(): React.ReactNode {
     return (
       <textarea
-        id={this.props.id}
-        name={this.props.name}
-        rows={this.props.rows}
+        rows={4}
+        {...this.props}
+        className={this.style}
         value={this.state.value}
         onChange={this.onChange}
-        className={this.inputStyles}
         disabled={this.state.disabled}
-        placeholder={this.props.placeholder}
       ></textarea>
     );
   }
 }
 
-export class InlineInput extends BaseInput {
-  /**
-   * InlineInput component to create checkboxes, radio buttons and switches
-   * @param {*} props
-   */
-  constructor(props) {
+export class Checkbox extends Input {
+  constructor(props: InputProps) {
     super(props);
 
-    // Input attributes
-    this.inputStyles = styles.checkbox;
-
-    if (props.type === "radio") {
-      this.inputStyles += " rounded-full";
-    }
-
-    // Label attributes
-    this.labelBefore = false;
-    this.labelStyles = "ml-4 mb-0";
+    this.type = "checkbox";
+    this.style = styles.checkbox;
   }
 }
 
-export class Switch extends InlineInput {
-  constructor(props) {
+export class Radio extends Input {
+  constructor(props: InputProps) {
     super(props);
 
-    // Input attributes
-    this.state.type = "checkbox";
-    this.inputStyles = styles.switch;
+    this.type = "radio";
+    this.style = styles.checkbox + " " + styles.radio;
   }
 }
 
-export class Range extends BaseInput {
-  constructor(props) {
+export class Switch extends Checkbox {
+  constructor(props: InputProps) {
     super(props);
 
-    // Binding methods
+    this.type = "checkbox";
+    this.style += ` ${styles.switch}`;
+  }
+}
+
+interface RangeProps extends InputProps {
+  min?: number;
+  max?: number;
+}
+
+export class Range extends React.Component<RangeProps, InputState> {
+  private style: string = styles.input + " " + styles.range;
+
+  constructor(props: RangeProps) {
+    super(props);
+
+    // Bind methods
     this.onChange = this.onChange.bind(this);
 
     // State
     this.state = {
-      min: props.min || 0,
-      max: props.max || 100,
-      value: props.value || 0,
-      disabled: props.disabled || false,
+      disabled: false,
+      value: props.value || props.min || 0,
     };
-
-    this.labelStyles = "mb-0";
-    this.inputStyles = styles.range;
   }
 
-  onChange(event) {
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
     this.setState({ ...this.state, value: event.target.value });
   }
 
-  input() {
+  render(): React.ReactNode {
     return (
-      <input
-        type={"range"}
-        id={this.props.id}
-        min={this.state.min}
-        max={this.state.max}
-        name={this.props.name}
-        value={this.state.value}
-        onChange={this.onChange}
-        disabled={this.state.disabled}
-        className={this.inputStyles + " " + (this.props.className || "")}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <div className="relative mb-6">
-        <div
-          className={
-            "mb-4 flex items-center justify-between gap-2 leading-none"
-          }
-        >
-          {this.label()}
-          <span className="form-range-text h-auto px-2 text-sm">
-            {this.state.value}
-          </span>
+      <div className={styles.container}>
+        <div className={styles.inputContainer}>
+          <span className={styles.rangeText}>{this.props.min}</span>
+          <input
+            {...this.props}
+            type={"range"}
+            className={this.style}
+            value={this.state.value}
+            onChange={this.onChange}
+            disabled={this.state.disabled}
+          />
+          <span className={styles.rangeText}>{this.props.max}</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="form-range-text">{this.state.min}</span>
-          {this.input()}
-          <span className="form-range-text">{this.state.max}</span>
-        </div>
-        <small className="mt-1 text-slate-600">{this.props.helpText}</small>
       </div>
     );
   }
 }
 
-export class Color extends BaseInput {
-  constructor(props) {
+export class Color extends React.Component<InputProps, InputState> {
+  private type: string = "color";
+  private style: string = styles.input + " " + styles.color;
+
+  constructor(props: InputProps) {
     super(props);
 
     // Binding methods
@@ -247,49 +355,34 @@ export class Color extends BaseInput {
       value: props.value || "#0f172a",
       disabled: props.disabled || false,
     };
-
-    this.inputStyles = styles.color;
   }
 
-  onChange(event) {
+  // Handle the change
+  onChange(event: { target: { value: any } }) {
     this.setState({ ...this.state, value: event.target.value });
   }
 
-  onChangeInput(event) {
+  onChangeInput(event: { target: { value: any } }) {
     this.setState({ ...this.state, value: event.target.value });
   }
 
-  input() {
+  render(): React.ReactNode {
     return (
-      <input
-        type={"color"}
-        id={this.props.id}
-        ref={this.colorRef}
-        name={this.props.name}
-        value={this.state.value}
-        onChange={this.onChange}
-        disabled={this.state.disabled}
-        className={"sr-only"}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <div className="relative mb-6">
-        {this.label()}
-        <label
-          htmlFor={this.props.id + "-input"}
-          className={`${
-            this.inputStyles + " " + (this.props.className || "")
-          } gap-4 `}
-        >
+      <div className={styles.container}>
+        <label htmlFor={this.props.id + "-input"} className={this.style}>
           <label
             htmlFor={this.props.id}
-            className={"mb-0 block h-8 w-10 cursor-pointer rounded shadow-lg"}
+            className={styles.picker}
             style={{ backgroundColor: this.state.value }}
           ></label>
-          {this.input()}
+          <input
+            {...this.props}
+            type={this.type}
+            className={"sr-only"}
+            value={this.state.value}
+            onChange={this.onChange}
+            disabled={this.state.disabled}
+          />
           <input
             type={"text"}
             maxLength={7}
@@ -300,11 +393,6 @@ export class Color extends BaseInput {
             pattern={"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"}
           />
         </label>
-        {this.props.helpText && (
-          <small className="mt-1 block text-slate-600">
-            {this.props.helpText}
-          </small>
-        )}
       </div>
     );
   }
