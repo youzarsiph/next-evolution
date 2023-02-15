@@ -11,11 +11,12 @@ interface ButtonProps extends Props {
     | "warning"
     | "danger"
     | "light"
-    | "dark";
+    | "dark"
+    | string;
   pill?: boolean;
   outline?: boolean;
   gradient?: boolean;
-  size?: "sm" | "lg";
+  size?: "sm" | "lg" | string;
   type?: "button" | "submit" | "reset";
 }
 

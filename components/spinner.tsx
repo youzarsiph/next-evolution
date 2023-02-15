@@ -11,7 +11,8 @@ interface SpinnerProps extends Props {
     | "warning"
     | "danger"
     | "light"
-    | "dark";
+    | "dark"
+    | string;
   type?: "filled" | "circle" | "border";
   gradient?: boolean;
 }

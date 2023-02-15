@@ -340,7 +340,7 @@ export class Range extends React.Component<RangeProps, InputState> {
 }
 
 interface ColorProps extends InputProps {
-  value: CSSProperties["backgroundColor"];
+  value?: CSSProperties["backgroundColor"];
 }
 
 interface ColorState extends InputState {

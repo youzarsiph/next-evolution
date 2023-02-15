@@ -11,7 +11,8 @@ interface AlertProps extends Props {
     | "warning"
     | "danger"
     | "light"
-    | "dark";
+    | "dark"
+    | string;
   modern?: boolean;
   flushed?: boolean;
 }

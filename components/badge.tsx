@@ -11,7 +11,8 @@ interface BadgeProps extends Props {
     | "warning"
     | "danger"
     | "light"
-    | "dark";
+    | "dark"
+    | string;
   pill?: boolean;
   outline?: boolean;
 }

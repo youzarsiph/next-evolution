@@ -3,7 +3,11 @@
 }
 
 .navbar {
-  @apply relative flex flex-col items-center justify-between gap-4 bg-white/75 px-6 py-4 backdrop-blur lg:flex-row lg:justify-start;
+  @apply relative flex flex-col items-center justify-between gap-4 rounded-lg bg-white/75 px-6 py-4 shadow-sm backdrop-blur lg:flex-row lg:justify-start;
+}
+
+.fixedTop .navbar {
+  @apply rounded-none shadow-none;
 }
 
 .sidebar {
@@ -16,6 +20,10 @@
 
 .sidebar .container {
   @apply w-full items-start lg:flex-col;
+}
+
+.bar {
+  @apply flex w-full items-center justify-between lg:w-auto;
 }
 
 .brand {

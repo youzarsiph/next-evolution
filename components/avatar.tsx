@@ -11,8 +11,9 @@ interface AvatarProps extends Props {
     | "warning"
     | "danger"
     | "light"
-    | "dark";
-  size?: "sm" | "lg";
+    | "dark"
+    | string;
+  size?: "sm" | "lg" | string;
   gradient?: boolean;
 }
 

@@ -34,7 +34,7 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
       <header className={this.props.fixed ? styles.fixedTop : undefined}>
         <nav className={this.props.sidebar ? styles.sidebar : styles.navbar}>
           <div className={styles.container}>
-            <div className="flex w-full items-center justify-between lg:w-auto">
+            <div className={styles.bar}>
               <span className={styles.brand}>{this.props.brand}</span>
               <button
                 type="button"
